@@ -1,0 +1,381 @@
+// Generated from Ry.g4 by ANTLR 4.5
+package src.compiler;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+
+/**
+ * This interface defines a complete listener for a parse tree produced by
+ * {@link RyParser}.
+ */
+public interface RyListener extends ParseTreeListener {
+	/**
+	 * Enter a parse tree produced by {@link RyParser#prog}.
+	 * @param ctx the parse tree
+	 */
+	void enterProg(RyParser.ProgContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#prog}.
+	 * @param ctx the parse tree
+	 */
+	void exitProg(RyParser.ProgContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#expression_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression_list(RyParser.Expression_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#expression_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression_list(RyParser.Expression_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(RyParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(RyParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#all_result}.
+	 * @param ctx the parse tree
+	 */
+	void enterAll_result(RyParser.All_resultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#all_result}.
+	 * @param ctx the parse tree
+	 */
+	void exitAll_result(RyParser.All_resultContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#while_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhile_statement(RyParser.While_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#while_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhile_statement(RyParser.While_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#for_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor_statement(RyParser.For_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#for_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor_statement(RyParser.For_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#elsif_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterElsif_statement(RyParser.Elsif_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#elsif_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitElsif_statement(RyParser.Elsif_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#if_elsif_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf_elsif_statement(RyParser.If_elsif_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#if_elsif_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf_elsif_statement(RyParser.If_elsif_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#if_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf_statement(RyParser.If_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#if_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf_statement(RyParser.If_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#all_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterAll_assignment(RyParser.All_assignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#all_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitAll_assignment(RyParser.All_assignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#cond_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterCond_expression(RyParser.Cond_expressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#cond_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitCond_expression(RyParser.Cond_expressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#statement_body}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement_body(RyParser.Statement_bodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#statement_body}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement_body(RyParser.Statement_bodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#statement_expression_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement_expression_list(RyParser.Statement_expression_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#statement_expression_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement_expression_list(RyParser.Statement_expression_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignment(RyParser.AssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignment(RyParser.AssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#dynamic_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterDynamic_assignment(RyParser.Dynamic_assignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#dynamic_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitDynamic_assignment(RyParser.Dynamic_assignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#int_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterInt_assignment(RyParser.Int_assignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#int_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitInt_assignment(RyParser.Int_assignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#float_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterFloat_assignment(RyParser.Float_assignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#float_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitFloat_assignment(RyParser.Float_assignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#string_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterString_assignment(RyParser.String_assignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#string_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitString_assignment(RyParser.String_assignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#dynamic_result}.
+	 * @param ctx the parse tree
+	 */
+	void enterDynamic_result(RyParser.Dynamic_resultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#dynamic_result}.
+	 * @param ctx the parse tree
+	 */
+	void exitDynamic_result(RyParser.Dynamic_resultContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#dynamic}.
+	 * @param ctx the parse tree
+	 */
+	void enterDynamic(RyParser.DynamicContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#dynamic}.
+	 * @param ctx the parse tree
+	 */
+	void exitDynamic(RyParser.DynamicContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#int_result}.
+	 * @param ctx the parse tree
+	 */
+	void enterInt_result(RyParser.Int_resultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#int_result}.
+	 * @param ctx the parse tree
+	 */
+	void exitInt_result(RyParser.Int_resultContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#float_result}.
+	 * @param ctx the parse tree
+	 */
+	void enterFloat_result(RyParser.Float_resultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#float_result}.
+	 * @param ctx the parse tree
+	 */
+	void exitFloat_result(RyParser.Float_resultContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#string_result}.
+	 * @param ctx the parse tree
+	 */
+	void enterString_result(RyParser.String_resultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#string_result}.
+	 * @param ctx the parse tree
+	 */
+	void exitString_result(RyParser.String_resultContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#comparison_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparison_list(RyParser.Comparison_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#comparison_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparison_list(RyParser.Comparison_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#comparison}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparison(RyParser.ComparisonContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#comparison}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparison(RyParser.ComparisonContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#comp_var}.
+	 * @param ctx the parse tree
+	 */
+	void enterComp_var(RyParser.Comp_varContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#comp_var}.
+	 * @param ctx the parse tree
+	 */
+	void exitComp_var(RyParser.Comp_varContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#lvalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterLvalue(RyParser.LvalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#lvalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitLvalue(RyParser.LvalueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#rvalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterRvalue(RyParser.RvalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#rvalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitRvalue(RyParser.RvalueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#literal_t}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral_t(RyParser.Literal_tContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#literal_t}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral_t(RyParser.Literal_tContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#float_t}.
+	 * @param ctx the parse tree
+	 */
+	void enterFloat_t(RyParser.Float_tContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#float_t}.
+	 * @param ctx the parse tree
+	 */
+	void exitFloat_t(RyParser.Float_tContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#int_t}.
+	 * @param ctx the parse tree
+	 */
+	void enterInt_t(RyParser.Int_tContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#int_t}.
+	 * @param ctx the parse tree
+	 */
+	void exitInt_t(RyParser.Int_tContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#bool_t}.
+	 * @param ctx the parse tree
+	 */
+	void enterBool_t(RyParser.Bool_tContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#bool_t}.
+	 * @param ctx the parse tree
+	 */
+	void exitBool_t(RyParser.Bool_tContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#nil_t}.
+	 * @param ctx the parse tree
+	 */
+	void enterNil_t(RyParser.Nil_tContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#nil_t}.
+	 * @param ctx the parse tree
+	 */
+	void exitNil_t(RyParser.Nil_tContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#id}.
+	 * @param ctx the parse tree
+	 */
+	void enterId(RyParser.IdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#id}.
+	 * @param ctx the parse tree
+	 */
+	void exitId(RyParser.IdContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#terminator}.
+	 * @param ctx the parse tree
+	 */
+	void enterTerminator(RyParser.TerminatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#terminator}.
+	 * @param ctx the parse tree
+	 */
+	void exitTerminator(RyParser.TerminatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#else_token}.
+	 * @param ctx the parse tree
+	 */
+	void enterElse_token(RyParser.Else_tokenContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#else_token}.
+	 * @param ctx the parse tree
+	 */
+	void exitElse_token(RyParser.Else_tokenContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#crlf}.
+	 * @param ctx the parse tree
+	 */
+	void enterCrlf(RyParser.CrlfContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#crlf}.
+	 * @param ctx the parse tree
+	 */
+	void exitCrlf(RyParser.CrlfContext ctx);
+}

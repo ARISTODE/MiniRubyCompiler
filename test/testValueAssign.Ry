@@ -1,0 +1,16 @@
+a = 5
+b = 3.4
+c = "Hello"
+
+# int float operations
+a1 = a + 5
+a2 = a + b
+a3 = a + c
+
+
+# String concat and String multiplication
+a4 = b + c
+a5 = c * 3
+
+
+

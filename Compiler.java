@@ -1,0 +1,571 @@
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.antlr.v4.runtime.tree.TerminalNode;
+import src.compiler.*;
+import src.compiler.RyLexer;
+import src.compiler.RyParser;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.io.ByteArrayOutputStream;
+import java.util.Stack;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.io.*;
+
+
+public class Compiler {
+    // inner class, used to do the type checking etc ...
+    public static class Evaluator extends src.compiler.RyBaseListener {
+
+        // create parsetree properties to stroe each node's information
+        ParseTreeProperty<String> value_store = new ParseTreeProperty<String>();
+        // used to store node's
+        ParseTreeProperty<String> node_expression = new ParseTreeProperty<String>();
+
+        // push each line or a block of code into a stack, out_stream will store all extract info of each line
+        Stack<ByteArrayOutputStream> stack_out_stream = new Stack<ByteArrayOutputStream>();
+        ByteArrayOutputStream main_stream = new ByteArrayOutputStream();
+        ByteArrayOutputStream error_stream = new ByteArrayOutputStream();
+
+        // used to store errors
+        PrintStream errors = new PrintStream(error_stream);
+
+        public static String repeat(String str, int times) {
+            if (times <= 0) {
+                return "";
+            } else {
+                return str + repeat(str,times - 1);
+            }
+        }
+
+        public static String getOprText(String opr) {
+            String ret_text = null;
+            switch(opr) {
+                case "+" :
+                    ret_text = "add";
+                    break;
+                case "-" :
+                    ret_text = "min";
+                    break;
+                case "*" :
+                    ret_text = "mul";
+                    break;
+                case "/" :
+                    ret_text = "div";
+                    break;
+                case "%" :
+                    ret_text = "mod";
+                    break;
+            }
+
+            return ret_text;
+        }
+
+        public static String getCompareText(String opr) {
+            String ret_text = null;
+
+            switch(opr) {
+                case ">":
+                    ret_text = " > 0";
+                    break;
+                case "<":
+                    ret_text = " < 0";
+                    break;
+                case ">=":
+                    ret_text = " >= 0";
+                    break;
+                case "<=":
+                    ret_text = " <= 0";
+                    break;
+                case "==":
+                    ret_text = " == 0";
+                    break;
+            }
+
+            return ret_text;
+        }
+
+        public static String getAssignOprText(String opr) {
+            String ret_text = null;
+            switch(opr) {
+                case "+=":
+                    ret_text = "addEqualAssign";
+                    break;
+                case "-=":
+                    ret_text = "minEqualAssign";
+                    break;
+                case "*=":
+                    ret_text = "mulEqualAssign";
+                    break;
+                case "/=":
+                    ret_text = "divEqualAssign";
+                    break;
+                case "%=":
+                    ret_text = "modEqualAssign";
+                    break;
+                default:
+                    ret_text = " = ";
+                    break;
+            }
+
+            return ret_text;
+        }
+
+        public static String generateResultExpression(String leftVal, String operation, String rightVal) {
+            return leftVal + "." + operation + "(" + rightVal + ")";
+        }
+
+        public void printToOutStream(String text) {
+            ByteArrayOutputStream out = stack_out_stream.pop();
+            PrintStream ps = new PrintStream(out);
+            ps.println(text);
+            stack_out_stream.push(out);
+        }
+
+        public void printToMainStream(String text) {
+            ByteArrayOutputStream out = main_stream;
+            PrintStream ps = new PrintStream(out);
+            ps.println(text);
+            stack_out_stream.push(out);
+        }
+
+// ======================================  Prog ===============================================
+
+        public void enterProg(RyParser.ProgContext ctx) {
+            printToMainStream("class {");
+        }
+
+        public void exitProg(RyParser.ProgContext ctx) {
+            String all_expressions = node_expression.get(ctx.getChild(0));
+            printToOutStream(all_expressions);
+            printToMainStream("}  // --- end of translation");
+        }
+
+// ================================  Int  =======================================
+
+        public void exitInt_assignment(RyParser.Int_assignmentContext ctx) {
+            String var = ctx.var_id.getText();
+            String int_result_expression = node_expression.get(ctx.getChild(2));
+            String int_assignment_expression = "";
+            switch(ctx.op.getType()) {
+                case RyParser.ASSIGN:
+                    int_assignment_expression = "Value " + var + " = " + int_result_expression;
+                    break;
+                default:
+                    String assignOprText = getAssignOprText(ctx.op.getText());
+                    int_assignment_expression = var + "." + assignOprText + "(" + int_result_expression + ")";
+                    break;
+            }
+
+            node_expression.put(ctx, int_assignment_expression);
+        }
+
+        // the result of this function will be pushed to the defined value
+        public void exitInt_result(RyParser.Int_resultContext ctx) {
+            if (ctx.getChildCount() == 3 && ctx.op != null) {
+                String left_expression = node_expression.get(ctx.getChild(0));
+                String right_expression = node_expression.get(ctx.getChild(2));
+                String opr_text = getOprText(ctx.op.getText());
+                String int_result_expression = generateResultExpression(left_expression, opr_text, right_expression);
+                node_expression.put(ctx, int_result_expression);
+            }
+            else if (ctx.getChildCount() == 1) {
+                String int_result_expression = "new RyInt(" + node_expression.get(ctx.getChild(0)) + ", " + RyParser.INT + ")";
+                node_expression.put(ctx, int_result_expression);
+            }
+        }
+
+        public void exitInt_t(RyParser.Int_tContext ctx) {
+            String int_val_text = ctx.INT().getText();
+            node_expression.put(ctx, int_val_text);
+        }
+
+// ================================  Float  =======================================
+
+        public void exitFloat_assignment(RyParser.Float_assignmentContext ctx) {
+            String var = ctx.var_id.getText();
+            String float_result_expression = node_expression.get(ctx.getChild(2));
+            String float_assignment_expression = "";
+
+            switch(ctx.op.getType()) {
+                case RyParser.ASSIGN:
+                    float_assignment_expression = "Value " + var + " = " + float_result_expression;
+                    break;
+                default:
+                    String assignOprText = getAssignOprText(ctx.op.getText());
+                    float_assignment_expression = var + "." + assignOprText + "(" + float_result_expression + ")";
+                    break;
+            }
+
+            node_expression.put(ctx, float_assignment_expression);
+        }
+
+        public void exitFloat_result(RyParser.Float_resultContext ctx) {
+            if (ctx.getChildCount() == 3 && ctx.op != null) {
+
+                String left_expression = node_expression.get(ctx.getChild(0));
+                String right_expression = node_expression.get(ctx.getChild(2));
+                String float_expression = generateResultExpression(left_expression, ctx.op.getText(), right_expression);
+
+                switch(ctx.op.getType()) {
+                    case RyParser.PLUS:
+                        // store the type of this specific node
+                        value_store.put(ctx, "Float");
+                        break;
+                    case RyParser.MINUS:
+                        value_store.put(ctx, "Float");
+                        break;
+                    case RyParser.MUL:
+                        value_store.put(ctx, "Float");
+                        break;
+                    case RyParser.DIV:
+                        value_store.put(ctx, "Float");
+                        break;
+                    case RyParser.MOD:
+                        value_store.put(ctx, "Float");
+                        break;
+                }
+                node_expression.put(ctx, float_expression);
+            }
+            else if (ctx.getChildCount() == 1) {
+                String float_expression = "new RyFloat(" + node_expression.get(ctx.getChild(0)) + "f, " + RyParser.FLOAT + ")";
+                node_expression.put(ctx, float_expression);
+                value_store.put(ctx, "Float");
+            }
+        }
+
+        public void exitFloat_t(RyParser.Float_tContext ctx) {
+            node_expression.put(ctx, ctx.FLOAT().getText());
+            value_store.put(ctx, value_store.get(ctx.getChild(0)));
+        }
+
+
+// ================================  String  =======================================
+
+        public void exitString_assignment(RyParser.String_assignmentContext ctx) {
+            String var = node_expression.get(ctx.getChild(0));
+            String string_result_expression = node_expression.get(ctx.getChild(2));
+            String string_assignment_expression = "";
+            switch(ctx.op.getType()) {
+                case RyParser.ASSIGN:
+                    string_assignment_expression = "Value " + var + " = " + string_result_expression;
+                    break;
+                default:
+                    String assignOprText = getAssignOprText(ctx.op.getText());
+                    string_assignment_expression = var + "." + assignOprText + "(" + string_result_expression + ")";
+                    break;
+            }
+
+            node_expression.put(ctx, string_assignment_expression);
+        }
+
+        public void exitString_result(RyParser.String_resultContext ctx) {
+            // 3 * "123"
+            int times = 0;
+            String left = "";
+            String right = "";
+            String strToRepeat = "";
+
+            if (ctx.getChildCount() == 3 && ctx.op != null) {
+                // in ruby, only "Hello"*3 is allowed
+                String string_expression = null;
+                String valToStore = null;
+
+                switch(ctx.op.getType()) {
+                    case RyParser.MUL:
+                        // times = int_values.get(ctx.getChild(2));
+                        strToRepeat = node_expression.get(ctx.getChild(0));
+                        // directly evaluate here because java does not has string multiple feature
+                        valToStore = repeat(strToRepeat, times);
+                        string_expression = "new RyString(\"" + valToStore + "\")";
+
+                        node_expression.put(ctx, string_expression);
+                        break;
+                    case RyParser.PLUS:
+                        String left_expression = node_expression.get(ctx.getChild(0));
+                        String right_expression = node_expression.get(ctx.getChild(2));
+                        string_expression = generateResultExpression(left_expression, ctx.op.getText(), right_expression);
+                        valToStore = (String) left + right;
+                        node_expression.put(ctx, string_expression);
+                        break;
+                }
+            }
+            else if (ctx.getChildCount() == 1) {
+                String valToStore = node_expression.get(ctx.getChild(0));
+                String string_expression = "new RyString(\"" + valToStore + "\"," + RyParser.LITERAL + ")";
+                node_expression.put(ctx, string_expression);
+            }
+        }
+
+        public void exitLiteral_t(RyParser.Literal_tContext ctx) {
+            int str_len = ctx.LITERAL().getText().length();
+            node_expression.put(ctx, ctx.LITERAL().getText().substring(1, str_len - 1));
+            value_store.put(ctx, value_store.get(ctx.getChild(0)));
+        }
+
+        // ================================  Dynamic  =======================================
+        public void exitDynamic_assignment(RyParser.Dynamic_assignmentContext ctx) {
+            String left_expression = node_expression.get(ctx.getChild(0));
+            String right_expression = node_expression.get(ctx.getChild(2));
+            String dynamic_assignment_expression = "";
+
+            if (ctx.op.getText().equals("=")) {
+                dynamic_assignment_expression = left_expression + " = " + right_expression;
+            } else {
+                String opr_text = getOprText(ctx.op.getText());
+                dynamic_assignment_expression = generateResultExpression(left_expression, opr_text,right_expression);
+            }
+
+            // printing more things in the stream and go on
+            node_expression.put(ctx, dynamic_assignment_expression);
+        }
+
+        public void exitDynamic_result(RyParser.Dynamic_resultContext ctx) {
+            if (ctx.getChildCount() == 3 && ctx.op != null) {
+                String var = node_expression.get(ctx.getChild(0));
+                String dynamic_result_expression = node_expression.get(ctx.getChild(2));
+                // = will not be
+                String opr_text = getOprText(ctx.op.getText());
+                String id_expression = generateResultExpression(var, opr_text, dynamic_result_expression);
+                node_expression.put(ctx, id_expression);
+            }
+            else if (ctx.getChildCount() == 1) {
+                String id_expression = node_expression.get(ctx.getChild(0));
+                node_expression.put(ctx, id_expression);
+            }
+        }
+
+        public void exitDynamic(RyParser.DynamicContext ctx) {
+            String id_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, id_expression);
+        }
+
+        public void exitId(RyParser.IdContext ctx) {
+            String id_expression = ctx.ID().getText();
+            node_expression.put(ctx, id_expression);
+        }
+
+        // ================================  If statement  =======================================
+
+        public void exitIf_statement(RyParser.If_statementContext ctx) {
+            ByteArrayOutputStream out = stack_out_stream.pop();
+            PrintStream ps = new PrintStream(out);
+
+            // either end or else if
+            String child_4 = ctx.getChild(4).getText();
+            String comp_expression = node_expression.get(ctx.getChild(1));
+            String statement_body_expression = node_expression.get(ctx.getChild(3));
+
+            ps.println("\tif (" + comp_expression + ") {");
+            ps.println("\t\t" + statement_body_expression);
+            ps.print("\t" + "}");
+
+            if (child_4.contains("else") || child_4.contains("elsif")) {
+                String else_expression = node_expression.get(ctx.getChild(4));
+                ps.println(else_expression);
+            }
+
+            stack_out_stream.push(out);
+        }
+
+        public void exitCond_expression(RyParser.Cond_expressionContext ctx) {
+            String cond_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, cond_expression);
+        }
+
+        public void exitComparison_list(RyParser.Comparison_listContext ctx) {
+            String comp_list_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, comp_list_expression);
+        }
+
+
+        public void exitComparison(RyParser.ComparisonContext ctx) {
+            if (ctx.getChildCount() == 3 && ctx.op != null) {
+                String left_expression = node_expression.get(ctx.getChild(0));
+                String right_expression = node_expression.get(ctx.getChild(2));
+
+                String comp_op_text = getCompareText(ctx.op.getText());
+                String comp_var_expression = left_expression+".compareTo(" + right_expression + ") " + comp_op_text;
+
+                node_expression.put(ctx, comp_var_expression);
+            } else if (ctx.getChildCount() == 1 ) {
+                node_expression.put(ctx, node_expression.get(ctx.getChild(0)));
+            }
+        }
+
+        public void exitComp_var(RyParser.Comp_varContext ctx) {
+            String comp_var_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, comp_var_expression);
+        }
+
+        public void exitAll_result(RyParser.All_resultContext ctx) {
+            String all_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, all_expression);
+        }
+
+
+        // ================================  ElseIf statement  =====================================
+        public void exitElsif_statement(RyParser.Elsif_statementContext ctx) {
+            String elseif_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, elseif_expression);
+        }
+
+        public void exitIf_elsif_statement(RyParser.If_elsif_statementContext ctx) {
+            int child_num = ctx.getChildCount();
+            String elseif_token = ctx.ELSIF().getText();
+            String cond_expression = node_expression.get(ctx.getChild(1));
+            String statement_body_expression = node_expression.get(ctx.getChild(3));
+            String if_elseif_expression = elseif_token + " (" + cond_expression + ") {\n";
+            if_elseif_expression += "\t\t" + statement_body_expression + "\n\t} ";
+
+            // there are more else if or else
+            if (child_num > 4) {
+                if (ctx.getChild(4).getText().contains("else")) {
+                    String else_token  = node_expression.get(ctx.getChild(4));
+                    String else_statement_expression =  node_expression.get(ctx.getChild(6));
+                    String else_expression = if_elseif_expression + else_token + "{\n";
+                    else_expression += "\t\t" + else_statement_expression + "\n\t}";
+                    node_expression.put(ctx, else_expression);
+                    // TODO: fix null value bug
+                } else if (ctx.getChild(4).getText().contains("if_elsif")) {
+                    String nested_elseif_expression = node_expression.get(ctx.getChild(4));
+                    if_elseif_expression += nested_elseif_expression;
+                    node_expression.put(ctx, if_elseif_expression);
+                }
+            } else {
+                node_expression.put(ctx, if_elseif_expression);
+            }
+        }
+
+        public void exitElse_token(RyParser.Else_tokenContext ctx) {
+            String else_token_expression = ctx.ELSE().getText();
+            node_expression.put(ctx, else_token_expression);
+        }
+
+        // ================================  For statement  =====================================
+        public void exitFor_statement(RyParser.For_statementContext ctx) {
+            int low = Integer.parseInt(ctx.getChild(4).getText());
+            int high = Integer.parseInt(ctx.getChild(6).getText());
+            String var = ctx.getChild(1).getText();
+            String statement_body_expression = node_expression.get(ctx.getChild(9));
+            String for_statement_expression = "";
+
+            if (low < high) {
+                for_statement_expression = "\tfor (int " + var + " = " + low + "; a <= " + high + "; " + var + "++)";
+            } else {
+                for_statement_expression = "\tfor (int " + var + " = " + high + "; a <= " + low + "; " + var + "++)";
+            }
+
+            for_statement_expression += "{\t\t" + statement_body_expression + "\n\t}";
+            node_expression.put(ctx, for_statement_expression);
+        }
+
+        // ================================  While statement  =====================================
+        public void exitWhile_statement(RyParser.While_statementContext ctx) {
+            String cond_expression = node_expression.get(ctx.getChild(1));
+            String statement_body_expression = node_expression.get(ctx.getChild(3));
+            String while_expression = "\twhile (" + cond_expression + ") {\n\t\t" + statement_body_expression + "\n\t}";
+
+            printToOutStream(while_expression);
+            node_expression.put(ctx, while_expression);
+        }
+
+
+        // ================================  Statement body =====================================
+        public void exitStatement_body(RyParser.Statement_bodyContext ctx) {
+            String statement_body_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, statement_body_expression);
+        }
+
+        public void exitStatement_expression_list(RyParser.Statement_expression_listContext ctx) {
+            // store all expression from children in differen line
+            int child_list_len = ctx.getChildCount() - 1;  // -- eliminate terminator
+                String statement_expression_list_expression = "";
+                for (int i = 0; i < child_list_len ; i++ ) {
+                    // concatnation
+                statement_expression_list_expression += ( "\n" + node_expression.get(ctx.getChild(i)) );
+            }
+
+            node_expression.put(ctx, statement_expression_list_expression);
+        }
+
+        public void exitExpression_list(RyParser.Expression_listContext ctx) {
+            int child_list_len = ctx.getChildCount() - 1;  // -- eliminate terminator
+            String expression_list_expression = "";
+            for (int i = 0; i < child_list_len ; i++ ) {
+                // concatnation
+                expression_list_expression += ("\n" + node_expression.get(ctx.getChild(i)));
+            }
+
+            node_expression.put(ctx, expression_list_expression);
+        }
+
+        public void exitExpression(RyParser.ExpressionContext ctx) {
+            String child_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, child_expression);
+        }
+
+        // ================================ Values =====================================
+        public void exitRvalue(RyParser.RvalueContext ctx) {
+            String child_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, child_expression);
+        }
+
+        public void exitLvalue(RyParser.LvalueContext ctx) {
+            String child_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, child_expression);
+        }
+    }
+
+    // ================================  Main Method  =====================================
+    public static void main(String[] args) throws Exception {
+        String inputFile = null;
+        String currentDir = null;
+        String genName = null;
+
+        if (args.length > 0) {
+            inputFile = args[0];
+            currentDir = System.getProperty("user.dir");
+            genName = args[0].substring(0, args[0].length() - 3);
+        }
+
+        InputStream is = System.in;
+
+        if (inputFile != null) {
+            is = new FileInputStream(inputFile);
+        } else {
+            System.out.println("File open fail !!");
+        }
+
+        ANTLRInputStream input = new ANTLRInputStream(is);
+        RyLexer lexer = new RyLexer(input);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        RyParser parser = new RyParser(tokens);
+
+        parser.setBuildParseTree(true);
+        ParseTree tree = parser.prog();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+
+        Evaluator eval = new Evaluator();
+        walker.walk(eval, tree);
+
+        ByteArrayOutputStream out = eval.stack_out_stream.pop();
+
+        // put code into file
+        // FileWriter fw = new FileWriter(currentDir + "/" + genName + ".java");
+        // PrintWriter pw = new PrintWriter(fw);
+
+        // String wholeScript = Formatter.wrap(out.toString(), genName);
+        // pw.print(wholeScript);
+        // pw.close();
+
+        System.out.println(out.toString());
+    }
+}
