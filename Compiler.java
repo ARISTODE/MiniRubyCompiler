@@ -1,27 +1,19 @@
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.antlr.v4.runtime.tree.TerminalNode;
-import src.compiler.*;
-import src.compiler.RyLexer;
-import src.compiler.RyParser;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
 import java.util.Stack;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.io.*;
 
 
 public class Compiler {
     // inner class, used to do the type checking etc ...
-    public static class Evaluator extends src.compiler.RyBaseListener {
+    public static class Evaluator extends RyBaseListener {
 
         // create parsetree properties to stroe each node's information
         ParseTreeProperty<String> value_store = new ParseTreeProperty<String>();
@@ -186,7 +178,53 @@ public class Compiler {
             node_expression.put(ctx, int_val_text);
         }
 
-// ================================  Float  =======================================
+    // ================================  Function =====================================
+
+        public void exitFunction_header(RyParser.Function_headerContext ctx) {
+            // if has params
+
+            // no params
+        }
+
+        public void exitFunction_params(RyParser.Function_paramsContext ctx) {
+            String all_params_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, all_params_expression);
+        }
+
+        public void exitFunction_definition_param_list(RyParser.Function_definition_param_listContext ctx) {
+            int child_count = ctx.getChildCount();
+            String all_param_expression = "";
+            if (child_count == 1) {
+                all_param_expression = node_expression.get(ctx.getChild(0));
+                node_expression.put(ctx, all_param_expression);
+            } else {
+                for (int i = 0;i < child_count;i++) {
+                    if (ctx.getChild(i) != ctx.COMMA()) {
+                        all_param_expression += node_expression.get(ctx.getChild(i));
+                    }
+                }
+            }
+
+            node_expression.put(ctx, all_param_expression);
+        }
+
+        public void exitFunction_definition_param_id(RyParser.Function_definition_param_idContext ctx) {
+            String param_id_expression =  node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, param_id_expression);
+        }
+
+        public void exitFunction_body(RyParser.Function_bodyContext ctx) {
+            String expresion_list_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, expresion_list_expression);
+        }
+
+        public void exitReturn_statement(RyParser.Return_statementContext ctx) {
+            String all_result_expression = node_expression.get(ctx.getChild(1));
+            String return_expression = "return" + all_result_expression;
+            node_expression.put(ctx, return_expression);
+        }
+
+    // ================================  Float  =======================================
 
         public void exitFloat_assignment(RyParser.Float_assignmentContext ctx) {
             String var = ctx.var_id.getText();

@@ -7,17 +7,38 @@ expression_list : expression terminator
                 | terminator
                 ;
 
-expression : for_statement
+expression : function_definition
+           | for_statement
            | while_statement
            | if_statement
            | comparison_list
            | rvalue
+           | return_statement
            ;
 
 //  function definitions
-function_definition:
+function_definition: function_header function_body END;
 
+function_header: DEF function_name crlf
+               | DEF function_name function_params crlf
+               ;
 
+return_statement: RETURN all_result;
+
+function_body: expression_list;
+
+function_name: id;
+
+function_params: LEFT_RBRACKET RIGHT_RBRACKET
+               | LEFT_RBRACKET function_definition_param_list RIGHT_RBRACKET
+               | function_definition_param_list
+               ;
+
+function_definition_param_list: function_definition_param_id
+                              | function_definition_param_list COMMA function_definition_param_id
+                              ;
+
+function_definition_param_id: id;
 
 all_result : ( int_result | float_result | string_result | dynamic_result );
 
@@ -189,7 +210,8 @@ COMMA : ',';
 SEMICOLON : ';';
 CRLF : '\n';
 
-END : 'end';
+END: 'end';
+DEF: 'def';
 
 IF: 'if';
 ELSE : 'else';
@@ -240,6 +262,7 @@ LEFT_SBRACKET : '[';
 RIGHT_SBRACKET : ']';
 
 NIL : 'nil';
+RETURN: 'return';
 
 SL_COMMENT : ('#' ~('\r' | '\n')* '\n') -> skip;
 ML_COMMENT : ('=begin' .*? '=end\n') -> skip;

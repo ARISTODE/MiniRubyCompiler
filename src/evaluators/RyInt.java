@@ -1,7 +1,5 @@
 package src.evaluators;
 
-import src.compiler.RyLexer;
-
 public class RyInt extends Value {
 	int value;
 

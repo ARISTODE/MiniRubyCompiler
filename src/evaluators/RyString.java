@@ -1,5 +1,4 @@
 package src.evaluators;
-import src.compiler.RyLexer;
 
 class RyString extends Value {
 	String value;

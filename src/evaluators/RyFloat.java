@@ -1,7 +1,5 @@
 package src.evaluators;
 
-import src.compiler.RyLexer;
-
 public class RyFloat extends Value {
 	float value;
 
