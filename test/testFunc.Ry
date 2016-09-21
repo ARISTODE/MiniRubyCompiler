@@ -1,0 +1,10 @@
+def testFunc1(a, b)
+  a = 4
+  return a
+end
+
+
+def testFunc2() 
+  a = 4
+  return a
+end

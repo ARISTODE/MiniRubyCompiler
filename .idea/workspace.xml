@@ -2,107 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3474e456-3d2d-4403-b8db-4ee41e30472c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/Ry.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyBaseListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyLexer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyLexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$All_assignmentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$All_resultContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$AssignmentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Bool_tContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Comp_varContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$ComparisonContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Comparison_listContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Cond_expressionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$CrlfContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$DynamicContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Dynamic_assignmentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Dynamic_resultContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Else_tokenContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Elsif_statementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$ExpressionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Expression_listContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Float_assignmentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Float_resultContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Float_tContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$For_statementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$IdContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$If_elsif_statementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$If_statementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Int_assignmentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Int_resultContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Int_tContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Literal_tContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$LvalueContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Nil_tContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$ProgContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$RvalueContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Statement_bodyContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$Statement_expression_listContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$String_assignmentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$String_resultContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$TerminatorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser$While_statementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compiler/RyParser.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyBaseListener.class" afterPath="$PROJECT_DIR$/RyBaseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyLexer.class" afterPath="$PROJECT_DIR$/RyLexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyListener.class" afterPath="$PROJECT_DIR$/RyListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$All_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$All_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$All_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$All_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$AssignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$AssignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Bool_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Bool_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Comp_varContext.class" afterPath="$PROJECT_DIR$/RyParser$Comp_varContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$ComparisonContext.class" afterPath="$PROJECT_DIR$/RyParser$ComparisonContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Comparison_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Comparison_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Cond_expressionContext.class" afterPath="$PROJECT_DIR$/RyParser$Cond_expressionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$CrlfContext.class" afterPath="$PROJECT_DIR$/RyParser$CrlfContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$DynamicContext.class" afterPath="$PROJECT_DIR$/RyParser$DynamicContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Dynamic_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$Dynamic_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Dynamic_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$Dynamic_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Else_tokenContext.class" afterPath="$PROJECT_DIR$/RyParser$Else_tokenContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Elsif_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$Elsif_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$ExpressionContext.class" afterPath="$PROJECT_DIR$/RyParser$ExpressionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Expression_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Expression_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Float_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$Float_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Float_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$Float_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Float_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Float_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$For_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$For_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$IdContext.class" afterPath="$PROJECT_DIR$/RyParser$IdContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$If_elsif_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$If_elsif_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$If_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$If_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Int_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$Int_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Int_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$Int_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Int_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Int_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Literal_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Literal_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$LvalueContext.class" afterPath="$PROJECT_DIR$/RyParser$LvalueContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Nil_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Nil_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$ProgContext.class" afterPath="$PROJECT_DIR$/RyParser$ProgContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$RvalueContext.class" afterPath="$PROJECT_DIR$/RyParser$RvalueContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Statement_bodyContext.class" afterPath="$PROJECT_DIR$/RyParser$Statement_bodyContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Statement_expression_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Statement_expression_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$String_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$String_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$String_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$String_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$TerminatorContext.class" afterPath="$PROJECT_DIR$/RyParser$TerminatorContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$While_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$While_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser.class" afterPath="$PROJECT_DIR$/RyParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compiler$Evaluator.class" afterPath="$PROJECT_DIR$/Compiler$Evaluator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compiler.class" afterPath="$PROJECT_DIR$/Compiler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compiler.java" afterPath="$PROJECT_DIR$/Compiler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ry.g4" afterPath="$PROJECT_DIR$/Ry.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ry.tokens" afterPath="$PROJECT_DIR$/Ry.tokens" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyBaseListener.java" afterPath="$PROJECT_DIR$/RyBaseListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyLexer.java" afterPath="$PROJECT_DIR$/RyLexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyLexer.tokens" afterPath="$PROJECT_DIR$/RyLexer.tokens" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyListener.java" afterPath="$PROJECT_DIR$/RyListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser.java" afterPath="$PROJECT_DIR$/RyParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/evaluators/RyFloat.java" afterPath="$PROJECT_DIR$/src/evaluators/RyFloat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/evaluators/RyInt.java" afterPath="$PROJECT_DIR$/src/evaluators/RyInt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/evaluators/RyString.java" afterPath="$PROJECT_DIR$/src/evaluators/RyString.java" />
     </list>
     <ignored path="MiniRubyCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,14 +27,14 @@
     <favorites_list name="MiniRubyCompiler" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5899743">
+    <splitter split-orientation="horizontal" split-proportion="0.6593851">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file leaf-file-name="Compiler.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Compiler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="537">
-                  <caret line="234" column="37" selection-start-line="234" selection-start-column="37" selection-end-line="234" selection-end-column="37" />
+                <state relative-caret-position="170">
+                  <caret line="192" column="33" selection-start-line="192" selection-start-column="33" selection-end-line="192" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#getOprText#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
@@ -139,19 +43,6 @@
                     <element signature="method#exitInt_result#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
                     <element signature="method#exitInt_t#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
                     <element signature="method#exitStatement_body#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-                    <element signature="method#exitStatement_expression_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Ry.g4" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Ry.g4">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1338">
-                  <caret line="22" column="50" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#3148#4021#1" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -164,8 +55,8 @@
           <file leaf-file-name="RyBaseListener.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/RyBaseListener.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="186">
-                  <caret line="120" column="26" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+                <state relative-caret-position="119">
+                  <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -217,10 +108,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-174" />
-    <option name="y" value="-900" />
-    <option name="width" value="1600" />
-    <option name="height" value="900" />
+    <option name="y" value="-768" />
+    <option name="width" value="1280" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -247,12 +137,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -543,7 +433,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-174" y="-900" width="1600" height="900" extended-state="0" />
+    <frame x="0" y="-768" width="1280" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -554,10 +444,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07960199" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13839285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1992288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19902913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24935733" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -587,7 +477,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -608,7 +498,6 @@
             <element signature="method#exitInt_result#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitInt_t#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitStatement_body#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitStatement_expression_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -635,7 +524,6 @@
             <element signature="method#exitInt_result#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitInt_t#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitStatement_body#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitStatement_expression_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -648,14 +536,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser.java" />
     <entry file="file://$PROJECT_DIR$/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1802">
@@ -668,27 +549,12 @@
             <element signature="method#exitInt_result#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitInt_t#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitStatement_body#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitStatement_expression_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyBaseListener.java" />
     <entry file="file://$PROJECT_DIR$/Ry.g4">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -699,22 +565,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.java" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser.java" />
     <entry file="file://$PROJECT_DIR$/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -727,27 +579,12 @@
             <element signature="method#exitInt_result#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitInt_t#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitStatement_body#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitStatement_expression_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.java" />
     <entry file="file://$PROJECT_DIR$/src/evaluators/Value.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -784,13 +621,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.class" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre/lib/rt.jar!/com/sun/xml/internal/fastinfoset/util/FixedEntryStringIntMap.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -819,20 +650,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser$All_assignmentContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser$All_assignmentContext.class" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.class" />
     <entry file="file://$PROJECT_DIR$/src/evaluators/RyFloat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -840,45 +659,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyBaseListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyLexer.java" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyBaseListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyBaseListener.class" />
+    <entry file="file://$PROJECT_DIR$/src/compiler/RyParser.java" />
     <entry file="file://$PROJECT_DIR$/Ry.tokens">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-748">
@@ -903,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ry.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1338">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="50" />
+        <state relative-caret-position="153">
+          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
           <folding>
             <element signature="e#3148#4021#1" expanded="false" />
           </folding>
@@ -913,16 +698,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RyBaseListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="120" column="26" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="234" column="37" selection-start-line="234" selection-start-column="37" selection-end-line="234" selection-end-column="37" />
+        <state relative-caret-position="170">
+          <caret line="192" column="33" selection-start-line="192" selection-start-column="33" selection-end-line="192" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getOprText#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
@@ -931,7 +716,6 @@
             <element signature="method#exitInt_result#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitInt_t#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#exitStatement_body#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitStatement_expression_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
           </folding>
         </state>
       </provider>

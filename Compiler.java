@@ -179,16 +179,34 @@ public class Compiler {
         }
 
     // ================================  Function =====================================
+        public void exitFunction_definition(RyParser.Function_definitionContext ctx) {
+            String function_header_expression = node_expression.get(ctx.getChild(0));
+            String function_body_expression = node_expression.get(ctx.getChild(1));
+            String function_definition_expression = function_header_expression + function_body_expression;
+            node_expression.put(ctx, function_definition_expression);
+        }
 
         public void exitFunction_header(RyParser.Function_headerContext ctx) {
+            String function_header_expression = "";
+            String function_name = node_expression.get(ctx.getChild(1));
             // if has params
+            if (ctx.getChild(2).getText().length() > 2) {
+                String function_params_expression = node_expression.get(ctx.getChild(2));
+                function_header_expression = function_name + function_params_expression;
+            } else {
+                function_header_expression = function_name + "()";
+            }
+            node_expression.put(ctx, function_header_expression);
+        }
 
-            // no params
+        public void exitFunction_name(RyParser.Function_nameContext ctx) {
+            String function_name_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, function_name_expression);
         }
 
         public void exitFunction_params(RyParser.Function_paramsContext ctx) {
-            String all_params_expression = node_expression.get(ctx.getChild(0));
-            node_expression.put(ctx, all_params_expression);
+            String all_params_expression = node_expression.get(ctx.getChild(1));
+            node_expression.put(ctx, "(" + all_params_expression + ")");
         }
 
         public void exitFunction_definition_param_list(RyParser.Function_definition_param_listContext ctx) {
@@ -196,11 +214,14 @@ public class Compiler {
             String all_param_expression = "";
             if (child_count == 1) {
                 all_param_expression = node_expression.get(ctx.getChild(0));
-                node_expression.put(ctx, all_param_expression);
             } else {
                 for (int i = 0;i < child_count;i++) {
                     if (ctx.getChild(i) != ctx.COMMA()) {
-                        all_param_expression += node_expression.get(ctx.getChild(i));
+                        if (i != child_count - 1) {
+                            all_param_expression += node_expression.get(ctx.getChild(i)) + ", ";
+                        } else {
+                            all_param_expression += node_expression.get(ctx.getChild(i));
+                        }
                     }
                 }
             }
@@ -209,18 +230,18 @@ public class Compiler {
         }
 
         public void exitFunction_definition_param_id(RyParser.Function_definition_param_idContext ctx) {
-            String param_id_expression =  node_expression.get(ctx.getChild(0));
+            String param_id_expression = "Value " + node_expression.get(ctx.getChild(0));
             node_expression.put(ctx, param_id_expression);
         }
 
         public void exitFunction_body(RyParser.Function_bodyContext ctx) {
-            String expresion_list_expression = node_expression.get(ctx.getChild(0));
-            node_expression.put(ctx, expresion_list_expression);
+            String expression_list_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, "{ \t" + expression_list_expression + "\n}");
         }
 
         public void exitReturn_statement(RyParser.Return_statementContext ctx) {
             String all_result_expression = node_expression.get(ctx.getChild(1));
-            String return_expression = "return" + all_result_expression;
+            String return_expression = "return " + all_result_expression;
             node_expression.put(ctx, return_expression);
         }
 
@@ -422,7 +443,6 @@ public class Compiler {
             node_expression.put(ctx, comp_list_expression);
         }
 
-
         public void exitComparison(RyParser.ComparisonContext ctx) {
             if (ctx.getChildCount() == 3 && ctx.op != null) {
                 String left_expression = node_expression.get(ctx.getChild(0));
@@ -526,9 +546,8 @@ public class Compiler {
             int child_list_len = ctx.getChildCount() - 1;  // -- eliminate terminator
                 String statement_expression_list_expression = "";
                 for (int i = 0; i < child_list_len ; i++ ) {
-                    // concatnation
-                statement_expression_list_expression += ( "\n" + node_expression.get(ctx.getChild(i)) );
-            }
+                    statement_expression_list_expression += ( "\n\t" + node_expression.get(ctx.getChild(i)) );
+                }
 
             node_expression.put(ctx, statement_expression_list_expression);
         }
