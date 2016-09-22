@@ -118,6 +118,66 @@ public interface RyListener extends ParseTreeListener {
 	 */
 	void exitFunction_definition_param_id(RyParser.Function_definition_param_idContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RyParser#function_call}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call(RyParser.Function_callContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_call}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call(RyParser.Function_callContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#function_call_param_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call_param_list(RyParser.Function_call_param_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_call_param_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call_param_list(RyParser.Function_call_param_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#function_call_params}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call_params(RyParser.Function_call_paramsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_call_params}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call_params(RyParser.Function_call_paramsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#function_param}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_param(RyParser.Function_paramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_param}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_param(RyParser.Function_paramContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#function_call_unnamed_param}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call_unnamed_param(RyParser.Function_call_unnamed_paramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_call_unnamed_param}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call_unnamed_param(RyParser.Function_call_unnamed_paramContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RyParser#function_call_named_param}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call_named_param(RyParser.Function_call_named_paramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_call_named_param}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call_named_param(RyParser.Function_call_named_paramContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RyParser#all_result}.
 	 * @param ctx the parse tree
 	 */

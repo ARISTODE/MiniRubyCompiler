@@ -8,6 +8,7 @@ expression_list : expression terminator
                 ;
 
 expression : function_definition
+           | function_call
            | for_statement
            | while_statement
            | if_statement
@@ -39,6 +40,22 @@ function_definition_param_list: function_definition_param_id
                               ;
 
 function_definition_param_id: id;
+
+// function call
+function_call: name=function_name LEFT_RBRACKET params=function_call_param_list RIGHT_RBRACKET
+             | name=function_name params=function_call_param_list
+             | name=function_name LEFT_RBRACKET RIGHT_RBRACKET
+             ;
+function_call_param_list: function_call_params;
+
+function_call_params: function_param
+                    | function_call_params COMMA function_param
+                    ;
+function_param: ( function_call_unnamed_param | function_call_named_param);
+
+function_call_unnamed_param: all_result;
+
+function_call_named_param: id op=ASSIGN all_result;
 
 all_result : ( int_result | float_result | string_result | dynamic_result );
 

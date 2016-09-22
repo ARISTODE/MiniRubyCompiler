@@ -182,7 +182,7 @@ public class Compiler {
         public void exitFunction_definition(RyParser.Function_definitionContext ctx) {
             String function_header_expression = node_expression.get(ctx.getChild(0));
             String function_body_expression = node_expression.get(ctx.getChild(1));
-            String function_definition_expression = function_header_expression + function_body_expression;
+            String function_definition_expression = "public Value " + function_header_expression + function_body_expression;
             node_expression.put(ctx, function_definition_expression);
         }
 
