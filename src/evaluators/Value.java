@@ -1,6 +1,6 @@
 package src.evaluators;
 
-public abstract class Value {
+public class Value {
     int TAG;
 
     Value(int TAG) {

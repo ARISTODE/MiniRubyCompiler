@@ -1,0 +1,31 @@
+# value tests
+a = 3
+b = 3.5
+c = "Hello"
+
+a = a + 3
+b = b + 3
+b = b - 3.5
+c = c + a
+
+# control flow test
+# if control test
+
+if a > 2
+  a = a - 1
+elsif a > 5
+  a = a - 2
+else 
+  a = a - 3
+end
+
+# while statement test
+while b > 3
+  b = b - 1
+end
+
+# function test
+def hello(a,b)
+  a = a + b
+end
+

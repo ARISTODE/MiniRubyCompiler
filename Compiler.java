@@ -127,6 +127,10 @@ public class Compiler {
             stack_out_stream.push(out);
         }
 
+        public void store_as_child_expression() {
+
+        }
+
 // ======================================  Prog ===============================================
 
         public void enterProg(RyParser.ProgContext ctx) {
@@ -155,6 +159,7 @@ public class Compiler {
                     break;
             }
 
+            int_assignment_expression += ";";
             node_expression.put(ctx, int_assignment_expression);
         }
 
@@ -182,7 +187,7 @@ public class Compiler {
         public void exitFunction_definition(RyParser.Function_definitionContext ctx) {
             String function_header_expression = node_expression.get(ctx.getChild(0));
             String function_body_expression = node_expression.get(ctx.getChild(1));
-            String function_definition_expression = "public Value " + function_header_expression + function_body_expression;
+            String function_definition_expression = "public static Value " + function_header_expression + function_body_expression;
             node_expression.put(ctx, function_definition_expression);
         }
 
@@ -236,16 +241,62 @@ public class Compiler {
 
         public void exitFunction_body(RyParser.Function_bodyContext ctx) {
             String expression_list_expression = node_expression.get(ctx.getChild(0));
+            // judge if the last expression is return statement
+            int child_count = ctx.getChildCount();
+            if (!ctx.getChild(child_count - 1).getText().contains("return")) {
+                expression_list_expression += "\n\treturn new Value(45)";
+            }
             node_expression.put(ctx, "{ \t" + expression_list_expression + "\n}");
         }
 
         public void exitReturn_statement(RyParser.Return_statementContext ctx) {
             String all_result_expression = node_expression.get(ctx.getChild(1));
-            String return_expression = "return " + all_result_expression;
+            String return_expression = "return " + all_result_expression + ";";
             node_expression.put(ctx, return_expression);
         }
 
-    // ================================  Float  =======================================
+    // ================================  Function call  =======================================
+        public void exitFunction_call(RyParser.Function_callContext ctx) {
+
+        }
+
+        public void exitFunction_call_param_list(RyParser.Function_call_param_listContext ctx) {
+
+        }
+
+        public void enterFunction_call_params(RyParser.Function_call_paramsContext ctx) {
+            int child_count = ctx.getChildCount();
+            String function_call_params_expression = "";
+
+            for (int i = 0;i < child_count;i++) {
+                if (ctx.getChild(i) != ctx.COMMA()) {
+                    if (i != child_count - 1) {
+                        function_call_params_expression += node_expression.get(ctx.getChild(i)) + ", ";
+                    } else {
+                        function_call_params_expression += node_expression.get(ctx.getChild(i));
+                    }
+                }
+            }
+
+            node_expression.put(ctx, function_call_params_expression);
+        }
+
+        public void exitFunction_param(RyParser.Function_paramContext ctx) {
+            String function_param_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, function_param_expression);
+        }
+
+        public void exitFunction_call_unnamed_param(RyParser.Function_call_unnamed_paramContext ctx) {
+            String unnamed_param_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, unnamed_param_expression);
+        }
+
+        public void exitFunction_call_named_param(RyParser.Function_call_named_paramContext ctx) {
+            String named_param_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, named_param_expression);
+        }
+
+        // ================================  Float  =======================================
 
         public void exitFloat_assignment(RyParser.Float_assignmentContext ctx) {
             String var = ctx.var_id.getText();
@@ -262,6 +313,7 @@ public class Compiler {
                     break;
             }
 
+            float_assignment_expression += ";";
             node_expression.put(ctx, float_assignment_expression);
         }
 
@@ -321,6 +373,7 @@ public class Compiler {
                     break;
             }
 
+            string_assignment_expression += ";";
             node_expression.put(ctx, string_assignment_expression);
         }
 
@@ -381,7 +434,7 @@ public class Compiler {
                 dynamic_assignment_expression = generateResultExpression(left_expression, opr_text,right_expression);
             }
 
-            // printing more things in the stream and go on
+            dynamic_assignment_expression += ";";
             node_expression.put(ctx, dynamic_assignment_expression);
         }
 
@@ -413,24 +466,22 @@ public class Compiler {
         // ================================  If statement  =======================================
 
         public void exitIf_statement(RyParser.If_statementContext ctx) {
-            ByteArrayOutputStream out = stack_out_stream.pop();
-            PrintStream ps = new PrintStream(out);
-
             // either end or else if
             String child_4 = ctx.getChild(4).getText();
             String comp_expression = node_expression.get(ctx.getChild(1));
             String statement_body_expression = node_expression.get(ctx.getChild(3));
+            String if_expression = "";
 
-            ps.println("\tif (" + comp_expression + ") {");
-            ps.println("\t\t" + statement_body_expression);
-            ps.print("\t" + "}");
+            if_expression += "if (" + comp_expression + ") {";
+            if_expression += "\t\t" + statement_body_expression;
+            if_expression += "\n" + "}";
 
             if (child_4.contains("else") || child_4.contains("elsif")) {
                 String else_expression = node_expression.get(ctx.getChild(4));
-                ps.println(else_expression);
+                if_expression += else_expression;
             }
 
-            stack_out_stream.push(out);
+            node_expression.put(ctx, if_expression);
         }
 
         public void exitCond_expression(RyParser.Cond_expressionContext ctx) {
@@ -476,19 +527,18 @@ public class Compiler {
 
         public void exitIf_elsif_statement(RyParser.If_elsif_statementContext ctx) {
             int child_num = ctx.getChildCount();
-            String elseif_token = ctx.ELSIF().getText();
             String cond_expression = node_expression.get(ctx.getChild(1));
             String statement_body_expression = node_expression.get(ctx.getChild(3));
-            String if_elseif_expression = elseif_token + " (" + cond_expression + ") {\n";
-            if_elseif_expression += "\t\t" + statement_body_expression + "\n\t} ";
+            String if_elseif_expression = "else if" + " (" + cond_expression + ") {";
+            if_elseif_expression += "\t" + statement_body_expression + "\n} ";
 
             // there are more else if or else
             if (child_num > 4) {
                 if (ctx.getChild(4).getText().contains("else")) {
                     String else_token  = node_expression.get(ctx.getChild(4));
                     String else_statement_expression =  node_expression.get(ctx.getChild(6));
-                    String else_expression = if_elseif_expression + else_token + "{\n";
-                    else_expression += "\t\t" + else_statement_expression + "\n\t}";
+                    String else_expression = if_elseif_expression + else_token + "{";
+                    else_expression += "\t" + else_statement_expression + "\n}";
                     node_expression.put(ctx, else_expression);
                     // TODO: fix null value bug
                 } else if (ctx.getChild(4).getText().contains("if_elsif")) {
@@ -528,9 +578,8 @@ public class Compiler {
         public void exitWhile_statement(RyParser.While_statementContext ctx) {
             String cond_expression = node_expression.get(ctx.getChild(1));
             String statement_body_expression = node_expression.get(ctx.getChild(3));
-            String while_expression = "\twhile (" + cond_expression + ") {\n\t\t" + statement_body_expression + "\n\t}";
+            String while_expression = "while (" + cond_expression + ") {\t" + statement_body_expression + "\n}";
 
-            printToOutStream(while_expression);
             node_expression.put(ctx, while_expression);
         }
 
@@ -614,7 +663,6 @@ public class Compiler {
         walker.walk(eval, tree);
 
         ByteArrayOutputStream out = eval.stack_out_stream.pop();
-
         // put code into file
         // FileWriter fw = new FileWriter(currentDir + "/" + genName + ".java");
         // PrintWriter pw = new PrintWriter(fw);
@@ -622,7 +670,6 @@ public class Compiler {
         // String wholeScript = Formatter.wrap(out.toString(), genName);
         // pw.print(wholeScript);
         // pw.close();
-
         System.out.println(out.toString());
     }
 }
