@@ -1,5 +1,3 @@
-package src.evaluators;
-
 public class RyFloat extends Value {
 	float value;
 

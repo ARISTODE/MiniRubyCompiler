@@ -1,4 +1,3 @@
-package src.evaluators;
 
 public class RyInt extends Value {
 	int value;

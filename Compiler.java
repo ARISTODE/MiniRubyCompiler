@@ -3,11 +3,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.antlr.v4.runtime.tree.gui.SystemFontMetrics;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.io.ByteArrayOutputStream;
+import java.io.*;
 import java.util.Stack;
 
 
@@ -116,7 +114,7 @@ public class Compiler {
         public void printToOutStream(String text) {
             ByteArrayOutputStream out = stack_out_stream.pop();
             PrintStream ps = new PrintStream(out);
-            ps.println(text);
+            ps.print(text);
             stack_out_stream.push(out);
         }
 
@@ -127,20 +125,18 @@ public class Compiler {
             stack_out_stream.push(out);
         }
 
-        public void store_as_child_expression() {
-
-        }
-
 // ======================================  Prog ===============================================
 
         public void enterProg(RyParser.ProgContext ctx) {
-            printToMainStream("class {");
+//            printToMainStream("class {");
+            ByteArrayOutputStream out = main_stream;
+            stack_out_stream.push(out);
         }
 
         public void exitProg(RyParser.ProgContext ctx) {
             String all_expressions = node_expression.get(ctx.getChild(0));
             printToOutStream(all_expressions);
-            printToMainStream("}  // --- end of translation");
+//            printToMainStream("}  // --- end of translation");
         }
 
 // ================================  Int  =======================================
@@ -149,6 +145,7 @@ public class Compiler {
             String var = ctx.var_id.getText();
             String int_result_expression = node_expression.get(ctx.getChild(2));
             String int_assignment_expression = "";
+
             switch(ctx.op.getType()) {
                 case RyParser.ASSIGN:
                     int_assignment_expression = "Value " + var + " = " + int_result_expression;
@@ -428,7 +425,7 @@ public class Compiler {
             String dynamic_assignment_expression = "";
 
             if (ctx.op.getText().equals("=")) {
-                dynamic_assignment_expression = left_expression + " = " + right_expression;
+                dynamic_assignment_expression = "Value " + left_expression + " = " + right_expression;
             } else {
                 String opr_text = getOprText(ctx.op.getText());
                 dynamic_assignment_expression = generateResultExpression(left_expression, opr_text,right_expression);
@@ -664,12 +661,12 @@ public class Compiler {
 
         ByteArrayOutputStream out = eval.stack_out_stream.pop();
         // put code into file
-        // FileWriter fw = new FileWriter(currentDir + "/" + genName + ".java");
-        // PrintWriter pw = new PrintWriter(fw);
+         FileWriter fw = new FileWriter(currentDir + "/" + genName + ".java");
+         PrintWriter pw = new PrintWriter(fw);
 
-        // String wholeScript = Formatter.wrap(out.toString(), genName);
-        // pw.print(wholeScript);
-        // pw.close();
-        System.out.println(out.toString());
+         String wholeScript = Formatter.wrap(out.toString(), genName);
+         pw.print(wholeScript);
+         pw.close();
+//        System.out.println(out.toString());
     }
 }

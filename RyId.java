@@ -1,5 +1,3 @@
-package src.evaluators;
-
 class RyId extends Value {
 	String value;
 

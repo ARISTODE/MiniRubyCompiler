@@ -1,5 +1,3 @@
-package src.evaluators;
-
 class RyString extends Value {
 	String value;
 
