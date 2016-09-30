@@ -8,3 +8,8 @@ def testFunc2()
   a = 4
   return a
 end
+
+# function call
+a = 3;
+b = 4;
+testFunc2(a,b);

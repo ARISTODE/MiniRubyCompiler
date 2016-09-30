@@ -1,10 +1,20 @@
-class Formatter {	
-	public static String wrap(String sourceStr, String className) {
-		String header = "class " + className + " { \n\tpublic static void main(String[] args) { \n";
-		String tail = "\t}\n}\n";
-		String wholeScript = header + sourceStr + tail;
+class Formatter {
+    public static String wrapClass(String sourceStr, String className) {
+        String header = "class " + className + " {\n\t";
+        return header + sourceStr + "}\n";
+    }
+
+	public static String wrapExpressions(String sourceStr) {
+		String main_function_signiture = "public static void main(String[] args) { \n";
+		String tail = "\t}\n";
+		String wholeScript = main_function_signiture + sourceStr + tail;
 		return wholeScript;	
 	}
+
+	public static String wrapFunctions(String main_function,String sourceStr) {
+        // concat function expressions after mainf_function
+        return main_function += sourceStr;
+    }
 
 	public static void classCastHelper(Value val) {
 		String className = val.getClass().toString().substring(6);

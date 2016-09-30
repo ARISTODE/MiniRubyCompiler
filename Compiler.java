@@ -6,6 +6,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.antlr.v4.runtime.tree.gui.SystemFontMetrics;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Stack;
 
 
@@ -17,14 +18,15 @@ public class Compiler {
         ParseTreeProperty<String> value_store = new ParseTreeProperty<String>();
         // used to store node's
         ParseTreeProperty<String> node_expression = new ParseTreeProperty<String>();
+        // map used to store function params list
+        HashMap<String, Integer> function_definition = new HashMap<>();
 
         // push each line or a block of code into a stack, out_stream will store all extract info of each line
         Stack<ByteArrayOutputStream> stack_out_stream = new Stack<ByteArrayOutputStream>();
         ByteArrayOutputStream main_stream = new ByteArrayOutputStream();
+        ByteArrayOutputStream expression_stream = new ByteArrayOutputStream();
+        ByteArrayOutputStream function_stream = new ByteArrayOutputStream();
         ByteArrayOutputStream error_stream = new ByteArrayOutputStream();
-
-        // used to store errors
-        PrintStream errors = new PrintStream(error_stream);
 
         public static String repeat(String str, int times) {
             if (times <= 0) {
@@ -112,17 +114,33 @@ public class Compiler {
         }
 
         public void printToOutStream(String text) {
-            ByteArrayOutputStream out = stack_out_stream.pop();
-            PrintStream ps = new PrintStream(out);
+//            ByteArrayOutputStream out = stack_out_stream.pop();
+            PrintStream ps = new PrintStream(expression_stream);
             ps.print(text);
-            stack_out_stream.push(out);
+//            stack_out_stream.push(out);
+        }
+
+        public void printToFunctionStream(String text) {
+            PrintStream ps = new PrintStream(function_stream);
+            ps.print(text);
         }
 
         public void printToMainStream(String text) {
-            ByteArrayOutputStream out = main_stream;
-            PrintStream ps = new PrintStream(out);
+//            ByteArrayOutputStream out = main_stream;
+            PrintStream ps = new PrintStream(expression_stream);
             ps.println(text);
-            stack_out_stream.push(out);
+//            stack_out_stream.push(out);
+        }
+
+        public void printToErrorStream(String text) {
+            PrintStream ps = new PrintStream(error_stream);
+            ps.println(text);
+        }
+
+        public int derieveParamNum(String params_expression) {
+            String params = params_expression.substring(1, params_expression.length());
+            String[] param_list = params.split(",");
+            return  param_list.length;
         }
 
 // ======================================  Prog ===============================================
@@ -130,13 +148,16 @@ public class Compiler {
         public void enterProg(RyParser.ProgContext ctx) {
 //            printToMainStream("class {");
             ByteArrayOutputStream out = main_stream;
-            stack_out_stream.push(out);
+//            stack_out_stream.push(out);
         }
 
         public void exitProg(RyParser.ProgContext ctx) {
             String all_expressions = node_expression.get(ctx.getChild(0));
             printToOutStream(all_expressions);
-//            printToMainStream("}  // --- end of translation");
+            stack_out_stream.push(main_stream);
+            stack_out_stream.push(expression_stream);
+            stack_out_stream.push(function_stream);
+            stack_out_stream.push(error_stream);
         }
 
 // ================================  Int  =======================================
@@ -186,18 +207,24 @@ public class Compiler {
             String function_body_expression = node_expression.get(ctx.getChild(1));
             String function_definition_expression = "public static Value " + function_header_expression + function_body_expression;
             node_expression.put(ctx, function_definition_expression);
+            printToFunctionStream(function_definition_expression + "\n");
         }
 
         public void exitFunction_header(RyParser.Function_headerContext ctx) {
             String function_header_expression = "";
             String function_name = node_expression.get(ctx.getChild(1));
+            int param_amount = 0;
             // if has params
             if (ctx.getChild(2).getText().length() > 2) {
                 String function_params_expression = node_expression.get(ctx.getChild(2));
                 function_header_expression = function_name + function_params_expression;
+                param_amount = derieveParamNum(function_params_expression);
             } else {
                 function_header_expression = function_name + "()";
             }
+
+            // record function definition
+            function_definition.put(function_name, param_amount);
             node_expression.put(ctx, function_header_expression);
         }
 
@@ -254,14 +281,34 @@ public class Compiler {
 
     // ================================  Function call  =======================================
         public void exitFunction_call(RyParser.Function_callContext ctx) {
+            String function_call_expression = "";
+            String function_name = node_expression.get(ctx.getChild(0));
+            String param_list_expression = ctx.getChild(2).getText();
+            function_call_expression += function_name;
 
+            int param_amount = derieveParamNum(param_list_expression);
+            int expect_param_amount = function_definition.get(function_name);
+
+            if (param_amount != expect_param_amount) {
+                printToErrorStream("Argument number error: " + "at function " + function_name + "expect " + expect_param_amount + " params, but get " + param_amount + " params");
+            }
+
+            if (!param_list_expression.contains(")")) {
+                function_call_expression += "(" + param_list_expression + ")";
+            } else {
+                function_call_expression += "()";
+            }
+
+            function_call_expression += ";\n";
+            node_expression.put(ctx, function_call_expression);
         }
 
         public void exitFunction_call_param_list(RyParser.Function_call_param_listContext ctx) {
-
+            String function_call_params_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx, function_call_params_expression);
         }
 
-        public void enterFunction_call_params(RyParser.Function_call_paramsContext ctx) {
+        public void exitFunction_call_params(RyParser.Function_call_paramsContext ctx) {
             int child_count = ctx.getChildCount();
             String function_call_params_expression = "";
 
@@ -602,8 +649,11 @@ public class Compiler {
             int child_list_len = ctx.getChildCount() - 1;  // -- eliminate terminator
             String expression_list_expression = "";
             for (int i = 0; i < child_list_len ; i++ ) {
-                // concatnation
-                expression_list_expression += ("\n" + node_expression.get(ctx.getChild(i)));
+                // concatenation
+                String child_expression = node_expression.get(ctx.getChild(i));
+                if (!child_expression.contains("static")) {
+                    expression_list_expression += ("\n" + child_expression);
+                }
             }
 
             node_expression.put(ctx, expression_list_expression);
@@ -659,12 +709,23 @@ public class Compiler {
         Evaluator eval = new Evaluator();
         walker.walk(eval, tree);
 
-        ByteArrayOutputStream out = eval.stack_out_stream.pop();
+        ByteArrayOutputStream errors = eval.stack_out_stream.pop();
+        String errors_msg = errors.toString();
+        // errors checking
+        if (!errors_msg.equals("")) {
+            System.out.println(errors_msg);
+            return;
+        }
+
+        ByteArrayOutputStream out_function = eval.stack_out_stream.pop();
+        ByteArrayOutputStream out_expressions = eval.stack_out_stream.pop();
+
         // put code into file
          FileWriter fw = new FileWriter(currentDir + "/" + genName + ".java");
          PrintWriter pw = new PrintWriter(fw);
 
-         String wholeScript = Formatter.wrap(out.toString(), genName);
+
+         String wholeScript = Formatter.wrapClass(Formatter.wrapFunctions(Formatter.wrapExpressions(out_expressions.toString()), out_function.toString()), genName);
          pw.print(wholeScript);
          pw.close();
 //        System.out.println(out.toString());
