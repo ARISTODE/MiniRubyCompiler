@@ -424,6 +424,18 @@ public class RyBaseListener implements RyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFunction_call_assignment(RyParser.Function_call_assignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunction_call_assignment(RyParser.Function_call_assignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterInt_result(RyParser.Int_resultContext ctx) { }
 	/**
 	 * {@inheritDoc}

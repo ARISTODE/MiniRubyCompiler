@@ -121,7 +121,10 @@ dynamic_result : dynamic_result op=( MUL | DIV | MOD ) int_result
                ;
 
 dynamic : id
+        | function_call_assignment
         ;
+
+function_call_assignment: function_call;
 
 int_result : int_result op=( MUL | DIV | MOD ) int_result
            | int_result op=( PLUS | MINUS ) int_result

@@ -340,6 +340,10 @@ public class Compiler {
             node_expression.put(ctx, named_param_expression);
         }
 
+        public void exitFunction_call_assignment(RyParser.Function_call_assignmentContext ctx) {
+            String function_called_assignment_expression = node_expression.get(ctx.getChild(0));
+            node_expression.put(ctx ,function_called_assignment_expression);
+        }
         // ================================  Float  =======================================
 
         public void exitFloat_assignment(RyParser.Float_assignmentContext ctx) {
@@ -486,7 +490,7 @@ public class Compiler {
             if (ctx.getChildCount() == 3 && ctx.op != null) {
                 String var = node_expression.get(ctx.getChild(0));
                 String dynamic_result_expression = node_expression.get(ctx.getChild(2));
-                // = will not be
+
                 String opr_text = getOprText(ctx.op.getText());
                 String id_expression = generateResultExpression(var, opr_text, dynamic_result_expression);
                 node_expression.put(ctx, id_expression);
@@ -499,6 +503,10 @@ public class Compiler {
 
         public void exitDynamic(RyParser.DynamicContext ctx) {
             String id_expression = node_expression.get(ctx.getChild(0));
+            if (ctx.getChild(0) instanceof RyParser.Function_call_assignmentContext) {
+                // if is function call, strip the last char
+                id_expression = id_expression.substring(0, id_expression.length() - 2);
+            }
             node_expression.put(ctx, id_expression);
         }
 
@@ -521,8 +529,9 @@ public class Compiler {
             if_expression += "\n" + "}";
 
             if (child_4.contains("else") || child_4.contains("elsif")) {
-                String else_expression = node_expression.get(ctx.getChild(4));
-                if_expression += else_expression;
+                String else_token = node_expression.get(ctx.getChild(4));
+                String else_statement_body_expression =  node_expression.get(ctx.getChild(6));
+                if_expression += else_token + "{" + else_statement_body_expression + "\n}";
             }
 
             node_expression.put(ctx, if_expression);
@@ -534,7 +543,20 @@ public class Compiler {
         }
 
         public void exitComparison_list(RyParser.Comparison_listContext ctx) {
-            String comp_list_expression = node_expression.get(ctx.getChild(0));
+            String comp_list_expression = "";
+            int child_count = ctx.getChildCount();
+            if (child_count > 1) {
+                for (int i = 0;i < child_count; i++) {
+                    if (i % 2 != 0) {
+                        comp_list_expression += ctx.getChild(i).getText();
+                    } else {
+                        comp_list_expression += ("(" + node_expression.get(ctx.getChild(i)) + ")");
+                    }
+                }
+            } else {
+                comp_list_expression = node_expression.get(ctx.getChild(0));
+            }
+
             node_expression.put(ctx, comp_list_expression);
         }
 
@@ -577,6 +599,7 @@ public class Compiler {
             if_elseif_expression += "\t" + statement_body_expression + "\n} ";
 
             // there are more else if or else
+
             if (child_num > 4) {
                 if (ctx.getChild(4).getText().contains("else")) {
                     String else_token  = node_expression.get(ctx.getChild(4));
@@ -709,9 +732,9 @@ public class Compiler {
         Evaluator eval = new Evaluator();
         walker.walk(eval, tree);
 
+        // errors checking
         ByteArrayOutputStream errors = eval.stack_out_stream.pop();
         String errors_msg = errors.toString();
-        // errors checking
         if (!errors_msg.equals("")) {
             System.out.println(errors_msg);
             return;

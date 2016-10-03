@@ -348,6 +348,16 @@ public interface RyListener extends ParseTreeListener {
 	 */
 	void exitDynamic(RyParser.DynamicContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RyParser#function_call_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call_assignment(RyParser.Function_call_assignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RyParser#function_call_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call_assignment(RyParser.Function_call_assignmentContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RyParser#int_result}.
 	 * @param ctx the parse tree
 	 */
