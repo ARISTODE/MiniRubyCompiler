@@ -20,6 +20,7 @@ public class Compiler {
         ParseTreeProperty<String> node_expression = new ParseTreeProperty<String>();
         // map used to store function params list
         HashMap<String, Integer> function_definition = new HashMap<>();
+        ParseTreeProperty<Integer> function_param_number = new ParseTreeProperty<>();
 
         // push each line or a block of code into a stack, out_stream will store all extract info of each line
         Stack<ByteArrayOutputStream> stack_out_stream = new Stack<ByteArrayOutputStream>();
@@ -143,6 +144,10 @@ public class Compiler {
             return  param_list.length;
         }
 
+        public void debug(String text) {
+            System.out.println(text);
+        }
+
 // ======================================  Prog ===============================================
 
         public void enterProg(RyParser.ProgContext ctx) {
@@ -189,8 +194,7 @@ public class Compiler {
                 String opr_text = getOprText(ctx.op.getText());
                 String int_result_expression = generateResultExpression(left_expression, opr_text, right_expression);
                 node_expression.put(ctx, int_result_expression);
-            }
-            else if (ctx.getChildCount() == 1) {
+            } else if (ctx.getChildCount() == 1) {
                 String int_result_expression = "new RyInt(" + node_expression.get(ctx.getChild(0)) + ", " + RyParser.INT + ")";
                 node_expression.put(ctx, int_result_expression);
             }
@@ -283,17 +287,17 @@ public class Compiler {
         public void exitFunction_call(RyParser.Function_callContext ctx) {
             String function_call_expression = "";
             String function_name = node_expression.get(ctx.getChild(0));
-            String param_list_expression = ctx.getChild(2).getText();
+            String param_list_expression = node_expression.get(ctx.getChild(2));
             function_call_expression += function_name;
 
-            int param_amount = derieveParamNum(param_list_expression);
+            int param_amount = function_param_number.get(ctx.getChild(2)) == null ? 0 : function_param_number.get(ctx.getChild(2));
             int expect_param_amount = function_definition.get(function_name);
 
             if (param_amount != expect_param_amount) {
-                printToErrorStream("Argument number error: " + "at function " + function_name + "expect " + expect_param_amount + " params, but get " + param_amount + " params");
+                printToErrorStream("Argument number error: " + "at function " + function_name + " expect " + expect_param_amount + " params, but get " + param_amount + " params");
             }
 
-            if (!param_list_expression.contains(")")) {
+            if (param_list_expression != null) {
                 function_call_expression += "(" + param_list_expression + ")";
             } else {
                 function_call_expression += "()";
@@ -305,6 +309,8 @@ public class Compiler {
 
         public void exitFunction_call_param_list(RyParser.Function_call_param_listContext ctx) {
             String function_call_params_expression = node_expression.get(ctx.getChild(0));
+            int params_number = function_param_number.get(ctx.getChild(0));
+            function_param_number.put(ctx, params_number);
             node_expression.put(ctx, function_call_params_expression);
         }
 
@@ -322,16 +328,28 @@ public class Compiler {
                 }
             }
 
+            int all_child_num = 0;
+            if (child_count > 1) {
+                int nested_param_num = function_param_number.get(ctx.getChild(0));
+                int single_param_num = function_param_number.get(ctx.getChild(2));
+                all_child_num = nested_param_num + single_param_num;
+            } else {
+                all_child_num = 1;
+            }
+
+            function_param_number.put(ctx, all_child_num);
             node_expression.put(ctx, function_call_params_expression);
         }
 
         public void exitFunction_param(RyParser.Function_paramContext ctx) {
             String function_param_expression = node_expression.get(ctx.getChild(0));
             node_expression.put(ctx, function_param_expression);
+            function_param_number.put(ctx, 1);
         }
 
         public void exitFunction_call_unnamed_param(RyParser.Function_call_unnamed_paramContext ctx) {
             String unnamed_param_expression = node_expression.get(ctx.getChild(0));
+
             node_expression.put(ctx, unnamed_param_expression);
         }
 

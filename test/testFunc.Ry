@@ -12,4 +12,6 @@ end
 # function call
 a = 3;
 b = 4;
-testFunc2(a,b);
+
+testFunc1(a,b);
+testFunc2();

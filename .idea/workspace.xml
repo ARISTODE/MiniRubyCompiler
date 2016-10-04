@@ -4,61 +4,10 @@
     <list default="true" id="3474e456-3d2d-4403-b8db-4ee41e30472c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compiler$Evaluator.class" afterPath="$PROJECT_DIR$/Compiler$Evaluator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compiler.class" afterPath="$PROJECT_DIR$/Compiler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyBaseListener.class" afterPath="$PROJECT_DIR$/RyBaseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyListener.class" afterPath="$PROJECT_DIR$/RyListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$All_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$All_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$All_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$All_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$AssignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$AssignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Bool_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Bool_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Comp_varContext.class" afterPath="$PROJECT_DIR$/RyParser$Comp_varContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$ComparisonContext.class" afterPath="$PROJECT_DIR$/RyParser$ComparisonContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Comparison_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Comparison_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Cond_expressionContext.class" afterPath="$PROJECT_DIR$/RyParser$Cond_expressionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$CrlfContext.class" afterPath="$PROJECT_DIR$/RyParser$CrlfContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$DynamicContext.class" afterPath="$PROJECT_DIR$/RyParser$DynamicContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Dynamic_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$Dynamic_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Dynamic_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$Dynamic_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Else_tokenContext.class" afterPath="$PROJECT_DIR$/RyParser$Else_tokenContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Elsif_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$Elsif_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$ExpressionContext.class" afterPath="$PROJECT_DIR$/RyParser$ExpressionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Expression_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Expression_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Float_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$Float_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Float_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$Float_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Float_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Float_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$For_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$For_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_bodyContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_bodyContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_definitionContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_definitionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_definition_param_idContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_definition_param_idContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_definition_param_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_definition_param_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_headerContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_headerContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_nameContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_nameContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Function_paramsContext.class" afterPath="$PROJECT_DIR$/RyParser$Function_paramsContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$IdContext.class" afterPath="$PROJECT_DIR$/RyParser$IdContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$If_elsif_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$If_elsif_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$If_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$If_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Int_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$Int_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Int_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$Int_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Int_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Int_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Literal_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Literal_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$LvalueContext.class" afterPath="$PROJECT_DIR$/RyParser$LvalueContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Nil_tContext.class" afterPath="$PROJECT_DIR$/RyParser$Nil_tContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$ProgContext.class" afterPath="$PROJECT_DIR$/RyParser$ProgContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Return_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$Return_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$RvalueContext.class" afterPath="$PROJECT_DIR$/RyParser$RvalueContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Statement_bodyContext.class" afterPath="$PROJECT_DIR$/RyParser$Statement_bodyContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$Statement_expression_listContext.class" afterPath="$PROJECT_DIR$/RyParser$Statement_expression_listContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$String_assignmentContext.class" afterPath="$PROJECT_DIR$/RyParser$String_assignmentContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$String_resultContext.class" afterPath="$PROJECT_DIR$/RyParser$String_resultContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$TerminatorContext.class" afterPath="$PROJECT_DIR$/RyParser$TerminatorContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser$While_statementContext.class" afterPath="$PROJECT_DIR$/RyParser$While_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser.class" afterPath="$PROJECT_DIR$/RyParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compiler.java" afterPath="$PROJECT_DIR$/Compiler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ry.g4" afterPath="$PROJECT_DIR$/Ry.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyBaseListener.java" afterPath="$PROJECT_DIR$/RyBaseListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyListener.java" afterPath="$PROJECT_DIR$/RyListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RyParser.java" afterPath="$PROJECT_DIR$/RyParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fib.Ry" afterPath="$PROJECT_DIR$/test/fib.Ry" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fib.java" afterPath="$PROJECT_DIR$/test/fib.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testFunc.Ry" afterPath="$PROJECT_DIR$/test/testFunc.Ry" />
     </list>
     <ignored path="MiniRubyCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,8 +32,8 @@
       <file leaf-file-name="Compiler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Compiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="301" column="44" selection-start-line="301" selection-start-column="44" selection-end-line="301" selection-end-column="44" />
+            <state relative-caret-position="156">
+              <caret line="292" column="10" selection-start-line="292" selection-start-column="10" selection-end-line="292" selection-end-column="10" />
               <folding>
                 <element signature="method#getCompareText#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
                 <element signature="method#getAssignOprText#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
@@ -93,28 +42,18 @@
                 <element signature="method#printToFunctionStream#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
                 <element signature="method#printToMainStream#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
                 <element signature="method#printToErrorStream#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-                <element signature="method#exitFunction_call_param_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-                <element signature="method#exitFunction_call_params#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
+                <element signature="e#5068#5069#0" expanded="true" />
+                <element signature="e#5116#5117#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ry.g4" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ry.g4">
+      <file leaf-file-name="fib.Ry" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/fib.Ry">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="73" column="55" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RyBaseListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RyBaseListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="432" column="95" selection-start-line="432" selection-start-column="55" selection-end-line="432" selection-end-column="95" />
+            <state relative-caret-position="272">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -180,8 +119,10 @@
     <scope name="*.class" pattern="" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="-174" />
+    <option name="y" value="-900" />
+    <option name="width" value="1600" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -208,9 +149,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,6 +168,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="MiniRubyCompiler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiniRubyCompiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiniRubyCompiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiniRubyCompiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiniRubyCompiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fib.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -522,7 +495,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="-174" y="-900" width="1600" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -533,10 +506,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19716312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.023602484" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16262136" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1625964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24935733" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -603,20 +576,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RyBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Compiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15164">
-          <caret line="530" column="50" selection-start-line="530" selection-start-column="50" selection-end-line="530" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Value.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -752,13 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RyBaseListener.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -799,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,10 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#150#151#0" expanded="false" />
-            <element signature="e#174#175#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,10 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -844,7 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,10 +806,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/fib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RyParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="3224" column="24" selection-start-line="3224" selection-start-column="24" selection-end-line="3224" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="301" column="44" selection-start-line="301" selection-start-column="44" selection-end-line="301" selection-end-column="44" />
+        <state relative-caret-position="156">
+          <caret line="292" column="10" selection-start-line="292" selection-start-column="10" selection-end-line="292" selection-end-column="10" />
           <folding>
             <element signature="method#getCompareText#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#getAssignOprText#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
@@ -876,9 +833,17 @@
             <element signature="method#printToFunctionStream#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#printToMainStream#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
             <element signature="method#printToErrorStream#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitFunction_call_param_list#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
-            <element signature="method#exitFunction_call_params#0;class#Evaluator#0;class#Compiler#0" expanded="false" />
+            <element signature="e#5068#5069#0" expanded="true" />
+            <element signature="e#5116#5117#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fib.Ry">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
