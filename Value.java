@@ -17,7 +17,7 @@ public class Value {
         return other;
     }
 
-    public Value mins(Value other) {
+    public Value min(Value other) {
         return other;
     }
 
@@ -31,5 +31,24 @@ public class Value {
 
     public Value mod(Value other) {
         return other;
+    }
+
+    public int compareTo(Value other) {
+        int ret_res = 0;
+        // cast self type
+        switch (this.TAG) {
+            case RyParser.INT:
+                ret_res = ((RyInt)this).compareTo(other);
+            case RyParser.FLOAT:
+                ret_res = ((RyFloat)this).compareTo(other);
+            case RyParser.LITERAL:
+                // TODO: throw type exception error
+                break;
+            case RyParser.ID:
+                // TODO: throw type exception error
+                break;
+        }
+
+        return ret_res;
     }
 }

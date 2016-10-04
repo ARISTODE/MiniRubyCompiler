@@ -1,8 +1,8 @@
-class test/fib {
+class fib {
 	public static void main(String[] args) { 
 
 
-fib(new RyInt(4, 50));
+	Formatter.classCastHelper(fib(new RyInt(4, 50)));
 	}
 public static Value fib(Value n){ 	
 if ((n.compareTo(new RyInt(1, 50))  == 0)||(n.compareTo(new RyInt(0, 50))  == 0)) {		

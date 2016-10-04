@@ -29,7 +29,7 @@ public class RyFloat extends Value {
 		return new RyString(this.value + ((RyString)other).getValue(), RyLexer.LITERAL);
 	}
 
-	public Value mins (Value other) {
+	public Value min (Value other) {
 		if (TAG == other.getTag()) {
 		    // both are float
 			return new RyFloat(this.value - ((RyFloat)other).getValue() ,this.TAG);
@@ -80,4 +80,11 @@ public class RyFloat extends Value {
 		return new RyFloat(this.value % ((RyFloat)other).getValue() ,this.TAG);
 	}
 
+	public int compareTo(Value other) {
+		if (other.getTag() == RyLexer.INT) {
+			return (int)(this.value - ((RyInt)other).getValue());
+		}
+		// no minus for int and string, type cast exception
+		return (int)(this.value - ((RyFloat)other).getValue());
+	}
 }

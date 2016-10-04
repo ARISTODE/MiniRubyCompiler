@@ -27,7 +27,7 @@ public class RyInt extends Value {
 
 	}
 
-	public Value mins (Value other) {
+	public Value min (Value other) {
 		if (TAG == other.getTag()) {
 			    // both are int
 			return new RyInt(this.value - ((RyInt)other).getValue() ,this.TAG);
@@ -82,4 +82,11 @@ public class RyInt extends Value {
 		return new RyInt(this.value + ((RyInt)other).getValue() ,this.TAG);
 	}
 
+	public int compareTo(Value other) {
+		if (other.getTag() == RyLexer.FLOAT) {
+			return this.value - (int)((RyFloat)other).getValue();
+		}
+		// no minus for int and string, type cast exception
+		return this.value - ((RyInt)other).getValue();
+	}
 }
