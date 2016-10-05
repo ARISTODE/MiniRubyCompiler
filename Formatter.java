@@ -12,7 +12,7 @@ class Formatter {
 	}
 
 	public static String wrapFunctions(String main_function,String sourceStr) {
-        // concat function expressions after mainf_function
+        // concat function expressions after main_function
         return main_function += sourceStr;
     }
 

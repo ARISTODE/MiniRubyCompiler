@@ -89,4 +89,8 @@ public class RyInt extends Value {
 		// no minus for int and string, type cast exception
 		return this.value - ((RyInt)other).getValue();
 	}
+
+	public String toString() {
+		return this.getValue() + "";
+	}
 }

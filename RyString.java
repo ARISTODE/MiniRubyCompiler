@@ -1,3 +1,5 @@
+import Exceptions.TypeException;
+
 class RyString extends Value {
 	String value;
 
@@ -28,6 +30,17 @@ class RyString extends Value {
 	public Value mul(Value other) {
 		return other;
 	}
+
+	public int compareTo(Value other)throws TypeException {
+        if (this.TAG != other.getTag()) {
+            throw new TypeException("comparison of String with" + other.toString()  + "failed (ArgumentTypeError) ");
+        }
+        return this.getValue().compareTo(((RyString)other).getValue());
+    }
+
+    public String toString() {
+        return this.getValue();
+    }
 }
 
 

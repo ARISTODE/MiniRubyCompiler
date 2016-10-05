@@ -87,4 +87,8 @@ public class RyFloat extends Value {
 		// no minus for int and string, type cast exception
 		return (int)(this.value - ((RyFloat)other).getValue());
 	}
+
+	public String toString() {
+		return this.getValue() + "";
+	}
 }

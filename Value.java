@@ -1,3 +1,7 @@
+import Exceptions.*;
+
+import java.lang.reflect.Type;
+
 public class Value {
     int TAG;
 
@@ -42,13 +46,28 @@ public class Value {
             case RyParser.FLOAT:
                 ret_res = ((RyFloat)this).compareTo(other);
             case RyParser.LITERAL:
-                // TODO: throw type exception error
-                break;
-            case RyParser.ID:
-                // TODO: throw type exception error
-                break;
+                try {
+                    ret_res = ((RyString)this).compareTo(other);
+                } catch (TypeException e) {
+                    System.out.println(e.toString());
+                }
         }
 
         return ret_res;
+    }
+
+    public String toString() {
+        String ret_str = "";
+        switch (this.TAG) {
+            case RyParser.INT:
+                ret_str = ((RyInt)this).toString();
+                break;
+            case RyParser.FLOAT:
+                ret_str = ((RyFloat)this).toString();
+                break;
+            case RyParser.LITERAL:
+                ret_str = ((RyString)this).toString();
+        }
+        return ret_str;
     }
 }

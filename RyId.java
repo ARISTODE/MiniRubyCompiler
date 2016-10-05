@@ -13,5 +13,9 @@ class RyId extends Value {
 	public void setValue() {
 		this.value = value;
 	}
+
+	public String toString() {
+		return this.getValue() + "";
+	}
 }
 	
