@@ -15,8 +15,12 @@ expression : function_definition
            | comparison_list
            | rvalue
            | return_statement
+           | puts_call
            ;
 
+puts_call: puts function_call
+         | puts rvalue
+         ;
 //  function definitions
 function_definition: function_header function_body END;
 
@@ -291,3 +295,5 @@ WS : (' '|'\t')+ -> skip;
 INT : [0-9]+;
 FLOAT : [0-9]*'.'[0-9]+;
 ID : [a-zA-Z_][a-zA-Z0-9_]*;
+
+puts: 'puts';

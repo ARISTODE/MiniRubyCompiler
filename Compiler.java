@@ -715,6 +715,12 @@ public class Compiler {
             String child_expression = node_expression.get(ctx.getChild(0));
             node_expression.put(ctx, child_expression);
         }
+
+        //  ================================ Puts call =====================================
+        public void exitPuts_call(RyParser.Puts_callContext ctx) {
+            String expression_to_print = node_expression.get(ctx.getChild(1));
+            node_expression.put(ctx, "Formatter.classCastHelper(" + expression_to_print.substring(0, expression_to_print.length() - 2) + ");\n");
+        }
     }
 
     public static String retriveDir(String fileName) {

@@ -16,36 +16,37 @@ public class RyParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		LITERAL=1, COMMA=2, SEMICOLON=3, CRLF=4, END=5, DEF=6, IF=7, ELSE=8, ELSIF=9, 
-		UNLESS=10, WHILE=11, RETRY=12, BREAK=13, FOR=14, TRUE=15, FALSE=16, PLUS=17, 
-		MINUS=18, MUL=19, DIV=20, MOD=21, EXP=22, ASSIGN=23, PLUS_ASSIGN=24, MINUS_ASSIGN=25, 
-		MUL_ASSIGN=26, DIV_ASSIGN=27, MOD_ASSIGN=28, EXP_ASSIGN=29, EQUAL=30, 
-		NOT_EQUAL=31, GREATER=32, LESS=33, LESS_EQUAL=34, GREATER_EQUAL=35, AND=36, 
-		OR=37, NOT=38, IN=39, DOTS=40, LEFT_RBRACKET=41, RIGHT_RBRACKET=42, LEFT_SBRACKET=43, 
-		RIGHT_SBRACKET=44, NIL=45, RETURN=46, SL_COMMENT=47, ML_COMMENT=48, WS=49, 
-		INT=50, FLOAT=51, ID=52;
+		T__0=1, LITERAL=2, COMMA=3, SEMICOLON=4, CRLF=5, END=6, DEF=7, IF=8, ELSE=9, 
+		ELSIF=10, UNLESS=11, WHILE=12, RETRY=13, BREAK=14, FOR=15, TRUE=16, FALSE=17, 
+		PLUS=18, MINUS=19, MUL=20, DIV=21, MOD=22, EXP=23, ASSIGN=24, PLUS_ASSIGN=25, 
+		MINUS_ASSIGN=26, MUL_ASSIGN=27, DIV_ASSIGN=28, MOD_ASSIGN=29, EXP_ASSIGN=30, 
+		EQUAL=31, NOT_EQUAL=32, GREATER=33, LESS=34, LESS_EQUAL=35, GREATER_EQUAL=36, 
+		AND=37, OR=38, NOT=39, IN=40, DOTS=41, LEFT_RBRACKET=42, RIGHT_RBRACKET=43, 
+		LEFT_SBRACKET=44, RIGHT_SBRACKET=45, NIL=46, RETURN=47, SL_COMMENT=48, 
+		ML_COMMENT=49, WS=50, INT=51, FLOAT=52, ID=53;
 	public static final int
-		RULE_prog = 0, RULE_expression_list = 1, RULE_expression = 2, RULE_function_definition = 3, 
-		RULE_function_header = 4, RULE_return_statement = 5, RULE_function_body = 6, 
-		RULE_function_name = 7, RULE_function_params = 8, RULE_function_definition_param_list = 9, 
-		RULE_function_definition_param_id = 10, RULE_function_call = 11, RULE_function_call_param_list = 12, 
-		RULE_function_call_params = 13, RULE_function_param = 14, RULE_function_call_unnamed_param = 15, 
-		RULE_function_call_named_param = 16, RULE_all_result = 17, RULE_while_statement = 18, 
-		RULE_for_statement = 19, RULE_elsif_statement = 20, RULE_if_elsif_statement = 21, 
-		RULE_if_statement = 22, RULE_all_assignment = 23, RULE_cond_expression = 24, 
-		RULE_statement_body = 25, RULE_statement_expression_list = 26, RULE_assignment = 27, 
-		RULE_dynamic_assignment = 28, RULE_int_assignment = 29, RULE_float_assignment = 30, 
-		RULE_string_assignment = 31, RULE_dynamic_result = 32, RULE_dynamic = 33, 
-		RULE_function_call_assignment = 34, RULE_int_result = 35, RULE_float_result = 36, 
-		RULE_string_result = 37, RULE_comparison_list = 38, RULE_comparison = 39, 
-		RULE_comp_var = 40, RULE_lvalue = 41, RULE_rvalue = 42, RULE_literal_t = 43, 
-		RULE_float_t = 44, RULE_int_t = 45, RULE_bool_t = 46, RULE_nil_t = 47, 
-		RULE_id = 48, RULE_terminator = 49, RULE_else_token = 50, RULE_crlf = 51;
+		RULE_prog = 0, RULE_expression_list = 1, RULE_expression = 2, RULE_puts_call = 3, 
+		RULE_function_definition = 4, RULE_function_header = 5, RULE_return_statement = 6, 
+		RULE_function_body = 7, RULE_function_name = 8, RULE_function_params = 9, 
+		RULE_function_definition_param_list = 10, RULE_function_definition_param_id = 11, 
+		RULE_function_call = 12, RULE_function_call_param_list = 13, RULE_function_call_params = 14, 
+		RULE_function_param = 15, RULE_function_call_unnamed_param = 16, RULE_function_call_named_param = 17, 
+		RULE_all_result = 18, RULE_while_statement = 19, RULE_for_statement = 20, 
+		RULE_elsif_statement = 21, RULE_if_elsif_statement = 22, RULE_if_statement = 23, 
+		RULE_all_assignment = 24, RULE_cond_expression = 25, RULE_statement_body = 26, 
+		RULE_statement_expression_list = 27, RULE_assignment = 28, RULE_dynamic_assignment = 29, 
+		RULE_int_assignment = 30, RULE_float_assignment = 31, RULE_string_assignment = 32, 
+		RULE_dynamic_result = 33, RULE_dynamic = 34, RULE_function_call_assignment = 35, 
+		RULE_int_result = 36, RULE_float_result = 37, RULE_string_result = 38, 
+		RULE_comparison_list = 39, RULE_comparison = 40, RULE_comp_var = 41, RULE_lvalue = 42, 
+		RULE_rvalue = 43, RULE_literal_t = 44, RULE_float_t = 45, RULE_int_t = 46, 
+		RULE_bool_t = 47, RULE_nil_t = 48, RULE_id = 49, RULE_terminator = 50, 
+		RULE_else_token = 51, RULE_crlf = 52, RULE_puts = 53;
 	public static final String[] ruleNames = {
-		"prog", "expression_list", "expression", "function_definition", "function_header", 
-		"return_statement", "function_body", "function_name", "function_params", 
-		"function_definition_param_list", "function_definition_param_id", "function_call", 
-		"function_call_param_list", "function_call_params", "function_param", 
+		"prog", "expression_list", "expression", "puts_call", "function_definition", 
+		"function_header", "return_statement", "function_body", "function_name", 
+		"function_params", "function_definition_param_list", "function_definition_param_id", 
+		"function_call", "function_call_param_list", "function_call_params", "function_param", 
 		"function_call_unnamed_param", "function_call_named_param", "all_result", 
 		"while_statement", "for_statement", "elsif_statement", "if_elsif_statement", 
 		"if_statement", "all_assignment", "cond_expression", "statement_body", 
@@ -54,20 +55,20 @@ public class RyParser extends Parser {
 		"function_call_assignment", "int_result", "float_result", "string_result", 
 		"comparison_list", "comparison", "comp_var", "lvalue", "rvalue", "literal_t", 
 		"float_t", "int_t", "bool_t", "nil_t", "id", "terminator", "else_token", 
-		"crlf"
+		"crlf", "puts"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, "','", "';'", "'\n'", "'end'", "'def'", "'if'", "'else'", 
-		"'elsif'", "'unless'", "'while'", "'retry'", "'break'", "'for'", "'true'", 
-		"'false'", "'+'", "'-'", "'*'", "'/'", "'%'", "'**'", "'='", "'+='", "'-='", 
-		"'*='", "'/='", "'%='", "'**='", "'=='", "'!='", "'>'", "'<'", "'<='", 
-		"'>='", null, null, null, "'in'", "'..'", "'('", "')'", "'['", "']'", 
-		"'nil'", "'return'"
+		null, "'puts'", null, "','", "';'", "'\n'", "'end'", "'def'", "'if'", 
+		"'else'", "'elsif'", "'unless'", "'while'", "'retry'", "'break'", "'for'", 
+		"'true'", "'false'", "'+'", "'-'", "'*'", "'/'", "'%'", "'**'", "'='", 
+		"'+='", "'-='", "'*='", "'/='", "'%='", "'**='", "'=='", "'!='", "'>'", 
+		"'<'", "'<='", "'>='", null, null, null, "'in'", "'..'", "'('", "')'", 
+		"'['", "']'", "'nil'", "'return'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "LITERAL", "COMMA", "SEMICOLON", "CRLF", "END", "DEF", "IF", "ELSE", 
-		"ELSIF", "UNLESS", "WHILE", "RETRY", "BREAK", "FOR", "TRUE", "FALSE", 
+		null, null, "LITERAL", "COMMA", "SEMICOLON", "CRLF", "END", "DEF", "IF", 
+		"ELSE", "ELSIF", "UNLESS", "WHILE", "RETRY", "BREAK", "FOR", "TRUE", "FALSE", 
 		"PLUS", "MINUS", "MUL", "DIV", "MOD", "EXP", "ASSIGN", "PLUS_ASSIGN", 
 		"MINUS_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", "EXP_ASSIGN", 
 		"EQUAL", "NOT_EQUAL", "GREATER", "LESS", "LESS_EQUAL", "GREATER_EQUAL", 
@@ -148,7 +149,7 @@ public class RyParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104);
+			setState(108);
 			expression_list(0);
 			}
 		}
@@ -202,8 +203,9 @@ public class RyParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(111);
+			setState(115);
 			switch (_input.LA(1)) {
+			case T__0:
 			case LITERAL:
 			case DEF:
 			case IF:
@@ -219,16 +221,16 @@ public class RyParser extends Parser {
 			case FLOAT:
 			case ID:
 				{
-				setState(107);
+				setState(111);
 				expression();
-				setState(108);
+				setState(112);
 				terminator(0);
 				}
 				break;
 			case SEMICOLON:
 			case CRLF:
 				{
-				setState(110);
+				setState(114);
 				terminator(0);
 				}
 				break;
@@ -236,7 +238,7 @@ public class RyParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(119);
+			setState(123);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -247,16 +249,16 @@ public class RyParser extends Parser {
 					{
 					_localctx = new Expression_listContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_expression_list);
-					setState(113);
+					setState(117);
 					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(114);
+					setState(118);
 					expression();
-					setState(115);
+					setState(119);
 					terminator(0);
 					}
 					} 
 				}
-				setState(121);
+				setState(125);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			}
@@ -298,6 +300,9 @@ public class RyParser extends Parser {
 		public Return_statementContext return_statement() {
 			return getRuleContext(Return_statementContext.class,0);
 		}
+		public Puts_callContext puts_call() {
+			return getRuleContext(Puts_callContext.class,0);
+		}
 		public ExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -316,62 +321,130 @@ public class RyParser extends Parser {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_expression);
 		try {
-			setState(130);
+			setState(135);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(122);
+				setState(126);
 				function_definition();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(123);
+				setState(127);
 				function_call();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(124);
+				setState(128);
 				for_statement();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(125);
+				setState(129);
 				while_statement();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(126);
+				setState(130);
 				if_statement();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(127);
+				setState(131);
 				comparison_list();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(128);
+				setState(132);
 				rvalue(0);
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(129);
+				setState(133);
 				return_statement();
+				}
+				break;
+			case 9:
+				enterOuterAlt(_localctx, 9);
+				{
+				setState(134);
+				puts_call();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Puts_callContext extends ParserRuleContext {
+		public PutsContext puts() {
+			return getRuleContext(PutsContext.class,0);
+		}
+		public Function_callContext function_call() {
+			return getRuleContext(Function_callContext.class,0);
+		}
+		public RvalueContext rvalue() {
+			return getRuleContext(RvalueContext.class,0);
+		}
+		public Puts_callContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_puts_call; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof RyListener ) ((RyListener)listener).enterPuts_call(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof RyListener ) ((RyListener)listener).exitPuts_call(this);
+		}
+	}
+
+	public final Puts_callContext puts_call() throws RecognitionException {
+		Puts_callContext _localctx = new Puts_callContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_puts_call);
+		try {
+			setState(143);
+			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(137);
+				puts();
+				setState(138);
+				function_call();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(140);
+				puts();
+				setState(141);
+				rvalue(0);
 				}
 				break;
 			}
@@ -411,15 +484,15 @@ public class RyParser extends Parser {
 
 	public final Function_definitionContext function_definition() throws RecognitionException {
 		Function_definitionContext _localctx = new Function_definitionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_function_definition);
+		enterRule(_localctx, 8, RULE_function_definition);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(132);
+			setState(145);
 			function_header();
-			setState(133);
+			setState(146);
 			function_body();
-			setState(134);
+			setState(147);
 			match(END);
 			}
 		}
@@ -461,31 +534,31 @@ public class RyParser extends Parser {
 
 	public final Function_headerContext function_header() throws RecognitionException {
 		Function_headerContext _localctx = new Function_headerContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_function_header);
+		enterRule(_localctx, 10, RULE_function_header);
 		try {
-			setState(145);
-			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+			setState(158);
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(136);
+				setState(149);
 				match(DEF);
-				setState(137);
+				setState(150);
 				function_name();
-				setState(138);
+				setState(151);
 				crlf();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(140);
+				setState(153);
 				match(DEF);
-				setState(141);
+				setState(154);
 				function_name();
-				setState(142);
+				setState(155);
 				function_params();
-				setState(143);
+				setState(156);
 				crlf();
 				}
 				break;
@@ -523,13 +596,13 @@ public class RyParser extends Parser {
 
 	public final Return_statementContext return_statement() throws RecognitionException {
 		Return_statementContext _localctx = new Return_statementContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_return_statement);
+		enterRule(_localctx, 12, RULE_return_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(147);
+			setState(160);
 			match(RETURN);
-			setState(148);
+			setState(161);
 			all_result();
 			}
 		}
@@ -564,11 +637,11 @@ public class RyParser extends Parser {
 
 	public final Function_bodyContext function_body() throws RecognitionException {
 		Function_bodyContext _localctx = new Function_bodyContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_function_body);
+		enterRule(_localctx, 14, RULE_function_body);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(150);
+			setState(163);
 			expression_list(0);
 			}
 		}
@@ -603,11 +676,11 @@ public class RyParser extends Parser {
 
 	public final Function_nameContext function_name() throws RecognitionException {
 		Function_nameContext _localctx = new Function_nameContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_function_name);
+		enterRule(_localctx, 16, RULE_function_name);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(152);
+			setState(165);
 			id();
 			}
 		}
@@ -644,34 +717,34 @@ public class RyParser extends Parser {
 
 	public final Function_paramsContext function_params() throws RecognitionException {
 		Function_paramsContext _localctx = new Function_paramsContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_function_params);
+		enterRule(_localctx, 18, RULE_function_params);
 		try {
-			setState(161);
-			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			setState(174);
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(154);
+				setState(167);
 				match(LEFT_RBRACKET);
-				setState(155);
+				setState(168);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(156);
+				setState(169);
 				match(LEFT_RBRACKET);
-				setState(157);
+				setState(170);
 				function_definition_param_list(0);
-				setState(158);
+				setState(171);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(160);
+				setState(173);
 				function_definition_param_list(0);
 				}
 				break;
@@ -719,20 +792,20 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		Function_definition_param_listContext _localctx = new Function_definition_param_listContext(_ctx, _parentState);
 		Function_definition_param_listContext _prevctx = _localctx;
-		int _startState = 18;
-		enterRecursionRule(_localctx, 18, RULE_function_definition_param_list, _p);
+		int _startState = 20;
+		enterRecursionRule(_localctx, 20, RULE_function_definition_param_list, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(164);
+			setState(177);
 			function_definition_param_id();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(171);
+			setState(184);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -741,18 +814,18 @@ public class RyParser extends Parser {
 					{
 					_localctx = new Function_definition_param_listContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_function_definition_param_list);
-					setState(166);
+					setState(179);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(167);
+					setState(180);
 					match(COMMA);
-					setState(168);
+					setState(181);
 					function_definition_param_id();
 					}
 					} 
 				}
-				setState(173);
+				setState(186);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			}
 			}
 		}
@@ -787,11 +860,11 @@ public class RyParser extends Parser {
 
 	public final Function_definition_param_idContext function_definition_param_id() throws RecognitionException {
 		Function_definition_param_idContext _localctx = new Function_definition_param_idContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_function_definition_param_id);
+		enterRule(_localctx, 22, RULE_function_definition_param_id);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(174);
+			setState(187);
 			id();
 			}
 		}
@@ -833,40 +906,40 @@ public class RyParser extends Parser {
 
 	public final Function_callContext function_call() throws RecognitionException {
 		Function_callContext _localctx = new Function_callContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_function_call);
+		enterRule(_localctx, 24, RULE_function_call);
 		try {
-			setState(188);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			setState(201);
+			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(176);
+				setState(189);
 				((Function_callContext)_localctx).name = function_name();
-				setState(177);
+				setState(190);
 				match(LEFT_RBRACKET);
-				setState(178);
+				setState(191);
 				((Function_callContext)_localctx).params = function_call_param_list();
-				setState(179);
+				setState(192);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(181);
+				setState(194);
 				((Function_callContext)_localctx).name = function_name();
-				setState(182);
+				setState(195);
 				((Function_callContext)_localctx).params = function_call_param_list();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(184);
+				setState(197);
 				((Function_callContext)_localctx).name = function_name();
-				setState(185);
+				setState(198);
 				match(LEFT_RBRACKET);
-				setState(186);
+				setState(199);
 				match(RIGHT_RBRACKET);
 				}
 				break;
@@ -903,11 +976,11 @@ public class RyParser extends Parser {
 
 	public final Function_call_param_listContext function_call_param_list() throws RecognitionException {
 		Function_call_param_listContext _localctx = new Function_call_param_listContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_function_call_param_list);
+		enterRule(_localctx, 26, RULE_function_call_param_list);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(190);
+			setState(203);
 			function_call_params(0);
 			}
 		}
@@ -953,20 +1026,20 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		Function_call_paramsContext _localctx = new Function_call_paramsContext(_ctx, _parentState);
 		Function_call_paramsContext _prevctx = _localctx;
-		int _startState = 26;
-		enterRecursionRule(_localctx, 26, RULE_function_call_params, _p);
+		int _startState = 28;
+		enterRecursionRule(_localctx, 28, RULE_function_call_params, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(193);
+			setState(206);
 			function_param();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(200);
+			setState(213);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -975,18 +1048,18 @@ public class RyParser extends Parser {
 					{
 					_localctx = new Function_call_paramsContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_function_call_params);
-					setState(195);
+					setState(208);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(196);
+					setState(209);
 					match(COMMA);
-					setState(197);
+					setState(210);
 					function_param();
 					}
 					} 
 				}
-				setState(202);
+				setState(215);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
 			}
 		}
@@ -1024,21 +1097,21 @@ public class RyParser extends Parser {
 
 	public final Function_paramContext function_param() throws RecognitionException {
 		Function_paramContext _localctx = new Function_paramContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_function_param);
+		enterRule(_localctx, 30, RULE_function_param);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(205);
-			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+			setState(218);
+			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				{
-				setState(203);
+				setState(216);
 				function_call_unnamed_param();
 				}
 				break;
 			case 2:
 				{
-				setState(204);
+				setState(217);
 				function_call_named_param();
 				}
 				break;
@@ -1076,11 +1149,11 @@ public class RyParser extends Parser {
 
 	public final Function_call_unnamed_paramContext function_call_unnamed_param() throws RecognitionException {
 		Function_call_unnamed_paramContext _localctx = new Function_call_unnamed_paramContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_function_call_unnamed_param);
+		enterRule(_localctx, 32, RULE_function_call_unnamed_param);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(207);
+			setState(220);
 			all_result();
 			}
 		}
@@ -1120,15 +1193,15 @@ public class RyParser extends Parser {
 
 	public final Function_call_named_paramContext function_call_named_param() throws RecognitionException {
 		Function_call_named_paramContext _localctx = new Function_call_named_paramContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_function_call_named_param);
+		enterRule(_localctx, 34, RULE_function_call_named_param);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(209);
+			setState(222);
 			id();
-			setState(210);
+			setState(223);
 			((Function_call_named_paramContext)_localctx).op = match(ASSIGN);
-			setState(211);
+			setState(224);
 			all_result();
 			}
 		}
@@ -1172,33 +1245,33 @@ public class RyParser extends Parser {
 
 	public final All_resultContext all_result() throws RecognitionException {
 		All_resultContext _localctx = new All_resultContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_all_result);
+		enterRule(_localctx, 36, RULE_all_result);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(217);
-			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+			setState(230);
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				{
-				setState(213);
+				setState(226);
 				int_result(0);
 				}
 				break;
 			case 2:
 				{
-				setState(214);
+				setState(227);
 				float_result(0);
 				}
 				break;
 			case 3:
 				{
-				setState(215);
+				setState(228);
 				string_result(0);
 				}
 				break;
 			case 4:
 				{
-				setState(216);
+				setState(229);
 				dynamic_result(0);
 				}
 				break;
@@ -1244,19 +1317,19 @@ public class RyParser extends Parser {
 
 	public final While_statementContext while_statement() throws RecognitionException {
 		While_statementContext _localctx = new While_statementContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_while_statement);
+		enterRule(_localctx, 38, RULE_while_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(219);
+			setState(232);
 			match(WHILE);
-			setState(220);
+			setState(233);
 			cond_expression();
-			setState(221);
+			setState(234);
 			crlf();
-			setState(222);
+			setState(235);
 			statement_body();
-			setState(223);
+			setState(236);
 			match(END);
 			}
 		}
@@ -1309,31 +1382,31 @@ public class RyParser extends Parser {
 
 	public final For_statementContext for_statement() throws RecognitionException {
 		For_statementContext _localctx = new For_statementContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_for_statement);
+		enterRule(_localctx, 40, RULE_for_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(225);
+			setState(238);
 			match(FOR);
-			setState(226);
+			setState(239);
 			id();
-			setState(227);
+			setState(240);
 			match(IN);
-			setState(228);
+			setState(241);
 			match(LEFT_RBRACKET);
-			setState(229);
+			setState(242);
 			int_t();
-			setState(230);
+			setState(243);
 			match(DOTS);
-			setState(231);
+			setState(244);
 			int_t();
-			setState(232);
+			setState(245);
 			match(RIGHT_RBRACKET);
-			setState(233);
+			setState(246);
 			crlf();
-			setState(234);
+			setState(247);
 			statement_body();
-			setState(235);
+			setState(248);
 			match(END);
 			}
 		}
@@ -1368,11 +1441,11 @@ public class RyParser extends Parser {
 
 	public final Elsif_statementContext elsif_statement() throws RecognitionException {
 		Elsif_statementContext _localctx = new Elsif_statementContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_elsif_statement);
+		enterRule(_localctx, 42, RULE_elsif_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(237);
+			setState(250);
 			if_elsif_statement();
 			}
 		}
@@ -1426,44 +1499,12 @@ public class RyParser extends Parser {
 
 	public final If_elsif_statementContext if_elsif_statement() throws RecognitionException {
 		If_elsif_statementContext _localctx = new If_elsif_statementContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_if_elsif_statement);
+		enterRule(_localctx, 44, RULE_if_elsif_statement);
 		try {
-			setState(258);
-			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+			setState(271);
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
-				{
-				setState(239);
-				match(ELSIF);
-				setState(240);
-				cond_expression();
-				setState(241);
-				crlf();
-				setState(242);
-				statement_body();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(244);
-				match(ELSIF);
-				setState(245);
-				cond_expression();
-				setState(246);
-				crlf();
-				setState(247);
-				statement_body();
-				setState(248);
-				else_token();
-				setState(249);
-				crlf();
-				setState(250);
-				statement_body();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
 				{
 				setState(252);
 				match(ELSIF);
@@ -1473,7 +1514,39 @@ public class RyParser extends Parser {
 				crlf();
 				setState(255);
 				statement_body();
-				setState(256);
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(257);
+				match(ELSIF);
+				setState(258);
+				cond_expression();
+				setState(259);
+				crlf();
+				setState(260);
+				statement_body();
+				setState(261);
+				else_token();
+				setState(262);
+				crlf();
+				setState(263);
+				statement_body();
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(265);
+				match(ELSIF);
+				setState(266);
+				cond_expression();
+				setState(267);
+				crlf();
+				setState(268);
+				statement_body();
+				setState(269);
 				if_elsif_statement();
 				}
 				break;
@@ -1530,60 +1603,60 @@ public class RyParser extends Parser {
 
 	public final If_statementContext if_statement() throws RecognitionException {
 		If_statementContext _localctx = new If_statementContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_if_statement);
+		enterRule(_localctx, 46, RULE_if_statement);
 		try {
-			setState(282);
-			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			setState(295);
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(260);
+				setState(273);
 				match(IF);
-				setState(261);
+				setState(274);
 				cond_expression();
-				setState(262);
+				setState(275);
 				crlf();
-				setState(263);
+				setState(276);
 				statement_body();
-				setState(264);
+				setState(277);
 				match(END);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(266);
+				setState(279);
 				match(IF);
-				setState(267);
+				setState(280);
 				cond_expression();
-				setState(268);
+				setState(281);
 				crlf();
-				setState(269);
+				setState(282);
 				statement_body();
-				setState(270);
+				setState(283);
 				else_token();
-				setState(271);
+				setState(284);
 				crlf();
-				setState(272);
+				setState(285);
 				statement_body();
-				setState(273);
+				setState(286);
 				match(END);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(275);
+				setState(288);
 				match(IF);
-				setState(276);
+				setState(289);
 				cond_expression();
-				setState(277);
+				setState(290);
 				crlf();
-				setState(278);
+				setState(291);
 				statement_body();
-				setState(279);
+				setState(292);
 				elsif_statement();
-				setState(280);
+				setState(293);
 				match(END);
 				}
 				break;
@@ -1629,33 +1702,33 @@ public class RyParser extends Parser {
 
 	public final All_assignmentContext all_assignment() throws RecognitionException {
 		All_assignmentContext _localctx = new All_assignmentContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_all_assignment);
+		enterRule(_localctx, 48, RULE_all_assignment);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(288);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			setState(301);
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				{
-				setState(284);
+				setState(297);
 				int_assignment();
 				}
 				break;
 			case 2:
 				{
-				setState(285);
+				setState(298);
 				float_assignment();
 				}
 				break;
 			case 3:
 				{
-				setState(286);
+				setState(299);
 				string_assignment();
 				}
 				break;
 			case 4:
 				{
-				setState(287);
+				setState(300);
 				dynamic_assignment();
 				}
 				break;
@@ -1693,11 +1766,11 @@ public class RyParser extends Parser {
 
 	public final Cond_expressionContext cond_expression() throws RecognitionException {
 		Cond_expressionContext _localctx = new Cond_expressionContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_cond_expression);
+		enterRule(_localctx, 50, RULE_cond_expression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(290);
+			setState(303);
 			comparison_list();
 			}
 		}
@@ -1732,11 +1805,11 @@ public class RyParser extends Parser {
 
 	public final Statement_bodyContext statement_body() throws RecognitionException {
 		Statement_bodyContext _localctx = new Statement_bodyContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_statement_body);
+		enterRule(_localctx, 52, RULE_statement_body);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(292);
+			setState(305);
 			statement_expression_list(0);
 			}
 		}
@@ -1784,22 +1857,22 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		Statement_expression_listContext _localctx = new Statement_expression_listContext(_ctx, _parentState);
 		Statement_expression_listContext _prevctx = _localctx;
-		int _startState = 52;
-		enterRecursionRule(_localctx, 52, RULE_statement_expression_list, _p);
+		int _startState = 54;
+		enterRecursionRule(_localctx, 54, RULE_statement_expression_list, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(295);
+			setState(308);
 			expression();
-			setState(296);
+			setState(309);
 			terminator(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(304);
+			setState(317);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -1808,18 +1881,18 @@ public class RyParser extends Parser {
 					{
 					_localctx = new Statement_expression_listContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_statement_expression_list);
-					setState(298);
+					setState(311);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(299);
+					setState(312);
 					expression();
-					setState(300);
+					setState(313);
 					terminator(0);
 					}
 					} 
 				}
-				setState(306);
+				setState(319);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 			}
 			}
 		}
@@ -1866,28 +1939,28 @@ public class RyParser extends Parser {
 
 	public final AssignmentContext assignment() throws RecognitionException {
 		AssignmentContext _localctx = new AssignmentContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_assignment);
+		enterRule(_localctx, 56, RULE_assignment);
 		int _la;
 		try {
-			setState(315);
-			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
+			setState(328);
+			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(307);
+				setState(320);
 				((AssignmentContext)_localctx).var_id = lvalue();
-				setState(308);
+				setState(321);
 				((AssignmentContext)_localctx).op = match(ASSIGN);
-				setState(309);
+				setState(322);
 				rvalue(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(311);
+				setState(324);
 				((AssignmentContext)_localctx).var_id = lvalue();
-				setState(312);
+				setState(325);
 				((AssignmentContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUS_ASSIGN) | (1L << MINUS_ASSIGN) | (1L << MUL_ASSIGN) | (1L << DIV_ASSIGN) | (1L << MOD_ASSIGN) | (1L << EXP_ASSIGN))) != 0)) ) {
@@ -1895,7 +1968,7 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(313);
+				setState(326);
 				rvalue(0);
 				}
 				break;
@@ -1944,28 +2017,28 @@ public class RyParser extends Parser {
 
 	public final Dynamic_assignmentContext dynamic_assignment() throws RecognitionException {
 		Dynamic_assignmentContext _localctx = new Dynamic_assignmentContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_dynamic_assignment);
+		enterRule(_localctx, 58, RULE_dynamic_assignment);
 		int _la;
 		try {
-			setState(325);
-			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
+			setState(338);
+			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(317);
+				setState(330);
 				((Dynamic_assignmentContext)_localctx).var_id = lvalue();
-				setState(318);
+				setState(331);
 				((Dynamic_assignmentContext)_localctx).op = match(ASSIGN);
-				setState(319);
+				setState(332);
 				dynamic_result(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(321);
+				setState(334);
 				((Dynamic_assignmentContext)_localctx).var_id = lvalue();
-				setState(322);
+				setState(335);
 				((Dynamic_assignmentContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUS_ASSIGN) | (1L << MINUS_ASSIGN) | (1L << MUL_ASSIGN) | (1L << DIV_ASSIGN) | (1L << MOD_ASSIGN) | (1L << EXP_ASSIGN))) != 0)) ) {
@@ -1973,7 +2046,7 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(323);
+				setState(336);
 				dynamic_result(0);
 				}
 				break;
@@ -2022,28 +2095,28 @@ public class RyParser extends Parser {
 
 	public final Int_assignmentContext int_assignment() throws RecognitionException {
 		Int_assignmentContext _localctx = new Int_assignmentContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_int_assignment);
+		enterRule(_localctx, 60, RULE_int_assignment);
 		int _la;
 		try {
-			setState(335);
-			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
+			setState(348);
+			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(327);
+				setState(340);
 				((Int_assignmentContext)_localctx).var_id = lvalue();
-				setState(328);
+				setState(341);
 				((Int_assignmentContext)_localctx).op = match(ASSIGN);
-				setState(329);
+				setState(342);
 				int_result(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(331);
+				setState(344);
 				((Int_assignmentContext)_localctx).var_id = lvalue();
-				setState(332);
+				setState(345);
 				((Int_assignmentContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUS_ASSIGN) | (1L << MINUS_ASSIGN) | (1L << MUL_ASSIGN) | (1L << DIV_ASSIGN) | (1L << MOD_ASSIGN) | (1L << EXP_ASSIGN))) != 0)) ) {
@@ -2051,7 +2124,7 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(333);
+				setState(346);
 				int_result(0);
 				}
 				break;
@@ -2100,28 +2173,28 @@ public class RyParser extends Parser {
 
 	public final Float_assignmentContext float_assignment() throws RecognitionException {
 		Float_assignmentContext _localctx = new Float_assignmentContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_float_assignment);
+		enterRule(_localctx, 62, RULE_float_assignment);
 		int _la;
 		try {
-			setState(345);
-			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
+			setState(358);
+			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(337);
+				setState(350);
 				((Float_assignmentContext)_localctx).var_id = lvalue();
-				setState(338);
+				setState(351);
 				((Float_assignmentContext)_localctx).op = match(ASSIGN);
-				setState(339);
+				setState(352);
 				float_result(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(341);
+				setState(354);
 				((Float_assignmentContext)_localctx).var_id = lvalue();
-				setState(342);
+				setState(355);
 				((Float_assignmentContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUS_ASSIGN) | (1L << MINUS_ASSIGN) | (1L << MUL_ASSIGN) | (1L << DIV_ASSIGN) | (1L << MOD_ASSIGN) | (1L << EXP_ASSIGN))) != 0)) ) {
@@ -2129,7 +2202,7 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(343);
+				setState(356);
 				float_result(0);
 				}
 				break;
@@ -2173,29 +2246,29 @@ public class RyParser extends Parser {
 
 	public final String_assignmentContext string_assignment() throws RecognitionException {
 		String_assignmentContext _localctx = new String_assignmentContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_string_assignment);
+		enterRule(_localctx, 64, RULE_string_assignment);
 		try {
-			setState(355);
-			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
+			setState(368);
+			switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(347);
+				setState(360);
 				((String_assignmentContext)_localctx).var_id = lvalue();
-				setState(348);
+				setState(361);
 				((String_assignmentContext)_localctx).op = match(ASSIGN);
-				setState(349);
+				setState(362);
 				string_result(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(351);
+				setState(364);
 				((String_assignmentContext)_localctx).var_id = lvalue();
-				setState(352);
+				setState(365);
 				((String_assignmentContext)_localctx).op = match(PLUS_ASSIGN);
-				setState(353);
+				setState(366);
 				string_result(0);
 				}
 				break;
@@ -2262,20 +2335,20 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		Dynamic_resultContext _localctx = new Dynamic_resultContext(_ctx, _parentState);
 		Dynamic_resultContext _prevctx = _localctx;
-		int _startState = 64;
-		enterRecursionRule(_localctx, 64, RULE_dynamic_result, _p);
+		int _startState = 66;
+		enterRecursionRule(_localctx, 66, RULE_dynamic_result, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(383);
-			switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
+			setState(396);
+			switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
 			case 1:
 				{
-				setState(358);
+				setState(371);
 				int_result(0);
-				setState(359);
+				setState(372);
 				((Dynamic_resultContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2283,15 +2356,15 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(360);
+				setState(373);
 				dynamic_result(13);
 				}
 				break;
 			case 2:
 				{
-				setState(362);
+				setState(375);
 				float_result(0);
-				setState(363);
+				setState(376);
 				((Dynamic_resultContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2299,25 +2372,25 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(364);
+				setState(377);
 				dynamic_result(11);
 				}
 				break;
 			case 3:
 				{
-				setState(366);
+				setState(379);
 				string_result(0);
-				setState(367);
+				setState(380);
 				((Dynamic_resultContext)_localctx).op = match(MUL);
-				setState(368);
+				setState(381);
 				dynamic_result(8);
 				}
 				break;
 			case 4:
 				{
-				setState(370);
+				setState(383);
 				int_result(0);
-				setState(371);
+				setState(384);
 				((Dynamic_resultContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2325,15 +2398,15 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(372);
+				setState(385);
 				dynamic_result(6);
 				}
 				break;
 			case 5:
 				{
-				setState(374);
+				setState(387);
 				float_result(0);
-				setState(375);
+				setState(388);
 				((Dynamic_resultContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2341,45 +2414,45 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(376);
+				setState(389);
 				dynamic_result(4);
 				}
 				break;
 			case 6:
 				{
-				setState(378);
+				setState(391);
 				match(LEFT_RBRACKET);
-				setState(379);
+				setState(392);
 				dynamic_result(0);
-				setState(380);
+				setState(393);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case 7:
 				{
-				setState(382);
+				setState(395);
 				dynamic();
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(408);
+			setState(421);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,21,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,22,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(406);
-					switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
+					setState(419);
+					switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
 					case 1:
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(385);
+						setState(398);
 						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-						setState(386);
+						setState(399);
 						((Dynamic_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2387,7 +2460,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(387);
+						setState(400);
 						dynamic_result(11);
 						}
 						break;
@@ -2395,9 +2468,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(388);
+						setState(401);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(389);
+						setState(402);
 						((Dynamic_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2405,7 +2478,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(390);
+						setState(403);
 						dynamic_result(4);
 						}
 						break;
@@ -2413,9 +2486,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(391);
+						setState(404);
 						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-						setState(392);
+						setState(405);
 						((Dynamic_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2423,7 +2496,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(393);
+						setState(406);
 						int_result(0);
 						}
 						break;
@@ -2431,9 +2504,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(394);
+						setState(407);
 						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-						setState(395);
+						setState(408);
 						((Dynamic_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2441,7 +2514,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(396);
+						setState(409);
 						float_result(0);
 						}
 						break;
@@ -2449,11 +2522,11 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(397);
+						setState(410);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-						setState(398);
+						setState(411);
 						((Dynamic_resultContext)_localctx).op = match(MUL);
-						setState(399);
+						setState(412);
 						string_result(0);
 						}
 						break;
@@ -2461,9 +2534,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(400);
+						setState(413);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(401);
+						setState(414);
 						((Dynamic_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2471,7 +2544,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(402);
+						setState(415);
 						int_result(0);
 						}
 						break;
@@ -2479,9 +2552,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Dynamic_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_dynamic_result);
-						setState(403);
+						setState(416);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(404);
+						setState(417);
 						((Dynamic_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2489,16 +2562,16 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(405);
+						setState(418);
 						float_result(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(410);
+				setState(423);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,21,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,22,_ctx);
 			}
 			}
 		}
@@ -2536,21 +2609,21 @@ public class RyParser extends Parser {
 
 	public final DynamicContext dynamic() throws RecognitionException {
 		DynamicContext _localctx = new DynamicContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_dynamic);
+		enterRule(_localctx, 68, RULE_dynamic);
 		try {
-			setState(413);
-			switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
+			setState(426);
+			switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(411);
+				setState(424);
 				id();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(412);
+				setState(425);
 				function_call_assignment();
 				}
 				break;
@@ -2587,11 +2660,11 @@ public class RyParser extends Parser {
 
 	public final Function_call_assignmentContext function_call_assignment() throws RecognitionException {
 		Function_call_assignmentContext _localctx = new Function_call_assignmentContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_function_call_assignment);
+		enterRule(_localctx, 70, RULE_function_call_assignment);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(415);
+			setState(428);
 			function_call();
 			}
 		}
@@ -2647,28 +2720,28 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		Int_resultContext _localctx = new Int_resultContext(_ctx, _parentState);
 		Int_resultContext _prevctx = _localctx;
-		int _startState = 70;
-		enterRecursionRule(_localctx, 70, RULE_int_result, _p);
+		int _startState = 72;
+		enterRecursionRule(_localctx, 72, RULE_int_result, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(423);
+			setState(436);
 			switch (_input.LA(1)) {
 			case LEFT_RBRACKET:
 				{
-				setState(418);
+				setState(431);
 				match(LEFT_RBRACKET);
-				setState(419);
+				setState(432);
 				int_result(0);
-				setState(420);
+				setState(433);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case INT:
 				{
-				setState(422);
+				setState(435);
 				int_t();
 				}
 				break;
@@ -2676,23 +2749,23 @@ public class RyParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(433);
+			setState(446);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,26,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(431);
-					switch ( getInterpreter().adaptivePredict(_input,24,_ctx) ) {
+					setState(444);
+					switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
 					case 1:
 						{
 						_localctx = new Int_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_int_result);
-						setState(425);
+						setState(438);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(426);
+						setState(439);
 						((Int_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2700,7 +2773,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(427);
+						setState(440);
 						int_result(5);
 						}
 						break;
@@ -2708,9 +2781,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Int_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_int_result);
-						setState(428);
+						setState(441);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(429);
+						setState(442);
 						((Int_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2718,16 +2791,16 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(430);
+						setState(443);
 						int_result(4);
 						}
 						break;
 					}
 					} 
 				}
-				setState(435);
+				setState(448);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,26,_ctx);
 			}
 			}
 		}
@@ -2786,20 +2859,20 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		Float_resultContext _localctx = new Float_resultContext(_ctx, _parentState);
 		Float_resultContext _prevctx = _localctx;
-		int _startState = 72;
-		enterRecursionRule(_localctx, 72, RULE_float_result, _p);
+		int _startState = 74;
+		enterRecursionRule(_localctx, 74, RULE_float_result, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(450);
-			switch ( getInterpreter().adaptivePredict(_input,26,_ctx) ) {
+			setState(463);
+			switch ( getInterpreter().adaptivePredict(_input,27,_ctx) ) {
 			case 1:
 				{
-				setState(437);
+				setState(450);
 				int_result(0);
-				setState(438);
+				setState(451);
 				((Float_resultContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2807,15 +2880,15 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(439);
+				setState(452);
 				float_result(7);
 				}
 				break;
 			case 2:
 				{
-				setState(441);
+				setState(454);
 				int_result(0);
-				setState(442);
+				setState(455);
 				((Float_resultContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2823,45 +2896,45 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(443);
+				setState(456);
 				float_result(4);
 				}
 				break;
 			case 3:
 				{
-				setState(445);
+				setState(458);
 				match(LEFT_RBRACKET);
-				setState(446);
+				setState(459);
 				float_result(0);
-				setState(447);
+				setState(460);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case 4:
 				{
-				setState(449);
+				setState(462);
 				float_t();
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(466);
+			setState(479);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,28,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,29,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(464);
-					switch ( getInterpreter().adaptivePredict(_input,27,_ctx) ) {
+					setState(477);
+					switch ( getInterpreter().adaptivePredict(_input,28,_ctx) ) {
 					case 1:
 						{
 						_localctx = new Float_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_float_result);
-						setState(452);
+						setState(465);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(453);
+						setState(466);
 						((Float_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2869,7 +2942,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(454);
+						setState(467);
 						float_result(9);
 						}
 						break;
@@ -2877,9 +2950,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Float_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_float_result);
-						setState(455);
+						setState(468);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(456);
+						setState(469);
 						((Float_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2887,7 +2960,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(457);
+						setState(470);
 						float_result(6);
 						}
 						break;
@@ -2895,9 +2968,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Float_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_float_result);
-						setState(458);
+						setState(471);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(459);
+						setState(472);
 						((Float_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
@@ -2905,7 +2978,7 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(460);
+						setState(473);
 						int_result(0);
 						}
 						break;
@@ -2913,9 +2986,9 @@ public class RyParser extends Parser {
 						{
 						_localctx = new Float_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_float_result);
-						setState(461);
+						setState(474);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(462);
+						setState(475);
 						((Float_resultContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -2923,16 +2996,16 @@ public class RyParser extends Parser {
 						} else {
 							consume();
 						}
-						setState(463);
+						setState(476);
 						int_result(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(468);
+				setState(481);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,28,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,29,_ctx);
 			}
 			}
 		}
@@ -2986,36 +3059,36 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		String_resultContext _localctx = new String_resultContext(_ctx, _parentState);
 		String_resultContext _prevctx = _localctx;
-		int _startState = 74;
-		enterRecursionRule(_localctx, 74, RULE_string_result, _p);
+		int _startState = 76;
+		enterRecursionRule(_localctx, 76, RULE_string_result, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(470);
+			setState(483);
 			literal_t();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(480);
+			setState(493);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,30,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,31,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(478);
-					switch ( getInterpreter().adaptivePredict(_input,29,_ctx) ) {
+					setState(491);
+					switch ( getInterpreter().adaptivePredict(_input,30,_ctx) ) {
 					case 1:
 						{
 						_localctx = new String_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_string_result);
-						setState(472);
+						setState(485);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(473);
+						setState(486);
 						((String_resultContext)_localctx).op = match(PLUS);
-						setState(474);
+						setState(487);
 						string_result(3);
 						}
 						break;
@@ -3023,20 +3096,20 @@ public class RyParser extends Parser {
 						{
 						_localctx = new String_resultContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_string_result);
-						setState(475);
+						setState(488);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(476);
+						setState(489);
 						((String_resultContext)_localctx).op = match(MUL);
-						setState(477);
+						setState(490);
 						int_result(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(482);
+				setState(495);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,30,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,31,_ctx);
 			}
 			}
 		}
@@ -3081,47 +3154,47 @@ public class RyParser extends Parser {
 
 	public final Comparison_listContext comparison_list() throws RecognitionException {
 		Comparison_listContext _localctx = new Comparison_listContext(_ctx, getState());
-		enterRule(_localctx, 76, RULE_comparison_list);
+		enterRule(_localctx, 78, RULE_comparison_list);
 		try {
-			setState(496);
-			switch ( getInterpreter().adaptivePredict(_input,31,_ctx) ) {
+			setState(509);
+			switch ( getInterpreter().adaptivePredict(_input,32,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(483);
+				setState(496);
 				((Comparison_listContext)_localctx).left = comparison();
-				setState(484);
+				setState(497);
 				((Comparison_listContext)_localctx).op = match(AND);
-				setState(485);
+				setState(498);
 				((Comparison_listContext)_localctx).right = comparison_list();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(487);
+				setState(500);
 				((Comparison_listContext)_localctx).left = comparison();
-				setState(488);
+				setState(501);
 				((Comparison_listContext)_localctx).op = match(OR);
-				setState(489);
+				setState(502);
 				((Comparison_listContext)_localctx).right = comparison_list();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(491);
+				setState(504);
 				match(LEFT_RBRACKET);
-				setState(492);
+				setState(505);
 				comparison_list();
-				setState(493);
+				setState(506);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(495);
+				setState(508);
 				comparison();
 				}
 				break;
@@ -3170,17 +3243,17 @@ public class RyParser extends Parser {
 
 	public final ComparisonContext comparison() throws RecognitionException {
 		ComparisonContext _localctx = new ComparisonContext(_ctx, getState());
-		enterRule(_localctx, 78, RULE_comparison);
+		enterRule(_localctx, 80, RULE_comparison);
 		int _la;
 		try {
-			setState(506);
-			switch ( getInterpreter().adaptivePredict(_input,32,_ctx) ) {
+			setState(519);
+			switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(498);
+				setState(511);
 				((ComparisonContext)_localctx).left = comp_var();
-				setState(499);
+				setState(512);
 				((ComparisonContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LESS) | (1L << LESS_EQUAL) | (1L << GREATER_EQUAL))) != 0)) ) {
@@ -3188,16 +3261,16 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(500);
+				setState(513);
 				((ComparisonContext)_localctx).right = comp_var();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(502);
+				setState(515);
 				((ComparisonContext)_localctx).left = comp_var();
-				setState(503);
+				setState(516);
 				((ComparisonContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==EQUAL || _la==NOT_EQUAL) ) {
@@ -3205,7 +3278,7 @@ public class RyParser extends Parser {
 				} else {
 					consume();
 				}
-				setState(504);
+				setState(517);
 				((ComparisonContext)_localctx).right = comp_var();
 				}
 				break;
@@ -3245,21 +3318,21 @@ public class RyParser extends Parser {
 
 	public final Comp_varContext comp_var() throws RecognitionException {
 		Comp_varContext _localctx = new Comp_varContext(_ctx, getState());
-		enterRule(_localctx, 80, RULE_comp_var);
+		enterRule(_localctx, 82, RULE_comp_var);
 		try {
-			setState(510);
-			switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
+			setState(523);
+			switch ( getInterpreter().adaptivePredict(_input,34,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(508);
+				setState(521);
 				all_result();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(509);
+				setState(522);
 				id();
 				}
 				break;
@@ -3296,11 +3369,11 @@ public class RyParser extends Parser {
 
 	public final LvalueContext lvalue() throws RecognitionException {
 		LvalueContext _localctx = new LvalueContext(_ctx, getState());
-		enterRule(_localctx, 82, RULE_lvalue);
+		enterRule(_localctx, 84, RULE_lvalue);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(512);
+			setState(525);
 			id();
 			}
 		}
@@ -3404,138 +3477,138 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		RvalueContext _localctx = new RvalueContext(_ctx, _parentState);
 		RvalueContext _prevctx = _localctx;
-		int _startState = 84;
-		enterRecursionRule(_localctx, 84, RULE_rvalue, _p);
+		int _startState = 86;
+		enterRecursionRule(_localctx, 86, RULE_rvalue, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(535);
-			switch ( getInterpreter().adaptivePredict(_input,34,_ctx) ) {
+			setState(548);
+			switch ( getInterpreter().adaptivePredict(_input,35,_ctx) ) {
 			case 1:
 				{
-				setState(515);
+				setState(528);
 				match(NOT);
-				setState(516);
+				setState(529);
 				rvalue(7);
 				}
 				break;
 			case 2:
 				{
-				setState(517);
+				setState(530);
 				lvalue();
 				}
 				break;
 			case 3:
 				{
-				setState(518);
+				setState(531);
 				int_result(0);
 				}
 				break;
 			case 4:
 				{
-				setState(519);
+				setState(532);
 				float_result(0);
 				}
 				break;
 			case 5:
 				{
-				setState(520);
+				setState(533);
 				string_result(0);
 				}
 				break;
 			case 6:
 				{
-				setState(521);
+				setState(534);
 				dynamic_assignment();
 				}
 				break;
 			case 7:
 				{
-				setState(522);
+				setState(535);
 				string_assignment();
 				}
 				break;
 			case 8:
 				{
-				setState(523);
+				setState(536);
 				float_assignment();
 				}
 				break;
 			case 9:
 				{
-				setState(524);
+				setState(537);
 				int_assignment();
 				}
 				break;
 			case 10:
 				{
-				setState(525);
+				setState(538);
 				assignment();
 				}
 				break;
 			case 11:
 				{
-				setState(526);
+				setState(539);
 				literal_t();
 				}
 				break;
 			case 12:
 				{
-				setState(527);
+				setState(540);
 				bool_t();
 				}
 				break;
 			case 13:
 				{
-				setState(528);
+				setState(541);
 				float_t();
 				}
 				break;
 			case 14:
 				{
-				setState(529);
+				setState(542);
 				int_t();
 				}
 				break;
 			case 15:
 				{
-				setState(530);
+				setState(543);
 				nil_t();
 				}
 				break;
 			case 16:
 				{
-				setState(531);
+				setState(544);
 				match(LEFT_RBRACKET);
-				setState(532);
+				setState(545);
 				rvalue(0);
-				setState(533);
+				setState(546);
 				match(RIGHT_RBRACKET);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(557);
+			setState(570);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,36,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(555);
-					switch ( getInterpreter().adaptivePredict(_input,35,_ctx) ) {
+					setState(568);
+					switch ( getInterpreter().adaptivePredict(_input,36,_ctx) ) {
 					case 1:
 						{
 						_localctx = new RvalueContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_rvalue);
-						setState(537);
+						setState(550);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(538);
+						setState(551);
 						match(EXP);
-						setState(539);
+						setState(552);
 						rvalue(9);
 						}
 						break;
@@ -3543,16 +3616,16 @@ public class RyParser extends Parser {
 						{
 						_localctx = new RvalueContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_rvalue);
-						setState(540);
+						setState(553);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(541);
+						setState(554);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << MOD))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(542);
+						setState(555);
 						rvalue(7);
 						}
 						break;
@@ -3560,16 +3633,16 @@ public class RyParser extends Parser {
 						{
 						_localctx = new RvalueContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_rvalue);
-						setState(543);
+						setState(556);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(544);
+						setState(557);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(545);
+						setState(558);
 						rvalue(6);
 						}
 						break;
@@ -3577,16 +3650,16 @@ public class RyParser extends Parser {
 						{
 						_localctx = new RvalueContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_rvalue);
-						setState(546);
+						setState(559);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(547);
+						setState(560);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LESS) | (1L << LESS_EQUAL) | (1L << GREATER_EQUAL))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(548);
+						setState(561);
 						rvalue(5);
 						}
 						break;
@@ -3594,16 +3667,16 @@ public class RyParser extends Parser {
 						{
 						_localctx = new RvalueContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_rvalue);
-						setState(549);
+						setState(562);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(550);
+						setState(563);
 						_la = _input.LA(1);
 						if ( !(_la==EQUAL || _la==NOT_EQUAL) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(551);
+						setState(564);
 						rvalue(4);
 						}
 						break;
@@ -3611,25 +3684,25 @@ public class RyParser extends Parser {
 						{
 						_localctx = new RvalueContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_rvalue);
-						setState(552);
+						setState(565);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(553);
+						setState(566);
 						_la = _input.LA(1);
 						if ( !(_la==AND || _la==OR) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(554);
+						setState(567);
 						rvalue(3);
 						}
 						break;
 					}
 					} 
 				}
-				setState(559);
+				setState(572);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,36,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
 			}
 			}
 		}
@@ -3662,11 +3735,11 @@ public class RyParser extends Parser {
 
 	public final Literal_tContext literal_t() throws RecognitionException {
 		Literal_tContext _localctx = new Literal_tContext(_ctx, getState());
-		enterRule(_localctx, 86, RULE_literal_t);
+		enterRule(_localctx, 88, RULE_literal_t);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(560);
+			setState(573);
 			match(LITERAL);
 			}
 		}
@@ -3699,11 +3772,11 @@ public class RyParser extends Parser {
 
 	public final Float_tContext float_t() throws RecognitionException {
 		Float_tContext _localctx = new Float_tContext(_ctx, getState());
-		enterRule(_localctx, 88, RULE_float_t);
+		enterRule(_localctx, 90, RULE_float_t);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(562);
+			setState(575);
 			match(FLOAT);
 			}
 		}
@@ -3736,11 +3809,11 @@ public class RyParser extends Parser {
 
 	public final Int_tContext int_t() throws RecognitionException {
 		Int_tContext _localctx = new Int_tContext(_ctx, getState());
-		enterRule(_localctx, 90, RULE_int_t);
+		enterRule(_localctx, 92, RULE_int_t);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(564);
+			setState(577);
 			match(INT);
 			}
 		}
@@ -3774,12 +3847,12 @@ public class RyParser extends Parser {
 
 	public final Bool_tContext bool_t() throws RecognitionException {
 		Bool_tContext _localctx = new Bool_tContext(_ctx, getState());
-		enterRule(_localctx, 92, RULE_bool_t);
+		enterRule(_localctx, 94, RULE_bool_t);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(566);
+			setState(579);
 			_la = _input.LA(1);
 			if ( !(_la==TRUE || _la==FALSE) ) {
 			_errHandler.recoverInline(this);
@@ -3817,11 +3890,11 @@ public class RyParser extends Parser {
 
 	public final Nil_tContext nil_t() throws RecognitionException {
 		Nil_tContext _localctx = new Nil_tContext(_ctx, getState());
-		enterRule(_localctx, 94, RULE_nil_t);
+		enterRule(_localctx, 96, RULE_nil_t);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(568);
+			setState(581);
 			match(NIL);
 			}
 		}
@@ -3854,11 +3927,11 @@ public class RyParser extends Parser {
 
 	public final IdContext id() throws RecognitionException {
 		IdContext _localctx = new IdContext(_ctx, getState());
-		enterRule(_localctx, 96, RULE_id);
+		enterRule(_localctx, 98, RULE_id);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(570);
+			setState(583);
 			match(ID);
 			}
 		}
@@ -3904,23 +3977,23 @@ public class RyParser extends Parser {
 		int _parentState = getState();
 		TerminatorContext _localctx = new TerminatorContext(_ctx, _parentState);
 		TerminatorContext _prevctx = _localctx;
-		int _startState = 98;
-		enterRecursionRule(_localctx, 98, RULE_terminator, _p);
+		int _startState = 100;
+		enterRecursionRule(_localctx, 100, RULE_terminator, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(575);
+			setState(588);
 			switch (_input.LA(1)) {
 			case SEMICOLON:
 				{
-				setState(573);
+				setState(586);
 				match(SEMICOLON);
 				}
 				break;
 			case CRLF:
 				{
-				setState(574);
+				setState(587);
 				crlf();
 				}
 				break;
@@ -3928,23 +4001,23 @@ public class RyParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(583);
+			setState(596);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,39,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,40,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(581);
-					switch ( getInterpreter().adaptivePredict(_input,38,_ctx) ) {
+					setState(594);
+					switch ( getInterpreter().adaptivePredict(_input,39,_ctx) ) {
 					case 1:
 						{
 						_localctx = new TerminatorContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_terminator);
-						setState(577);
+						setState(590);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(578);
+						setState(591);
 						match(SEMICOLON);
 						}
 						break;
@@ -3952,18 +4025,18 @@ public class RyParser extends Parser {
 						{
 						_localctx = new TerminatorContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_terminator);
-						setState(579);
+						setState(592);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(580);
+						setState(593);
 						crlf();
 						}
 						break;
 					}
 					} 
 				}
-				setState(585);
+				setState(598);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,39,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,40,_ctx);
 			}
 			}
 		}
@@ -3996,11 +4069,11 @@ public class RyParser extends Parser {
 
 	public final Else_tokenContext else_token() throws RecognitionException {
 		Else_tokenContext _localctx = new Else_tokenContext(_ctx, getState());
-		enterRule(_localctx, 100, RULE_else_token);
+		enterRule(_localctx, 102, RULE_else_token);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(586);
+			setState(599);
 			match(ELSE);
 			}
 		}
@@ -4033,12 +4106,48 @@ public class RyParser extends Parser {
 
 	public final CrlfContext crlf() throws RecognitionException {
 		CrlfContext _localctx = new CrlfContext(_ctx, getState());
-		enterRule(_localctx, 102, RULE_crlf);
+		enterRule(_localctx, 104, RULE_crlf);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(588);
+			setState(601);
 			match(CRLF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class PutsContext extends ParserRuleContext {
+		public PutsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_puts; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof RyListener ) ((RyListener)listener).enterPuts(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof RyListener ) ((RyListener)listener).exitPuts(this);
+		}
+	}
+
+	public final PutsContext puts() throws RecognitionException {
+		PutsContext _localctx = new PutsContext(_ctx, getState());
+		enterRule(_localctx, 106, RULE_puts);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(603);
+			match(T__0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4056,23 +4165,23 @@ public class RyParser extends Parser {
 		switch (ruleIndex) {
 		case 1:
 			return expression_list_sempred((Expression_listContext)_localctx, predIndex);
-		case 9:
+		case 10:
 			return function_definition_param_list_sempred((Function_definition_param_listContext)_localctx, predIndex);
-		case 13:
+		case 14:
 			return function_call_params_sempred((Function_call_paramsContext)_localctx, predIndex);
-		case 26:
+		case 27:
 			return statement_expression_list_sempred((Statement_expression_listContext)_localctx, predIndex);
-		case 32:
+		case 33:
 			return dynamic_result_sempred((Dynamic_resultContext)_localctx, predIndex);
-		case 35:
-			return int_result_sempred((Int_resultContext)_localctx, predIndex);
 		case 36:
-			return float_result_sempred((Float_resultContext)_localctx, predIndex);
+			return int_result_sempred((Int_resultContext)_localctx, predIndex);
 		case 37:
+			return float_result_sempred((Float_resultContext)_localctx, predIndex);
+		case 38:
 			return string_result_sempred((String_resultContext)_localctx, predIndex);
-		case 42:
+		case 43:
 			return rvalue_sempred((RvalueContext)_localctx, predIndex);
-		case 49:
+		case 50:
 			return terminator_sempred((TerminatorContext)_localctx, predIndex);
 		}
 		return true;
@@ -4183,218 +4292,223 @@ public class RyParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\66\u0251\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\67\u0260\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
 		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
 		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
 		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64\t"+
-		"\64\4\65\t\65\3\2\3\2\3\3\3\3\3\3\3\3\3\3\5\3r\n\3\3\3\3\3\3\3\3\3\7\3"+
-		"x\n\3\f\3\16\3{\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\u0085\n\4\3\5"+
-		"\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6\u0094\n\6\3\7\3\7"+
-		"\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n\u00a4\n\n\3\13\3"+
-		"\13\3\13\3\13\3\13\3\13\7\13\u00ac\n\13\f\13\16\13\u00af\13\13\3\f\3\f"+
-		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\5\r\u00bf\n\r\3\16\3"+
-		"\16\3\17\3\17\3\17\3\17\3\17\3\17\7\17\u00c9\n\17\f\17\16\17\u00cc\13"+
-		"\17\3\20\3\20\5\20\u00d0\n\20\3\21\3\21\3\22\3\22\3\22\3\22\3\23\3\23"+
-		"\3\23\3\23\5\23\u00dc\n\23\3\24\3\24\3\24\3\24\3\24\3\24\3\25\3\25\3\25"+
-		"\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\26\3\26\3\27\3\27\3\27"+
-		"\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\5\27\u0105\n\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30"+
-		"\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\5\30"+
-		"\u011d\n\30\3\31\3\31\3\31\3\31\5\31\u0123\n\31\3\32\3\32\3\33\3\33\3"+
-		"\34\3\34\3\34\3\34\3\34\3\34\3\34\3\34\7\34\u0131\n\34\f\34\16\34\u0134"+
-		"\13\34\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u013e\n\35\3\36\3"+
-		"\36\3\36\3\36\3\36\3\36\3\36\3\36\5\36\u0148\n\36\3\37\3\37\3\37\3\37"+
-		"\3\37\3\37\3\37\3\37\5\37\u0152\n\37\3 \3 \3 \3 \3 \3 \3 \3 \5 \u015c"+
-		"\n \3!\3!\3!\3!\3!\3!\3!\3!\5!\u0166\n!\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3"+
-		"\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\""+
-		"\3\"\5\"\u0182\n\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\""+
-		"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3\"\7\"\u0199\n\"\f\"\16\"\u019c\13\"\3#"+
-		"\3#\5#\u01a0\n#\3$\3$\3%\3%\3%\3%\3%\3%\5%\u01aa\n%\3%\3%\3%\3%\3%\3%"+
-		"\7%\u01b2\n%\f%\16%\u01b5\13%\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3"+
-		"&\5&\u01c5\n&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\3&\7&\u01d3\n&\f&\16&\u01d6"+
-		"\13&\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\7\'\u01e1\n\'\f\'\16\'\u01e4"+
-		"\13\'\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\5(\u01f3\n(\3)\3)\3)\3)\3"+
-		")\3)\3)\3)\5)\u01fd\n)\3*\3*\5*\u0201\n*\3+\3+\3,\3,\3,\3,\3,\3,\3,\3"+
-		",\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\5,\u021a\n,\3,\3,\3,\3,\3,\3"+
-		",\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\3,\7,\u022e\n,\f,\16,\u0231\13,\3-"+
-		"\3-\3.\3.\3/\3/\3\60\3\60\3\61\3\61\3\62\3\62\3\63\3\63\3\63\5\63\u0242"+
-		"\n\63\3\63\3\63\3\63\3\63\7\63\u0248\n\63\f\63\16\63\u024b\13\63\3\64"+
-		"\3\64\3\65\3\65\3\65\2\f\4\24\34\66BHJLVd\66\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJLNPRTVXZ\\^`bdfh\2\t\3\2\32"+
-		"\37\3\2\25\27\3\2\23\24\3\2\"%\3\2 !\3\2&\'\3\2\21\22\u0274\2j\3\2\2\2"+
-		"\4q\3\2\2\2\6\u0084\3\2\2\2\b\u0086\3\2\2\2\n\u0093\3\2\2\2\f\u0095\3"+
-		"\2\2\2\16\u0098\3\2\2\2\20\u009a\3\2\2\2\22\u00a3\3\2\2\2\24\u00a5\3\2"+
-		"\2\2\26\u00b0\3\2\2\2\30\u00be\3\2\2\2\32\u00c0\3\2\2\2\34\u00c2\3\2\2"+
-		"\2\36\u00cf\3\2\2\2 \u00d1\3\2\2\2\"\u00d3\3\2\2\2$\u00db\3\2\2\2&\u00dd"+
-		"\3\2\2\2(\u00e3\3\2\2\2*\u00ef\3\2\2\2,\u0104\3\2\2\2.\u011c\3\2\2\2\60"+
-		"\u0122\3\2\2\2\62\u0124\3\2\2\2\64\u0126\3\2\2\2\66\u0128\3\2\2\28\u013d"+
-		"\3\2\2\2:\u0147\3\2\2\2<\u0151\3\2\2\2>\u015b\3\2\2\2@\u0165\3\2\2\2B"+
-		"\u0181\3\2\2\2D\u019f\3\2\2\2F\u01a1\3\2\2\2H\u01a9\3\2\2\2J\u01c4\3\2"+
-		"\2\2L\u01d7\3\2\2\2N\u01f2\3\2\2\2P\u01fc\3\2\2\2R\u0200\3\2\2\2T\u0202"+
-		"\3\2\2\2V\u0219\3\2\2\2X\u0232\3\2\2\2Z\u0234\3\2\2\2\\\u0236\3\2\2\2"+
-		"^\u0238\3\2\2\2`\u023a\3\2\2\2b\u023c\3\2\2\2d\u0241\3\2\2\2f\u024c\3"+
-		"\2\2\2h\u024e\3\2\2\2jk\5\4\3\2k\3\3\2\2\2lm\b\3\1\2mn\5\6\4\2no\5d\63"+
-		"\2or\3\2\2\2pr\5d\63\2ql\3\2\2\2qp\3\2\2\2ry\3\2\2\2st\f\4\2\2tu\5\6\4"+
-		"\2uv\5d\63\2vx\3\2\2\2ws\3\2\2\2x{\3\2\2\2yw\3\2\2\2yz\3\2\2\2z\5\3\2"+
-		"\2\2{y\3\2\2\2|\u0085\5\b\5\2}\u0085\5\30\r\2~\u0085\5(\25\2\177\u0085"+
-		"\5&\24\2\u0080\u0085\5.\30\2\u0081\u0085\5N(\2\u0082\u0085\5V,\2\u0083"+
-		"\u0085\5\f\7\2\u0084|\3\2\2\2\u0084}\3\2\2\2\u0084~\3\2\2\2\u0084\177"+
-		"\3\2\2\2\u0084\u0080\3\2\2\2\u0084\u0081\3\2\2\2\u0084\u0082\3\2\2\2\u0084"+
-		"\u0083\3\2\2\2\u0085\7\3\2\2\2\u0086\u0087\5\n\6\2\u0087\u0088\5\16\b"+
-		"\2\u0088\u0089\7\7\2\2\u0089\t\3\2\2\2\u008a\u008b\7\b\2\2\u008b\u008c"+
-		"\5\20\t\2\u008c\u008d\5h\65\2\u008d\u0094\3\2\2\2\u008e\u008f\7\b\2\2"+
-		"\u008f\u0090\5\20\t\2\u0090\u0091\5\22\n\2\u0091\u0092\5h\65\2\u0092\u0094"+
-		"\3\2\2\2\u0093\u008a\3\2\2\2\u0093\u008e\3\2\2\2\u0094\13\3\2\2\2\u0095"+
-		"\u0096\7\60\2\2\u0096\u0097\5$\23\2\u0097\r\3\2\2\2\u0098\u0099\5\4\3"+
-		"\2\u0099\17\3\2\2\2\u009a\u009b\5b\62\2\u009b\21\3\2\2\2\u009c\u009d\7"+
-		"+\2\2\u009d\u00a4\7,\2\2\u009e\u009f\7+\2\2\u009f\u00a0\5\24\13\2\u00a0"+
-		"\u00a1\7,\2\2\u00a1\u00a4\3\2\2\2\u00a2\u00a4\5\24\13\2\u00a3\u009c\3"+
-		"\2\2\2\u00a3\u009e\3\2\2\2\u00a3\u00a2\3\2\2\2\u00a4\23\3\2\2\2\u00a5"+
-		"\u00a6\b\13\1\2\u00a6\u00a7\5\26\f\2\u00a7\u00ad\3\2\2\2\u00a8\u00a9\f"+
-		"\3\2\2\u00a9\u00aa\7\4\2\2\u00aa\u00ac\5\26\f\2\u00ab\u00a8\3\2\2\2\u00ac"+
-		"\u00af\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\25\3\2\2"+
-		"\2\u00af\u00ad\3\2\2\2\u00b0\u00b1\5b\62\2\u00b1\27\3\2\2\2\u00b2\u00b3"+
-		"\5\20\t\2\u00b3\u00b4\7+\2\2\u00b4\u00b5\5\32\16\2\u00b5\u00b6\7,\2\2"+
-		"\u00b6\u00bf\3\2\2\2\u00b7\u00b8\5\20\t\2\u00b8\u00b9\5\32\16\2\u00b9"+
-		"\u00bf\3\2\2\2\u00ba\u00bb\5\20\t\2\u00bb\u00bc\7+\2\2\u00bc\u00bd\7,"+
-		"\2\2\u00bd\u00bf\3\2\2\2\u00be\u00b2\3\2\2\2\u00be\u00b7\3\2\2\2\u00be"+
-		"\u00ba\3\2\2\2\u00bf\31\3\2\2\2\u00c0\u00c1\5\34\17\2\u00c1\33\3\2\2\2"+
-		"\u00c2\u00c3\b\17\1\2\u00c3\u00c4\5\36\20\2\u00c4\u00ca\3\2\2\2\u00c5"+
-		"\u00c6\f\3\2\2\u00c6\u00c7\7\4\2\2\u00c7\u00c9\5\36\20\2\u00c8\u00c5\3"+
-		"\2\2\2\u00c9\u00cc\3\2\2\2\u00ca\u00c8\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb"+
-		"\35\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cd\u00d0\5 \21\2\u00ce\u00d0\5\"\22"+
-		"\2\u00cf\u00cd\3\2\2\2\u00cf\u00ce\3\2\2\2\u00d0\37\3\2\2\2\u00d1\u00d2"+
-		"\5$\23\2\u00d2!\3\2\2\2\u00d3\u00d4\5b\62\2\u00d4\u00d5\7\31\2\2\u00d5"+
-		"\u00d6\5$\23\2\u00d6#\3\2\2\2\u00d7\u00dc\5H%\2\u00d8\u00dc\5J&\2\u00d9"+
-		"\u00dc\5L\'\2\u00da\u00dc\5B\"\2\u00db\u00d7\3\2\2\2\u00db\u00d8\3\2\2"+
-		"\2\u00db\u00d9\3\2\2\2\u00db\u00da\3\2\2\2\u00dc%\3\2\2\2\u00dd\u00de"+
-		"\7\r\2\2\u00de\u00df\5\62\32\2\u00df\u00e0\5h\65\2\u00e0\u00e1\5\64\33"+
-		"\2\u00e1\u00e2\7\7\2\2\u00e2\'\3\2\2\2\u00e3\u00e4\7\20\2\2\u00e4\u00e5"+
-		"\5b\62\2\u00e5\u00e6\7)\2\2\u00e6\u00e7\7+\2\2\u00e7\u00e8\5\\/\2\u00e8"+
-		"\u00e9\7*\2\2\u00e9\u00ea\5\\/\2\u00ea\u00eb\7,\2\2\u00eb\u00ec\5h\65"+
-		"\2\u00ec\u00ed\5\64\33\2\u00ed\u00ee\7\7\2\2\u00ee)\3\2\2\2\u00ef\u00f0"+
-		"\5,\27\2\u00f0+\3\2\2\2\u00f1\u00f2\7\13\2\2\u00f2\u00f3\5\62\32\2\u00f3"+
-		"\u00f4\5h\65\2\u00f4\u00f5\5\64\33\2\u00f5\u0105\3\2\2\2\u00f6\u00f7\7"+
-		"\13\2\2\u00f7\u00f8\5\62\32\2\u00f8\u00f9\5h\65\2\u00f9\u00fa\5\64\33"+
-		"\2\u00fa\u00fb\5f\64\2\u00fb\u00fc\5h\65\2\u00fc\u00fd\5\64\33\2\u00fd"+
-		"\u0105\3\2\2\2\u00fe\u00ff\7\13\2\2\u00ff\u0100\5\62\32\2\u0100\u0101"+
-		"\5h\65\2\u0101\u0102\5\64\33\2\u0102\u0103\5,\27\2\u0103\u0105\3\2\2\2"+
-		"\u0104\u00f1\3\2\2\2\u0104\u00f6\3\2\2\2\u0104\u00fe\3\2\2\2\u0105-\3"+
-		"\2\2\2\u0106\u0107\7\t\2\2\u0107\u0108\5\62\32\2\u0108\u0109\5h\65\2\u0109"+
-		"\u010a\5\64\33\2\u010a\u010b\7\7\2\2\u010b\u011d\3\2\2\2\u010c\u010d\7"+
-		"\t\2\2\u010d\u010e\5\62\32\2\u010e\u010f\5h\65\2\u010f\u0110\5\64\33\2"+
-		"\u0110\u0111\5f\64\2\u0111\u0112\5h\65\2\u0112\u0113\5\64\33\2\u0113\u0114"+
-		"\7\7\2\2\u0114\u011d\3\2\2\2\u0115\u0116\7\t\2\2\u0116\u0117\5\62\32\2"+
-		"\u0117\u0118\5h\65\2\u0118\u0119\5\64\33\2\u0119\u011a\5*\26\2\u011a\u011b"+
-		"\7\7\2\2\u011b\u011d\3\2\2\2\u011c\u0106\3\2\2\2\u011c\u010c\3\2\2\2\u011c"+
-		"\u0115\3\2\2\2\u011d/\3\2\2\2\u011e\u0123\5<\37\2\u011f\u0123\5> \2\u0120"+
-		"\u0123\5@!\2\u0121\u0123\5:\36\2\u0122\u011e\3\2\2\2\u0122\u011f\3\2\2"+
-		"\2\u0122\u0120\3\2\2\2\u0122\u0121\3\2\2\2\u0123\61\3\2\2\2\u0124\u0125"+
-		"\5N(\2\u0125\63\3\2\2\2\u0126\u0127\5\66\34\2\u0127\65\3\2\2\2\u0128\u0129"+
-		"\b\34\1\2\u0129\u012a\5\6\4\2\u012a\u012b\5d\63\2\u012b\u0132\3\2\2\2"+
-		"\u012c\u012d\f\3\2\2\u012d\u012e\5\6\4\2\u012e\u012f\5d\63\2\u012f\u0131"+
-		"\3\2\2\2\u0130\u012c\3\2\2\2\u0131\u0134\3\2\2\2\u0132\u0130\3\2\2\2\u0132"+
-		"\u0133\3\2\2\2\u0133\67\3\2\2\2\u0134\u0132\3\2\2\2\u0135\u0136\5T+\2"+
-		"\u0136\u0137\7\31\2\2\u0137\u0138\5V,\2\u0138\u013e\3\2\2\2\u0139\u013a"+
-		"\5T+\2\u013a\u013b\t\2\2\2\u013b\u013c\5V,\2\u013c\u013e\3\2\2\2\u013d"+
-		"\u0135\3\2\2\2\u013d\u0139\3\2\2\2\u013e9\3\2\2\2\u013f\u0140\5T+\2\u0140"+
-		"\u0141\7\31\2\2\u0141\u0142\5B\"\2\u0142\u0148\3\2\2\2\u0143\u0144\5T"+
-		"+\2\u0144\u0145\t\2\2\2\u0145\u0146\5B\"\2\u0146\u0148\3\2\2\2\u0147\u013f"+
-		"\3\2\2\2\u0147\u0143\3\2\2\2\u0148;\3\2\2\2\u0149\u014a\5T+\2\u014a\u014b"+
-		"\7\31\2\2\u014b\u014c\5H%\2\u014c\u0152\3\2\2\2\u014d\u014e\5T+\2\u014e"+
-		"\u014f\t\2\2\2\u014f\u0150\5H%\2\u0150\u0152\3\2\2\2\u0151\u0149\3\2\2"+
-		"\2\u0151\u014d\3\2\2\2\u0152=\3\2\2\2\u0153\u0154\5T+\2\u0154\u0155\7"+
-		"\31\2\2\u0155\u0156\5J&\2\u0156\u015c\3\2\2\2\u0157\u0158\5T+\2\u0158"+
-		"\u0159\t\2\2\2\u0159\u015a\5J&\2\u015a\u015c\3\2\2\2\u015b\u0153\3\2\2"+
-		"\2\u015b\u0157\3\2\2\2\u015c?\3\2\2\2\u015d\u015e\5T+\2\u015e\u015f\7"+
-		"\31\2\2\u015f\u0160\5L\'\2\u0160\u0166\3\2\2\2\u0161\u0162\5T+\2\u0162"+
-		"\u0163\7\32\2\2\u0163\u0164\5L\'\2\u0164\u0166\3\2\2\2\u0165\u015d\3\2"+
-		"\2\2\u0165\u0161\3\2\2\2\u0166A\3\2\2\2\u0167\u0168\b\"\1\2\u0168\u0169"+
-		"\5H%\2\u0169\u016a\t\3\2\2\u016a\u016b\5B\"\17\u016b\u0182\3\2\2\2\u016c"+
-		"\u016d\5J&\2\u016d\u016e\t\3\2\2\u016e\u016f\5B\"\r\u016f\u0182\3\2\2"+
-		"\2\u0170\u0171\5L\'\2\u0171\u0172\7\25\2\2\u0172\u0173\5B\"\n\u0173\u0182"+
-		"\3\2\2\2\u0174\u0175\5H%\2\u0175\u0176\t\4\2\2\u0176\u0177\5B\"\b\u0177"+
-		"\u0182\3\2\2\2\u0178\u0179\5J&\2\u0179\u017a\t\4\2\2\u017a\u017b\5B\""+
-		"\6\u017b\u0182\3\2\2\2\u017c\u017d\7+\2\2\u017d\u017e\5B\"\2\u017e\u017f"+
-		"\7,\2\2\u017f\u0182\3\2\2\2\u0180\u0182\5D#\2\u0181\u0167\3\2\2\2\u0181"+
-		"\u016c\3\2\2\2\u0181\u0170\3\2\2\2\u0181\u0174\3\2\2\2\u0181\u0178\3\2"+
-		"\2\2\u0181\u017c\3\2\2\2\u0181\u0180\3\2\2\2\u0182\u019a\3\2\2\2\u0183"+
-		"\u0184\f\f\2\2\u0184\u0185\t\3\2\2\u0185\u0199\5B\"\r\u0186\u0187\f\5"+
-		"\2\2\u0187\u0188\t\4\2\2\u0188\u0199\5B\"\6\u0189\u018a\f\20\2\2\u018a"+
-		"\u018b\t\3\2\2\u018b\u0199\5H%\2\u018c\u018d\f\16\2\2\u018d\u018e\t\3"+
-		"\2\2\u018e\u0199\5J&\2\u018f\u0190\f\13\2\2\u0190\u0191\7\25\2\2\u0191"+
-		"\u0199\5L\'\2\u0192\u0193\f\t\2\2\u0193\u0194\t\4\2\2\u0194\u0199\5H%"+
-		"\2\u0195\u0196\f\7\2\2\u0196\u0197\t\4\2\2\u0197\u0199\5J&\2\u0198\u0183"+
-		"\3\2\2\2\u0198\u0186\3\2\2\2\u0198\u0189\3\2\2\2\u0198\u018c\3\2\2\2\u0198"+
-		"\u018f\3\2\2\2\u0198\u0192\3\2\2\2\u0198\u0195\3\2\2\2\u0199\u019c\3\2"+
-		"\2\2\u019a\u0198\3\2\2\2\u019a\u019b\3\2\2\2\u019bC\3\2\2\2\u019c\u019a"+
-		"\3\2\2\2\u019d\u01a0\5b\62\2\u019e\u01a0\5F$\2\u019f\u019d\3\2\2\2\u019f"+
-		"\u019e\3\2\2\2\u01a0E\3\2\2\2\u01a1\u01a2\5\30\r\2\u01a2G\3\2\2\2\u01a3"+
-		"\u01a4\b%\1\2\u01a4\u01a5\7+\2\2\u01a5\u01a6\5H%\2\u01a6\u01a7\7,\2\2"+
-		"\u01a7\u01aa\3\2\2\2\u01a8\u01aa\5\\/\2\u01a9\u01a3\3\2\2\2\u01a9\u01a8"+
-		"\3\2\2\2\u01aa\u01b3\3\2\2\2\u01ab\u01ac\f\6\2\2\u01ac\u01ad\t\3\2\2\u01ad"+
-		"\u01b2\5H%\7\u01ae\u01af\f\5\2\2\u01af\u01b0\t\4\2\2\u01b0\u01b2\5H%\6"+
-		"\u01b1\u01ab\3\2\2\2\u01b1\u01ae\3\2\2\2\u01b2\u01b5\3\2\2\2\u01b3\u01b1"+
-		"\3\2\2\2\u01b3\u01b4\3\2\2\2\u01b4I\3\2\2\2\u01b5\u01b3\3\2\2\2\u01b6"+
-		"\u01b7\b&\1\2\u01b7\u01b8\5H%\2\u01b8\u01b9\t\3\2\2\u01b9\u01ba\5J&\t"+
-		"\u01ba\u01c5\3\2\2\2\u01bb\u01bc\5H%\2\u01bc\u01bd\t\4\2\2\u01bd\u01be"+
-		"\5J&\6\u01be\u01c5\3\2\2\2\u01bf\u01c0\7+\2\2\u01c0\u01c1\5J&\2\u01c1"+
-		"\u01c2\7,\2\2\u01c2\u01c5\3\2\2\2\u01c3\u01c5\5Z.\2\u01c4\u01b6\3\2\2"+
-		"\2\u01c4\u01bb\3\2\2\2\u01c4\u01bf\3\2\2\2\u01c4\u01c3\3\2\2\2\u01c5\u01d4"+
-		"\3\2\2\2\u01c6\u01c7\f\n\2\2\u01c7\u01c8\t\3\2\2\u01c8\u01d3\5J&\13\u01c9"+
-		"\u01ca\f\7\2\2\u01ca\u01cb\t\4\2\2\u01cb\u01d3\5J&\b\u01cc\u01cd\f\b\2"+
-		"\2\u01cd\u01ce\t\3\2\2\u01ce\u01d3\5H%\2\u01cf\u01d0\f\5\2\2\u01d0\u01d1"+
-		"\t\4\2\2\u01d1\u01d3\5H%\2\u01d2\u01c6\3\2\2\2\u01d2\u01c9\3\2\2\2\u01d2"+
-		"\u01cc\3\2\2\2\u01d2\u01cf\3\2\2\2\u01d3\u01d6\3\2\2\2\u01d4\u01d2\3\2"+
-		"\2\2\u01d4\u01d5\3\2\2\2\u01d5K\3\2\2\2\u01d6\u01d4\3\2\2\2\u01d7\u01d8"+
-		"\b\'\1\2\u01d8\u01d9\5X-\2\u01d9\u01e2\3\2\2\2\u01da\u01db\f\4\2\2\u01db"+
-		"\u01dc\7\23\2\2\u01dc\u01e1\5L\'\5\u01dd\u01de\f\5\2\2\u01de\u01df\7\25"+
-		"\2\2\u01df\u01e1\5H%\2\u01e0\u01da\3\2\2\2\u01e0\u01dd\3\2\2\2\u01e1\u01e4"+
-		"\3\2\2\2\u01e2\u01e0\3\2\2\2\u01e2\u01e3\3\2\2\2\u01e3M\3\2\2\2\u01e4"+
-		"\u01e2\3\2\2\2\u01e5\u01e6\5P)\2\u01e6\u01e7\7&\2\2\u01e7\u01e8\5N(\2"+
-		"\u01e8\u01f3\3\2\2\2\u01e9\u01ea\5P)\2\u01ea\u01eb\7\'\2\2\u01eb\u01ec"+
-		"\5N(\2\u01ec\u01f3\3\2\2\2\u01ed\u01ee\7+\2\2\u01ee\u01ef\5N(\2\u01ef"+
-		"\u01f0\7,\2\2\u01f0\u01f3\3\2\2\2\u01f1\u01f3\5P)\2\u01f2\u01e5\3\2\2"+
-		"\2\u01f2\u01e9\3\2\2\2\u01f2\u01ed\3\2\2\2\u01f2\u01f1\3\2\2\2\u01f3O"+
-		"\3\2\2\2\u01f4\u01f5\5R*\2\u01f5\u01f6\t\5\2\2\u01f6\u01f7\5R*\2\u01f7"+
-		"\u01fd\3\2\2\2\u01f8\u01f9\5R*\2\u01f9\u01fa\t\6\2\2\u01fa\u01fb\5R*\2"+
-		"\u01fb\u01fd\3\2\2\2\u01fc\u01f4\3\2\2\2\u01fc\u01f8\3\2\2\2\u01fdQ\3"+
-		"\2\2\2\u01fe\u0201\5$\23\2\u01ff\u0201\5b\62\2\u0200\u01fe\3\2\2\2\u0200"+
-		"\u01ff\3\2\2\2\u0201S\3\2\2\2\u0202\u0203\5b\62\2\u0203U\3\2\2\2\u0204"+
-		"\u0205\b,\1\2\u0205\u0206\7(\2\2\u0206\u021a\5V,\t\u0207\u021a\5T+\2\u0208"+
-		"\u021a\5H%\2\u0209\u021a\5J&\2\u020a\u021a\5L\'\2\u020b\u021a\5:\36\2"+
-		"\u020c\u021a\5@!\2\u020d\u021a\5> \2\u020e\u021a\5<\37\2\u020f\u021a\5"+
-		"8\35\2\u0210\u021a\5X-\2\u0211\u021a\5^\60\2\u0212\u021a\5Z.\2\u0213\u021a"+
-		"\5\\/\2\u0214\u021a\5`\61\2\u0215\u0216\7+\2\2\u0216\u0217\5V,\2\u0217"+
-		"\u0218\7,\2\2\u0218\u021a\3\2\2\2\u0219\u0204\3\2\2\2\u0219\u0207\3\2"+
-		"\2\2\u0219\u0208\3\2\2\2\u0219\u0209\3\2\2\2\u0219\u020a\3\2\2\2\u0219"+
-		"\u020b\3\2\2\2\u0219\u020c\3\2\2\2\u0219\u020d\3\2\2\2\u0219\u020e\3\2"+
-		"\2\2\u0219\u020f\3\2\2\2\u0219\u0210\3\2\2\2\u0219\u0211\3\2\2\2\u0219"+
-		"\u0212\3\2\2\2\u0219\u0213\3\2\2\2\u0219\u0214\3\2\2\2\u0219\u0215\3\2"+
-		"\2\2\u021a\u022f\3\2\2\2\u021b\u021c\f\n\2\2\u021c\u021d\7\30\2\2\u021d"+
-		"\u022e\5V,\13\u021e\u021f\f\b\2\2\u021f\u0220\t\3\2\2\u0220\u022e\5V,"+
-		"\t\u0221\u0222\f\7\2\2\u0222\u0223\t\4\2\2\u0223\u022e\5V,\b\u0224\u0225"+
-		"\f\6\2\2\u0225\u0226\t\5\2\2\u0226\u022e\5V,\7\u0227\u0228\f\5\2\2\u0228"+
-		"\u0229\t\6\2\2\u0229\u022e\5V,\6\u022a\u022b\f\4\2\2\u022b\u022c\t\7\2"+
-		"\2\u022c\u022e\5V,\5\u022d\u021b\3\2\2\2\u022d\u021e\3\2\2\2\u022d\u0221"+
-		"\3\2\2\2\u022d\u0224\3\2\2\2\u022d\u0227\3\2\2\2\u022d\u022a\3\2\2\2\u022e"+
-		"\u0231\3\2\2\2\u022f\u022d\3\2\2\2\u022f\u0230\3\2\2\2\u0230W\3\2\2\2"+
-		"\u0231\u022f\3\2\2\2\u0232\u0233\7\3\2\2\u0233Y\3\2\2\2\u0234\u0235\7"+
-		"\65\2\2\u0235[\3\2\2\2\u0236\u0237\7\64\2\2\u0237]\3\2\2\2\u0238\u0239"+
-		"\t\b\2\2\u0239_\3\2\2\2\u023a\u023b\7/\2\2\u023ba\3\2\2\2\u023c\u023d"+
-		"\7\66\2\2\u023dc\3\2\2\2\u023e\u023f\b\63\1\2\u023f\u0242\7\5\2\2\u0240"+
-		"\u0242\5h\65\2\u0241\u023e\3\2\2\2\u0241\u0240\3\2\2\2\u0242\u0249\3\2"+
-		"\2\2\u0243\u0244\f\6\2\2\u0244\u0248\7\5\2\2\u0245\u0246\f\5\2\2\u0246"+
-		"\u0248\5h\65\2\u0247\u0243\3\2\2\2\u0247\u0245\3\2\2\2\u0248\u024b\3\2"+
-		"\2\2\u0249\u0247\3\2\2\2\u0249\u024a\3\2\2\2\u024ae\3\2\2\2\u024b\u0249"+
-		"\3\2\2\2\u024c\u024d\7\n\2\2\u024dg\3\2\2\2\u024e\u024f\7\6\2\2\u024f"+
-		"i\3\2\2\2*qy\u0084\u0093\u00a3\u00ad\u00be\u00ca\u00cf\u00db\u0104\u011c"+
-		"\u0122\u0132\u013d\u0147\u0151\u015b\u0165\u0181\u0198\u019a\u019f\u01a9"+
-		"\u01b1\u01b3\u01c4\u01d2\u01d4\u01e0\u01e2\u01f2\u01fc\u0200\u0219\u022d"+
-		"\u022f\u0241\u0247\u0249";
+		"\64\4\65\t\65\4\66\t\66\4\67\t\67\3\2\3\2\3\3\3\3\3\3\3\3\3\3\5\3v\n\3"+
+		"\3\3\3\3\3\3\3\3\7\3|\n\3\f\3\16\3\177\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\3\4\3\4\5\4\u008a\n\4\3\5\3\5\3\5\3\5\3\5\3\5\5\5\u0092\n\5\3\6\3\6"+
+		"\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7\u00a1\n\7\3\b\3\b\3\b"+
+		"\3\t\3\t\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\5\13\u00b1\n\13\3"+
+		"\f\3\f\3\f\3\f\3\f\3\f\7\f\u00b9\n\f\f\f\16\f\u00bc\13\f\3\r\3\r\3\16"+
+		"\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00cc\n\16"+
+		"\3\17\3\17\3\20\3\20\3\20\3\20\3\20\3\20\7\20\u00d6\n\20\f\20\16\20\u00d9"+
+		"\13\20\3\21\3\21\5\21\u00dd\n\21\3\22\3\22\3\23\3\23\3\23\3\23\3\24\3"+
+		"\24\3\24\3\24\5\24\u00e9\n\24\3\25\3\25\3\25\3\25\3\25\3\25\3\26\3\26"+
+		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\27\3\27\3\30\3\30"+
+		"\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30"+
+		"\3\30\3\30\3\30\5\30\u0112\n\30\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31"+
+		"\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31"+
+		"\5\31\u012a\n\31\3\32\3\32\3\32\3\32\5\32\u0130\n\32\3\33\3\33\3\34\3"+
+		"\34\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\7\35\u013e\n\35\f\35\16\35"+
+		"\u0141\13\35\3\36\3\36\3\36\3\36\3\36\3\36\3\36\3\36\5\36\u014b\n\36\3"+
+		"\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\5\37\u0155\n\37\3 \3 \3 \3 \3 "+
+		"\3 \3 \3 \5 \u015f\n \3!\3!\3!\3!\3!\3!\3!\3!\5!\u0169\n!\3\"\3\"\3\""+
+		"\3\"\3\"\3\"\3\"\3\"\5\"\u0173\n\"\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3"+
+		"#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\5#\u018f\n#\3#\3#\3#\3#\3"+
+		"#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\7#\u01a6\n#\f#\16#\u01a9"+
+		"\13#\3$\3$\5$\u01ad\n$\3%\3%\3&\3&\3&\3&\3&\3&\5&\u01b7\n&\3&\3&\3&\3"+
+		"&\3&\3&\7&\u01bf\n&\f&\16&\u01c2\13&\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3"+
+		"\'\3\'\3\'\3\'\3\'\3\'\5\'\u01d2\n\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3"+
+		"\'\3\'\3\'\3\'\7\'\u01e0\n\'\f\'\16\'\u01e3\13\'\3(\3(\3(\3(\3(\3(\3("+
+		"\3(\3(\7(\u01ee\n(\f(\16(\u01f1\13(\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3"+
+		")\3)\5)\u0200\n)\3*\3*\3*\3*\3*\3*\3*\3*\5*\u020a\n*\3+\3+\5+\u020e\n"+
+		"+\3,\3,\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3"+
+		"-\5-\u0227\n-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\7"+
+		"-\u023b\n-\f-\16-\u023e\13-\3.\3.\3/\3/\3\60\3\60\3\61\3\61\3\62\3\62"+
+		"\3\63\3\63\3\64\3\64\3\64\5\64\u024f\n\64\3\64\3\64\3\64\3\64\7\64\u0255"+
+		"\n\64\f\64\16\64\u0258\13\64\3\65\3\65\3\66\3\66\3\67\3\67\3\67\2\f\4"+
+		"\26\368DJLNXf8\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64"+
+		"\668:<>@BDFHJLNPRTVXZ\\^`bdfhjl\2\t\3\2\33 \3\2\26\30\3\2\24\25\3\2#&"+
+		"\3\2!\"\3\2\'(\3\2\22\23\u0283\2n\3\2\2\2\4u\3\2\2\2\6\u0089\3\2\2\2\b"+
+		"\u0091\3\2\2\2\n\u0093\3\2\2\2\f\u00a0\3\2\2\2\16\u00a2\3\2\2\2\20\u00a5"+
+		"\3\2\2\2\22\u00a7\3\2\2\2\24\u00b0\3\2\2\2\26\u00b2\3\2\2\2\30\u00bd\3"+
+		"\2\2\2\32\u00cb\3\2\2\2\34\u00cd\3\2\2\2\36\u00cf\3\2\2\2 \u00dc\3\2\2"+
+		"\2\"\u00de\3\2\2\2$\u00e0\3\2\2\2&\u00e8\3\2\2\2(\u00ea\3\2\2\2*\u00f0"+
+		"\3\2\2\2,\u00fc\3\2\2\2.\u0111\3\2\2\2\60\u0129\3\2\2\2\62\u012f\3\2\2"+
+		"\2\64\u0131\3\2\2\2\66\u0133\3\2\2\28\u0135\3\2\2\2:\u014a\3\2\2\2<\u0154"+
+		"\3\2\2\2>\u015e\3\2\2\2@\u0168\3\2\2\2B\u0172\3\2\2\2D\u018e\3\2\2\2F"+
+		"\u01ac\3\2\2\2H\u01ae\3\2\2\2J\u01b6\3\2\2\2L\u01d1\3\2\2\2N\u01e4\3\2"+
+		"\2\2P\u01ff\3\2\2\2R\u0209\3\2\2\2T\u020d\3\2\2\2V\u020f\3\2\2\2X\u0226"+
+		"\3\2\2\2Z\u023f\3\2\2\2\\\u0241\3\2\2\2^\u0243\3\2\2\2`\u0245\3\2\2\2"+
+		"b\u0247\3\2\2\2d\u0249\3\2\2\2f\u024e\3\2\2\2h\u0259\3\2\2\2j\u025b\3"+
+		"\2\2\2l\u025d\3\2\2\2no\5\4\3\2o\3\3\2\2\2pq\b\3\1\2qr\5\6\4\2rs\5f\64"+
+		"\2sv\3\2\2\2tv\5f\64\2up\3\2\2\2ut\3\2\2\2v}\3\2\2\2wx\f\4\2\2xy\5\6\4"+
+		"\2yz\5f\64\2z|\3\2\2\2{w\3\2\2\2|\177\3\2\2\2}{\3\2\2\2}~\3\2\2\2~\5\3"+
+		"\2\2\2\177}\3\2\2\2\u0080\u008a\5\n\6\2\u0081\u008a\5\32\16\2\u0082\u008a"+
+		"\5*\26\2\u0083\u008a\5(\25\2\u0084\u008a\5\60\31\2\u0085\u008a\5P)\2\u0086"+
+		"\u008a\5X-\2\u0087\u008a\5\16\b\2\u0088\u008a\5\b\5\2\u0089\u0080\3\2"+
+		"\2\2\u0089\u0081\3\2\2\2\u0089\u0082\3\2\2\2\u0089\u0083\3\2\2\2\u0089"+
+		"\u0084\3\2\2\2\u0089\u0085\3\2\2\2\u0089\u0086\3\2\2\2\u0089\u0087\3\2"+
+		"\2\2\u0089\u0088\3\2\2\2\u008a\7\3\2\2\2\u008b\u008c\5l\67\2\u008c\u008d"+
+		"\5\32\16\2\u008d\u0092\3\2\2\2\u008e\u008f\5l\67\2\u008f\u0090\5X-\2\u0090"+
+		"\u0092\3\2\2\2\u0091\u008b\3\2\2\2\u0091\u008e\3\2\2\2\u0092\t\3\2\2\2"+
+		"\u0093\u0094\5\f\7\2\u0094\u0095\5\20\t\2\u0095\u0096\7\b\2\2\u0096\13"+
+		"\3\2\2\2\u0097\u0098\7\t\2\2\u0098\u0099\5\22\n\2\u0099\u009a\5j\66\2"+
+		"\u009a\u00a1\3\2\2\2\u009b\u009c\7\t\2\2\u009c\u009d\5\22\n\2\u009d\u009e"+
+		"\5\24\13\2\u009e\u009f\5j\66\2\u009f\u00a1\3\2\2\2\u00a0\u0097\3\2\2\2"+
+		"\u00a0\u009b\3\2\2\2\u00a1\r\3\2\2\2\u00a2\u00a3\7\61\2\2\u00a3\u00a4"+
+		"\5&\24\2\u00a4\17\3\2\2\2\u00a5\u00a6\5\4\3\2\u00a6\21\3\2\2\2\u00a7\u00a8"+
+		"\5d\63\2\u00a8\23\3\2\2\2\u00a9\u00aa\7,\2\2\u00aa\u00b1\7-\2\2\u00ab"+
+		"\u00ac\7,\2\2\u00ac\u00ad\5\26\f\2\u00ad\u00ae\7-\2\2\u00ae\u00b1\3\2"+
+		"\2\2\u00af\u00b1\5\26\f\2\u00b0\u00a9\3\2\2\2\u00b0\u00ab\3\2\2\2\u00b0"+
+		"\u00af\3\2\2\2\u00b1\25\3\2\2\2\u00b2\u00b3\b\f\1\2\u00b3\u00b4\5\30\r"+
+		"\2\u00b4\u00ba\3\2\2\2\u00b5\u00b6\f\3\2\2\u00b6\u00b7\7\5\2\2\u00b7\u00b9"+
+		"\5\30\r\2\u00b8\u00b5\3\2\2\2\u00b9\u00bc\3\2\2\2\u00ba\u00b8\3\2\2\2"+
+		"\u00ba\u00bb\3\2\2\2\u00bb\27\3\2\2\2\u00bc\u00ba\3\2\2\2\u00bd\u00be"+
+		"\5d\63\2\u00be\31\3\2\2\2\u00bf\u00c0\5\22\n\2\u00c0\u00c1\7,\2\2\u00c1"+
+		"\u00c2\5\34\17\2\u00c2\u00c3\7-\2\2\u00c3\u00cc\3\2\2\2\u00c4\u00c5\5"+
+		"\22\n\2\u00c5\u00c6\5\34\17\2\u00c6\u00cc\3\2\2\2\u00c7\u00c8\5\22\n\2"+
+		"\u00c8\u00c9\7,\2\2\u00c9\u00ca\7-\2\2\u00ca\u00cc\3\2\2\2\u00cb\u00bf"+
+		"\3\2\2\2\u00cb\u00c4\3\2\2\2\u00cb\u00c7\3\2\2\2\u00cc\33\3\2\2\2\u00cd"+
+		"\u00ce\5\36\20\2\u00ce\35\3\2\2\2\u00cf\u00d0\b\20\1\2\u00d0\u00d1\5 "+
+		"\21\2\u00d1\u00d7\3\2\2\2\u00d2\u00d3\f\3\2\2\u00d3\u00d4\7\5\2\2\u00d4"+
+		"\u00d6\5 \21\2\u00d5\u00d2\3\2\2\2\u00d6\u00d9\3\2\2\2\u00d7\u00d5\3\2"+
+		"\2\2\u00d7\u00d8\3\2\2\2\u00d8\37\3\2\2\2\u00d9\u00d7\3\2\2\2\u00da\u00dd"+
+		"\5\"\22\2\u00db\u00dd\5$\23\2\u00dc\u00da\3\2\2\2\u00dc\u00db\3\2\2\2"+
+		"\u00dd!\3\2\2\2\u00de\u00df\5&\24\2\u00df#\3\2\2\2\u00e0\u00e1\5d\63\2"+
+		"\u00e1\u00e2\7\32\2\2\u00e2\u00e3\5&\24\2\u00e3%\3\2\2\2\u00e4\u00e9\5"+
+		"J&\2\u00e5\u00e9\5L\'\2\u00e6\u00e9\5N(\2\u00e7\u00e9\5D#\2\u00e8\u00e4"+
+		"\3\2\2\2\u00e8\u00e5\3\2\2\2\u00e8\u00e6\3\2\2\2\u00e8\u00e7\3\2\2\2\u00e9"+
+		"\'\3\2\2\2\u00ea\u00eb\7\16\2\2\u00eb\u00ec\5\64\33\2\u00ec\u00ed\5j\66"+
+		"\2\u00ed\u00ee\5\66\34\2\u00ee\u00ef\7\b\2\2\u00ef)\3\2\2\2\u00f0\u00f1"+
+		"\7\21\2\2\u00f1\u00f2\5d\63\2\u00f2\u00f3\7*\2\2\u00f3\u00f4\7,\2\2\u00f4"+
+		"\u00f5\5^\60\2\u00f5\u00f6\7+\2\2\u00f6\u00f7\5^\60\2\u00f7\u00f8\7-\2"+
+		"\2\u00f8\u00f9\5j\66\2\u00f9\u00fa\5\66\34\2\u00fa\u00fb\7\b\2\2\u00fb"+
+		"+\3\2\2\2\u00fc\u00fd\5.\30\2\u00fd-\3\2\2\2\u00fe\u00ff\7\f\2\2\u00ff"+
+		"\u0100\5\64\33\2\u0100\u0101\5j\66\2\u0101\u0102\5\66\34\2\u0102\u0112"+
+		"\3\2\2\2\u0103\u0104\7\f\2\2\u0104\u0105\5\64\33\2\u0105\u0106\5j\66\2"+
+		"\u0106\u0107\5\66\34\2\u0107\u0108\5h\65\2\u0108\u0109\5j\66\2\u0109\u010a"+
+		"\5\66\34\2\u010a\u0112\3\2\2\2\u010b\u010c\7\f\2\2\u010c\u010d\5\64\33"+
+		"\2\u010d\u010e\5j\66\2\u010e\u010f\5\66\34\2\u010f\u0110\5.\30\2\u0110"+
+		"\u0112\3\2\2\2\u0111\u00fe\3\2\2\2\u0111\u0103\3\2\2\2\u0111\u010b\3\2"+
+		"\2\2\u0112/\3\2\2\2\u0113\u0114\7\n\2\2\u0114\u0115\5\64\33\2\u0115\u0116"+
+		"\5j\66\2\u0116\u0117\5\66\34\2\u0117\u0118\7\b\2\2\u0118\u012a\3\2\2\2"+
+		"\u0119\u011a\7\n\2\2\u011a\u011b\5\64\33\2\u011b\u011c\5j\66\2\u011c\u011d"+
+		"\5\66\34\2\u011d\u011e\5h\65\2\u011e\u011f\5j\66\2\u011f\u0120\5\66\34"+
+		"\2\u0120\u0121\7\b\2\2\u0121\u012a\3\2\2\2\u0122\u0123\7\n\2\2\u0123\u0124"+
+		"\5\64\33\2\u0124\u0125\5j\66\2\u0125\u0126\5\66\34\2\u0126\u0127\5,\27"+
+		"\2\u0127\u0128\7\b\2\2\u0128\u012a\3\2\2\2\u0129\u0113\3\2\2\2\u0129\u0119"+
+		"\3\2\2\2\u0129\u0122\3\2\2\2\u012a\61\3\2\2\2\u012b\u0130\5> \2\u012c"+
+		"\u0130\5@!\2\u012d\u0130\5B\"\2\u012e\u0130\5<\37\2\u012f\u012b\3\2\2"+
+		"\2\u012f\u012c\3\2\2\2\u012f\u012d\3\2\2\2\u012f\u012e\3\2\2\2\u0130\63"+
+		"\3\2\2\2\u0131\u0132\5P)\2\u0132\65\3\2\2\2\u0133\u0134\58\35\2\u0134"+
+		"\67\3\2\2\2\u0135\u0136\b\35\1\2\u0136\u0137\5\6\4\2\u0137\u0138\5f\64"+
+		"\2\u0138\u013f\3\2\2\2\u0139\u013a\f\3\2\2\u013a\u013b\5\6\4\2\u013b\u013c"+
+		"\5f\64\2\u013c\u013e\3\2\2\2\u013d\u0139\3\2\2\2\u013e\u0141\3\2\2\2\u013f"+
+		"\u013d\3\2\2\2\u013f\u0140\3\2\2\2\u01409\3\2\2\2\u0141\u013f\3\2\2\2"+
+		"\u0142\u0143\5V,\2\u0143\u0144\7\32\2\2\u0144\u0145\5X-\2\u0145\u014b"+
+		"\3\2\2\2\u0146\u0147\5V,\2\u0147\u0148\t\2\2\2\u0148\u0149\5X-\2\u0149"+
+		"\u014b\3\2\2\2\u014a\u0142\3\2\2\2\u014a\u0146\3\2\2\2\u014b;\3\2\2\2"+
+		"\u014c\u014d\5V,\2\u014d\u014e\7\32\2\2\u014e\u014f\5D#\2\u014f\u0155"+
+		"\3\2\2\2\u0150\u0151\5V,\2\u0151\u0152\t\2\2\2\u0152\u0153\5D#\2\u0153"+
+		"\u0155\3\2\2\2\u0154\u014c\3\2\2\2\u0154\u0150\3\2\2\2\u0155=\3\2\2\2"+
+		"\u0156\u0157\5V,\2\u0157\u0158\7\32\2\2\u0158\u0159\5J&\2\u0159\u015f"+
+		"\3\2\2\2\u015a\u015b\5V,\2\u015b\u015c\t\2\2\2\u015c\u015d\5J&\2\u015d"+
+		"\u015f\3\2\2\2\u015e\u0156\3\2\2\2\u015e\u015a\3\2\2\2\u015f?\3\2\2\2"+
+		"\u0160\u0161\5V,\2\u0161\u0162\7\32\2\2\u0162\u0163\5L\'\2\u0163\u0169"+
+		"\3\2\2\2\u0164\u0165\5V,\2\u0165\u0166\t\2\2\2\u0166\u0167\5L\'\2\u0167"+
+		"\u0169\3\2\2\2\u0168\u0160\3\2\2\2\u0168\u0164\3\2\2\2\u0169A\3\2\2\2"+
+		"\u016a\u016b\5V,\2\u016b\u016c\7\32\2\2\u016c\u016d\5N(\2\u016d\u0173"+
+		"\3\2\2\2\u016e\u016f\5V,\2\u016f\u0170\7\33\2\2\u0170\u0171\5N(\2\u0171"+
+		"\u0173\3\2\2\2\u0172\u016a\3\2\2\2\u0172\u016e\3\2\2\2\u0173C\3\2\2\2"+
+		"\u0174\u0175\b#\1\2\u0175\u0176\5J&\2\u0176\u0177\t\3\2\2\u0177\u0178"+
+		"\5D#\17\u0178\u018f\3\2\2\2\u0179\u017a\5L\'\2\u017a\u017b\t\3\2\2\u017b"+
+		"\u017c\5D#\r\u017c\u018f\3\2\2\2\u017d\u017e\5N(\2\u017e\u017f\7\26\2"+
+		"\2\u017f\u0180\5D#\n\u0180\u018f\3\2\2\2\u0181\u0182\5J&\2\u0182\u0183"+
+		"\t\4\2\2\u0183\u0184\5D#\b\u0184\u018f\3\2\2\2\u0185\u0186\5L\'\2\u0186"+
+		"\u0187\t\4\2\2\u0187\u0188\5D#\6\u0188\u018f\3\2\2\2\u0189\u018a\7,\2"+
+		"\2\u018a\u018b\5D#\2\u018b\u018c\7-\2\2\u018c\u018f\3\2\2\2\u018d\u018f"+
+		"\5F$\2\u018e\u0174\3\2\2\2\u018e\u0179\3\2\2\2\u018e\u017d\3\2\2\2\u018e"+
+		"\u0181\3\2\2\2\u018e\u0185\3\2\2\2\u018e\u0189\3\2\2\2\u018e\u018d\3\2"+
+		"\2\2\u018f\u01a7\3\2\2\2\u0190\u0191\f\f\2\2\u0191\u0192\t\3\2\2\u0192"+
+		"\u01a6\5D#\r\u0193\u0194\f\5\2\2\u0194\u0195\t\4\2\2\u0195\u01a6\5D#\6"+
+		"\u0196\u0197\f\20\2\2\u0197\u0198\t\3\2\2\u0198\u01a6\5J&\2\u0199\u019a"+
+		"\f\16\2\2\u019a\u019b\t\3\2\2\u019b\u01a6\5L\'\2\u019c\u019d\f\13\2\2"+
+		"\u019d\u019e\7\26\2\2\u019e\u01a6\5N(\2\u019f\u01a0\f\t\2\2\u01a0\u01a1"+
+		"\t\4\2\2\u01a1\u01a6\5J&\2\u01a2\u01a3\f\7\2\2\u01a3\u01a4\t\4\2\2\u01a4"+
+		"\u01a6\5L\'\2\u01a5\u0190\3\2\2\2\u01a5\u0193\3\2\2\2\u01a5\u0196\3\2"+
+		"\2\2\u01a5\u0199\3\2\2\2\u01a5\u019c\3\2\2\2\u01a5\u019f\3\2\2\2\u01a5"+
+		"\u01a2\3\2\2\2\u01a6\u01a9\3\2\2\2\u01a7\u01a5\3\2\2\2\u01a7\u01a8\3\2"+
+		"\2\2\u01a8E\3\2\2\2\u01a9\u01a7\3\2\2\2\u01aa\u01ad\5d\63\2\u01ab\u01ad"+
+		"\5H%\2\u01ac\u01aa\3\2\2\2\u01ac\u01ab\3\2\2\2\u01adG\3\2\2\2\u01ae\u01af"+
+		"\5\32\16\2\u01afI\3\2\2\2\u01b0\u01b1\b&\1\2\u01b1\u01b2\7,\2\2\u01b2"+
+		"\u01b3\5J&\2\u01b3\u01b4\7-\2\2\u01b4\u01b7\3\2\2\2\u01b5\u01b7\5^\60"+
+		"\2\u01b6\u01b0\3\2\2\2\u01b6\u01b5\3\2\2\2\u01b7\u01c0\3\2\2\2\u01b8\u01b9"+
+		"\f\6\2\2\u01b9\u01ba\t\3\2\2\u01ba\u01bf\5J&\7\u01bb\u01bc\f\5\2\2\u01bc"+
+		"\u01bd\t\4\2\2\u01bd\u01bf\5J&\6\u01be\u01b8\3\2\2\2\u01be\u01bb\3\2\2"+
+		"\2\u01bf\u01c2\3\2\2\2\u01c0\u01be\3\2\2\2\u01c0\u01c1\3\2\2\2\u01c1K"+
+		"\3\2\2\2\u01c2\u01c0\3\2\2\2\u01c3\u01c4\b\'\1\2\u01c4\u01c5\5J&\2\u01c5"+
+		"\u01c6\t\3\2\2\u01c6\u01c7\5L\'\t\u01c7\u01d2\3\2\2\2\u01c8\u01c9\5J&"+
+		"\2\u01c9\u01ca\t\4\2\2\u01ca\u01cb\5L\'\6\u01cb\u01d2\3\2\2\2\u01cc\u01cd"+
+		"\7,\2\2\u01cd\u01ce\5L\'\2\u01ce\u01cf\7-\2\2\u01cf\u01d2\3\2\2\2\u01d0"+
+		"\u01d2\5\\/\2\u01d1\u01c3\3\2\2\2\u01d1\u01c8\3\2\2\2\u01d1\u01cc\3\2"+
+		"\2\2\u01d1\u01d0\3\2\2\2\u01d2\u01e1\3\2\2\2\u01d3\u01d4\f\n\2\2\u01d4"+
+		"\u01d5\t\3\2\2\u01d5\u01e0\5L\'\13\u01d6\u01d7\f\7\2\2\u01d7\u01d8\t\4"+
+		"\2\2\u01d8\u01e0\5L\'\b\u01d9\u01da\f\b\2\2\u01da\u01db\t\3\2\2\u01db"+
+		"\u01e0\5J&\2\u01dc\u01dd\f\5\2\2\u01dd\u01de\t\4\2\2\u01de\u01e0\5J&\2"+
+		"\u01df\u01d3\3\2\2\2\u01df\u01d6\3\2\2\2\u01df\u01d9\3\2\2\2\u01df\u01dc"+
+		"\3\2\2\2\u01e0\u01e3\3\2\2\2\u01e1\u01df\3\2\2\2\u01e1\u01e2\3\2\2\2\u01e2"+
+		"M\3\2\2\2\u01e3\u01e1\3\2\2\2\u01e4\u01e5\b(\1\2\u01e5\u01e6\5Z.\2\u01e6"+
+		"\u01ef\3\2\2\2\u01e7\u01e8\f\4\2\2\u01e8\u01e9\7\24\2\2\u01e9\u01ee\5"+
+		"N(\5\u01ea\u01eb\f\5\2\2\u01eb\u01ec\7\26\2\2\u01ec\u01ee\5J&\2\u01ed"+
+		"\u01e7\3\2\2\2\u01ed\u01ea\3\2\2\2\u01ee\u01f1\3\2\2\2\u01ef\u01ed\3\2"+
+		"\2\2\u01ef\u01f0\3\2\2\2\u01f0O\3\2\2\2\u01f1\u01ef\3\2\2\2\u01f2\u01f3"+
+		"\5R*\2\u01f3\u01f4\7\'\2\2\u01f4\u01f5\5P)\2\u01f5\u0200\3\2\2\2\u01f6"+
+		"\u01f7\5R*\2\u01f7\u01f8\7(\2\2\u01f8\u01f9\5P)\2\u01f9\u0200\3\2\2\2"+
+		"\u01fa\u01fb\7,\2\2\u01fb\u01fc\5P)\2\u01fc\u01fd\7-\2\2\u01fd\u0200\3"+
+		"\2\2\2\u01fe\u0200\5R*\2\u01ff\u01f2\3\2\2\2\u01ff\u01f6\3\2\2\2\u01ff"+
+		"\u01fa\3\2\2\2\u01ff\u01fe\3\2\2\2\u0200Q\3\2\2\2\u0201\u0202\5T+\2\u0202"+
+		"\u0203\t\5\2\2\u0203\u0204\5T+\2\u0204\u020a\3\2\2\2\u0205\u0206\5T+\2"+
+		"\u0206\u0207\t\6\2\2\u0207\u0208\5T+\2\u0208\u020a\3\2\2\2\u0209\u0201"+
+		"\3\2\2\2\u0209\u0205\3\2\2\2\u020aS\3\2\2\2\u020b\u020e\5&\24\2\u020c"+
+		"\u020e\5d\63\2\u020d\u020b\3\2\2\2\u020d\u020c\3\2\2\2\u020eU\3\2\2\2"+
+		"\u020f\u0210\5d\63\2\u0210W\3\2\2\2\u0211\u0212\b-\1\2\u0212\u0213\7)"+
+		"\2\2\u0213\u0227\5X-\t\u0214\u0227\5V,\2\u0215\u0227\5J&\2\u0216\u0227"+
+		"\5L\'\2\u0217\u0227\5N(\2\u0218\u0227\5<\37\2\u0219\u0227\5B\"\2\u021a"+
+		"\u0227\5@!\2\u021b\u0227\5> \2\u021c\u0227\5:\36\2\u021d\u0227\5Z.\2\u021e"+
+		"\u0227\5`\61\2\u021f\u0227\5\\/\2\u0220\u0227\5^\60\2\u0221\u0227\5b\62"+
+		"\2\u0222\u0223\7,\2\2\u0223\u0224\5X-\2\u0224\u0225\7-\2\2\u0225\u0227"+
+		"\3\2\2\2\u0226\u0211\3\2\2\2\u0226\u0214\3\2\2\2\u0226\u0215\3\2\2\2\u0226"+
+		"\u0216\3\2\2\2\u0226\u0217\3\2\2\2\u0226\u0218\3\2\2\2\u0226\u0219\3\2"+
+		"\2\2\u0226\u021a\3\2\2\2\u0226\u021b\3\2\2\2\u0226\u021c\3\2\2\2\u0226"+
+		"\u021d\3\2\2\2\u0226\u021e\3\2\2\2\u0226\u021f\3\2\2\2\u0226\u0220\3\2"+
+		"\2\2\u0226\u0221\3\2\2\2\u0226\u0222\3\2\2\2\u0227\u023c\3\2\2\2\u0228"+
+		"\u0229\f\n\2\2\u0229\u022a\7\31\2\2\u022a\u023b\5X-\13\u022b\u022c\f\b"+
+		"\2\2\u022c\u022d\t\3\2\2\u022d\u023b\5X-\t\u022e\u022f\f\7\2\2\u022f\u0230"+
+		"\t\4\2\2\u0230\u023b\5X-\b\u0231\u0232\f\6\2\2\u0232\u0233\t\5\2\2\u0233"+
+		"\u023b\5X-\7\u0234\u0235\f\5\2\2\u0235\u0236\t\6\2\2\u0236\u023b\5X-\6"+
+		"\u0237\u0238\f\4\2\2\u0238\u0239\t\7\2\2\u0239\u023b\5X-\5\u023a\u0228"+
+		"\3\2\2\2\u023a\u022b\3\2\2\2\u023a\u022e\3\2\2\2\u023a\u0231\3\2\2\2\u023a"+
+		"\u0234\3\2\2\2\u023a\u0237\3\2\2\2\u023b\u023e\3\2\2\2\u023c\u023a\3\2"+
+		"\2\2\u023c\u023d\3\2\2\2\u023dY\3\2\2\2\u023e\u023c\3\2\2\2\u023f\u0240"+
+		"\7\4\2\2\u0240[\3\2\2\2\u0241\u0242\7\66\2\2\u0242]\3\2\2\2\u0243\u0244"+
+		"\7\65\2\2\u0244_\3\2\2\2\u0245\u0246\t\b\2\2\u0246a\3\2\2\2\u0247\u0248"+
+		"\7\60\2\2\u0248c\3\2\2\2\u0249\u024a\7\67\2\2\u024ae\3\2\2\2\u024b\u024c"+
+		"\b\64\1\2\u024c\u024f\7\6\2\2\u024d\u024f\5j\66\2\u024e\u024b\3\2\2\2"+
+		"\u024e\u024d\3\2\2\2\u024f\u0256\3\2\2\2\u0250\u0251\f\6\2\2\u0251\u0255"+
+		"\7\6\2\2\u0252\u0253\f\5\2\2\u0253\u0255\5j\66\2\u0254\u0250\3\2\2\2\u0254"+
+		"\u0252\3\2\2\2\u0255\u0258\3\2\2\2\u0256\u0254\3\2\2\2\u0256\u0257\3\2"+
+		"\2\2\u0257g\3\2\2\2\u0258\u0256\3\2\2\2\u0259\u025a\7\13\2\2\u025ai\3"+
+		"\2\2\2\u025b\u025c\7\7\2\2\u025ck\3\2\2\2\u025d\u025e\7\3\2\2\u025em\3"+
+		"\2\2\2+u}\u0089\u0091\u00a0\u00b0\u00ba\u00cb\u00d7\u00dc\u00e8\u0111"+
+		"\u0129\u012f\u013f\u014a\u0154\u015e\u0168\u0172\u018e\u01a5\u01a7\u01ac"+
+		"\u01b6\u01be\u01c0\u01d1\u01df\u01e1\u01ed\u01ef\u01ff\u0209\u020d\u0226"+
+		"\u023a\u023c\u024e\u0254\u0256";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
