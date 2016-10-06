@@ -47,7 +47,7 @@ public class Value {
                 ret_res = ((RyFloat)this).compareTo(other);
             case RyParser.LITERAL:
                 try {
-                    ret_res = ((RyString)this).compareTo(other);
+                    ret_res = ((RyString)this).s_compareTo(other);
                 } catch (TypeException e) {
                     System.out.println(e.toString());
                 }

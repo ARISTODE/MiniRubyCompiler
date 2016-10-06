@@ -717,6 +717,11 @@ public class Compiler {
         }
     }
 
+    public static String retriveDir(String fileName) {
+        String[] strs = fileName.split("/");
+        return strs[strs.length - 1];
+    }
+
     // ================================  Main Method  =====================================
     public static void main(String[] args) throws Exception {
         String inputFile = null;
@@ -726,7 +731,7 @@ public class Compiler {
         if (args.length > 0) {
             inputFile = args[0];
             currentDir = System.getProperty("user.dir");
-            genName = args[0].substring(0, args[0].length() - 3);
+            genName = retriveDir(args[0].substring(0, args[0].length() - 3));
         }
 
         InputStream is = System.in;

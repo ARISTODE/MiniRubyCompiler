@@ -31,7 +31,7 @@ class RyString extends Value {
 		return other;
 	}
 
-	public int compareTo(Value other)throws TypeException {
+	public int s_compareTo(Value other)throws TypeException {
         if (this.TAG != other.getTag()) {
             throw new TypeException("comparison of String with" + other.toString()  + "failed (ArgumentTypeError) ");
         }
