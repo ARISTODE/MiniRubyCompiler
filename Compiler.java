@@ -780,6 +780,5 @@ public class Compiler {
          String wholeScript = Formatter.wrapClass(Formatter.wrapFunctions(Formatter.wrapExpressions(out_expressions.toString()), out_function.toString()), genName);
          pw.print(wholeScript);
          pw.close();
-//        System.out.println(out.toString());
     }
 }
